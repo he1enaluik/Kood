@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490.91 178.44">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #231f20;
+      }
+
+      .cls-5 {
+        letter-spacing: 0em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-7 {
+        letter-spacing: 0em;
+      }
+
+      .cls-4 {
+        font-family: MinionConceptRoman-Bold, 'Minion Variable Concept';
+        font-size: 60px;
+        font-variation-settings: 'wght' 700, 'opsz' 11;
+        font-weight: 700;
+      }
+
+      .cls-8 {
+        letter-spacing: 0em;
+      }
+
+      .cls-9 {
+        letter-spacing: .02em;
+      }
+    </style>
+  </defs>
+  <text class="cls-4" transform="translate(167.49 109.53) scale(.96 1)"><tspan class="cls-6" x="0" y="0">T</tspan><tspan class="cls-9" x="36.6" y="0">A</tspan><tspan class="cls-1" x="75.18" y="0">R</tspan><tspan class="cls-2" x="113.64" y="0">U</tspan><tspan class="cls-5" x="157.38" y="0">K</tspan><tspan class="cls-8" x="198.12" y="0">O</tspan><tspan class="cls-7" x="244.62" y="0">D</tspan><tspan x="291.12" y="0">A</tspan></text>
+  <g>
+    <g>
+      <circle class="cls-3" cx="77.27" cy="71.28" r="7.92"/>
+      <circle class="cls-3" cx="77.27" cy="97.24" r="14.74"/>
+      <circle class="cls-3" cx="77.27" cy="119.69" r="4.41"/>
+      <path class="cls-3" d="M53.88,98.52l5.56-4.3c2.3-1.78.92-5.45-1.98-5.28l-15.59.91c-1.64.1-2.82,1.61-2.5,3.22h0c1.3,6.65,9.15,9.6,14.51,5.46Z"/>
+      <path class="cls-3" d="M38.4,85.57l24.8.03c2.41,0,3.2-3.24,1.05-4.34l-28.78-14.81c-4.09-2.1-9.02.53-9.55,5.09h0c-.87,7.47,4.96,14.02,12.48,14.03Z"/>
+      <path class="cls-3" d="M100.65,98.52l-5.56-4.3c-2.3-1.78-.92-5.45,1.98-5.28l15.59.91c1.64.1,2.82,1.61,2.5,3.22h0c-1.3,6.65-9.15,9.6-14.51,5.46Z"/>
+      <path class="cls-3" d="M116.13,85.57l-24.8.03c-2.41,0-3.2-3.24-1.05-4.34l28.78-14.81c4.09-2.1,9.02.53,9.55,5.09h0c.87,7.47-4.96,14.02-12.48,14.03Z"/>
+    </g>
+    <path class="cls-3" d="M13.32,52.3v73.83l63.94,36.92,63.94-36.92V52.3L77.27,15.38,13.32,52.3ZM137.28,54.57v69.3l-60.02,34.65-60.02-34.65V54.57l60.02-34.65,60.02,34.65Z"/>
+    <path class="cls-3" d="M0,44.61v89.22l77.27,44.61,77.27-44.61V44.61L77.27,0,0,44.61ZM149.79,47.35v83.74l-72.52,41.87L4.74,131.09V47.35L77.27,5.48l72.52,41.87Z"/>
+  </g>
+</svg>

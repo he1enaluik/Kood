@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Abhaya Libre", serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #231f20;
+}
+
+.header {
+  background-color: #ffdbbc;
+}
+
+.header__inner {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 20px 241px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.header__logo img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  list-style: none;
+}
+
+.header__menu a {
+  font-family: "Abhaya Libre", serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: #231f20;
+  text-decoration: none;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.header__icon img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: brightness(0) saturate(100%) invert(8%) sepia(6%) saturate(500%) hue-rotate(314deg) brightness(95%) contrast(92%);
+}

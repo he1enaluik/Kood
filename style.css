@@ -15,12 +15,15 @@ body {
 
 .header {
   background-color: #ffdbbc;
+  height: 88px;
+  box-shadow: 0 4px 16px rgba(58, 42, 34, 0.5);
 }
 
 .header__inner {
   max-width: 1920px;
+  height: 88px;
   margin: 0 auto;
-  padding: 20px 241px;
+  padding: 0 241px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -29,13 +32,26 @@ body {
 .header__logo {
   display: flex;
   align-items: center;
+  gap: 12px;
   text-decoration: none;
 }
 
-.header__logo img {
-  height: 48px;
-  width: auto;
+.header__logo-icon {
   display: block;
+  width: 48px;
+  height: 56px;
+  flex-shrink: 0;
+  background-color: #e8743b;
+  -webkit-mask: url("Logod/TarukodaLogo02_v1.svg") no-repeat left center / 154px 56px;
+  mask: url("Logod/TarukodaLogo02_v1.svg") no-repeat left center / 154px 56px;
+}
+
+.header__logo-text {
+  font-family: "Abhaya Libre", serif;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1;
+  color: #e8743b;
 }
 
 .header__nav {
@@ -55,7 +71,7 @@ body {
   font-family: "Abhaya Libre", serif;
   font-weight: 800;
   font-size: 24px;
-  color: #231f20;
+  color: #3a2a22;
   text-decoration: none;
 }
 
@@ -66,15 +82,20 @@ body {
 }
 
 .header__icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: #e8743b;
+  -webkit-mask: no-repeat center / contain;
+  mask: no-repeat center / contain;
 }
 
-.header__icon img {
-  width: 24px;
-  height: 24px;
-  display: block;
-  filter: brightness(0) saturate(100%) invert(8%) sepia(6%) saturate(500%) hue-rotate(314deg) brightness(95%) contrast(92%);
+.header__icon--search {
+  -webkit-mask-image: url("Ikoonid/search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg");
+  mask-image: url("Ikoonid/search_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg");
+}
+
+.header__icon--profile {
+  -webkit-mask-image: url("Ikoonid/Profiil.svg");
+  mask-image: url("Ikoonid/Profiil.svg");
 }

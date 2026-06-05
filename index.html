@@ -239,7 +239,7 @@
   <section class="best-offers" aria-labelledby="best-offers-title">
     <div class="container">
       <header class="best-offers__header">
-        <h2 id="best-offers-title" class="best-offers__title">Parimad pakkumised</h2>
+        <h2 id="best-offers-title" class="new-products__title">Parimad pakkumised</h2>
         <div class="best-offers__divider">
           <span class="best-offers__divider-line" aria-hidden="true"></span>
           <img
@@ -346,27 +346,162 @@
     </div>
   </section>
 
-  <script>
-    const bestOffersTrack = document.querySelector(".best-offers__track");
-    const bestOffersPrev = document.querySelector(".best-offers__arrow--prev");
-    const bestOffersNext = document.querySelector(".best-offers__arrow--next");
+  <section class="events" aria-labelledby="events-title">
+    <img
+      class="events__decor events__decor--bee"
+      src="Designi%20elemendid/Mesilane.png"
+      alt=""
+      width="130"
+      loading="lazy"
+    >
+    <img
+      class="events__decor events__decor--honeycomb"
+      src="Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png"
+      alt=""
+      width="220"
+      loading="lazy"
+    >
+    <div class="container">
+      <header class="events__header">
+        <h2 id="events-title" class="new-products__title">Toimuvad sündmused</h2>
+        <div class="best-offers__divider">
+          <span class="best-offers__divider-line" aria-hidden="true"></span>
+          <img
+            class="best-offers__bee"
+            src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+          >
+          <span class="best-offers__divider-line" aria-hidden="true"></span>
+        </div>
+        <p class="events__intro our-mission__text">Hoia end kursis Tarukoja tegemiste, laatade, degusteerimiste ja hooajaliste sündmustega.</p>
+      </header>
 
-    if (bestOffersTrack && bestOffersPrev && bestOffersNext) {
+      <div class="events__slider">
+        <button class="events__arrow events__arrow--prev" type="button" aria-label="Eelmine sündmus">
+          <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
+        </button>
+
+        <div class="events__track">
+          <article class="event-card">
+            <div class="event-card__media">
+              <img
+                class="event-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.png"
+                alt="Mesinik kontrollib mesitaru raami"
+                width="360"
+                height="220"
+                loading="lazy"
+              >
+              <div class="event-card__date">
+                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="18" height="18">
+                <span class="event-card__day">12</span>
+                <span class="event-card__month">Mai 2026</span>
+              </div>
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__time">
+                <img class="event-card__time-icon" src="Ikoonid/Kell.svg" alt="" width="16" height="16">
+                10:00
+              </p>
+              <h3 class="product-card__name">Kevadised mesilasperede ülevaatused</h3>
+              <p class="product-card__desc">Tutvu mesinduse kevadise rütmiga ja vaata, kuidas me hoolitseme oma mesilasperede eest.</p>
+              <a href="#" class="event-card__link">Loe lähemalt <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-card__media">
+              <img
+                class="event-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2006_09_39%20PM.png"
+                alt="Mesilaat ja meedegusteerimine"
+                width="360"
+                height="220"
+                loading="lazy"
+              >
+              <div class="event-card__date">
+                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="18" height="18">
+                <span class="event-card__day">25</span>
+                <span class="event-card__month">Mai 2026</span>
+              </div>
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__time">
+                <img class="event-card__time-icon" src="Ikoonid/Kell.svg" alt="" width="16" height="16">
+                12:00
+              </p>
+              <h3 class="product-card__name">Kohalik mesilaat ja meedegusteerimine</h3>
+              <p class="product-card__desc">Tule proovima erinevaid õunamaitselisi meenäidiseid ja vestle mesinikega otse lõbusal laadal.</p>
+              <a href="#" class="event-card__link">Loe lähemalt <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-card__media">
+              <img
+                class="event-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_30_31%20PM.png"
+                alt="Meeküünalde valmistamise töötuba"
+                width="360"
+                height="220"
+                loading="lazy"
+              >
+              <div class="event-card__date">
+                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="18" height="18">
+                <span class="event-card__day">05</span>
+                <span class="event-card__month">Juuni 2026</span>
+              </div>
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__time">
+                <img class="event-card__time-icon" src="Ikoonid/Kell.svg" alt="" width="16" height="16">
+                14:00
+              </p>
+              <h3 class="product-card__name">Käsitöö meeküünalde valmistamise töötuba</h3>
+              <p class="product-card__desc">Valmistame koos aromaatseid meeküünalde, mis sobivad ideaalselt kingituseks või koduseks meeleväraks.</p>
+              <a href="#" class="event-card__link">Loe lähemalt <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+        </div>
+
+        <button class="events__arrow events__arrow--next" type="button" aria-label="Järgmine sündmus">
+          <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
+        </button>
+      </div>
+
+      <a href="#" class="best-offers__link">Vaata kõiki</a>
+    </div>
+  </section>
+
+  <script>
+    function initCarousel(trackSelector, prevSelector, nextSelector, cardSelector) {
+      const track = document.querySelector(trackSelector);
+      const prev = document.querySelector(prevSelector);
+      const next = document.querySelector(nextSelector);
+
+      if (!track || !prev || !next) return;
+
       const scrollStep = () => {
-        const card = bestOffersTrack.querySelector(".product-card");
+        const card = track.querySelector(cardSelector);
         if (!card) return 271;
-        const gap = parseFloat(getComputedStyle(bestOffersTrack).columnGap || getComputedStyle(bestOffersTrack).gap) || 48;
+        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 48;
         return card.offsetWidth + gap;
       };
 
-      bestOffersPrev.addEventListener("click", () => {
-        bestOffersTrack.scrollBy({ left: -scrollStep(), behavior: "smooth" });
+      prev.addEventListener("click", () => {
+        track.scrollBy({ left: -scrollStep(), behavior: "smooth" });
       });
 
-      bestOffersNext.addEventListener("click", () => {
-        bestOffersTrack.scrollBy({ left: scrollStep(), behavior: "smooth" });
+      next.addEventListener("click", () => {
+        track.scrollBy({ left: scrollStep(), behavior: "smooth" });
       });
     }
+
+    initCarousel(".best-offers__track", ".best-offers__arrow--prev", ".best-offers__arrow--next", ".product-card");
+    initCarousel(".events__track", ".events__arrow--prev", ".events__arrow--next", ".event-card");
   </script>
 </body>
 </html>

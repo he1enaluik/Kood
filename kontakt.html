@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt | Tarukoda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner container">
+      <a href="index.html" class="header__logo" aria-label="Tarukoda avaleht">
+        <span class="header__logo-icon" aria-hidden="true"></span>
+        <span class="header__logo-text">TARUKODA</span>
+      </a>
+
+      <nav class="header__nav" aria-label="Peamenüü">
+        <ul class="header__menu">
+          <li><a href="index.html">Avaleht</a></li>
+          <li><a href="index.html">Tooted</a></li>
+          <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+          <li><a href="index.html#our-mission">Meist</a></li>
+        </ul>
+
+        <div class="header__actions">
+          <a href="#" class="header__icon header__icon--search" aria-label="Otsi"></a>
+          <a href="#" class="header__icon header__icon--profile" aria-label="Profiil"></a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contact-page" aria-labelledby="contact-title">
+    <img
+      class="contact-page__decor contact-page__decor--left"
+      src="Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.png"
+      alt=""
+      width="220"
+      loading="lazy"
+    >
+    <img
+      class="contact-page__decor contact-page__decor--bee"
+      src="Designi%20elemendid/Mesilane.png"
+      alt=""
+      width="130"
+      loading="lazy"
+    >
+    <img
+      class="contact-page__decor contact-page__decor--right"
+      src="Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png"
+      alt=""
+      width="220"
+      loading="lazy"
+    >
+
+    <div class="container">
+      <div class="contact-page__box">
+        <header class="contact-page__header">
+          <h1 id="contact-title" class="new-products__title">Kontakt</h1>
+          <div class="best-offers__divider">
+            <span class="best-offers__divider-line" aria-hidden="true"></span>
+            <img
+              class="best-offers__bee"
+              src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
+              alt=""
+              width="32"
+              height="32"
+              loading="lazy"
+            >
+            <span class="best-offers__divider-line" aria-hidden="true"></span>
+          </div>
+        </header>
+
+        <div class="contact-page__inner">
+          <div class="contact-page__info">
+            <h2 class="contact-page__heading">Võta ühendust</h2>
+            <p class="contact-page__subtitle">Meeleldi vastame sulle</p>
+            <p class="contact-page__text">Oleme rõõmsad, kui saame vastata Sinu küsimustele meie mahemeest, toodete või tellimise kohta.</p>
+
+            <div class="contact-page__meta">
+              <a href="#" class="contact-page__meta-icon contact-page__meta-icon--search" aria-label="Otsi"></a>
+              <a href="#" class="contact-page__meta-icon contact-page__meta-icon--heart" aria-label="Lemmikud"></a>
+            </div>
+
+            <a href="mailto:info@tarukoda.ee" class="contact-page__email">info@tarukoda.ee</a>
+
+            <div class="contact-page__social">
+              <a href="#" class="contact-page__social-link" aria-label="TikTok">
+                <img src="Ikoonid/tiktok.svg" alt="" width="20" height="20">
+              </a>
+              <a href="#" class="contact-page__social-link" aria-label="Instagram">
+                <img src="Ikoonid/instagram.svg" alt="" width="20" height="20">
+              </a>
+              <a href="#" class="contact-page__social-link" aria-label="Facebook">
+                <img src="Ikoonid/facebook.svg" alt="" width="20" height="20">
+              </a>
+            </div>
+          </div>
+
+          <form class="contact-page__form" action="#" method="post">
+            <div class="contact-page__form-row">
+              <label class="contact-page__field">
+                <span class="contact-page__label">Eesnimi</span>
+                <input class="contact-page__input" type="text" name="firstname" autocomplete="given-name">
+              </label>
+              <label class="contact-page__field">
+                <span class="contact-page__label">Perekonnanimi</span>
+                <input class="contact-page__input" type="text" name="lastname" autocomplete="family-name">
+              </label>
+            </div>
+
+            <label class="contact-page__field">
+              <span class="contact-page__label">Email *</span>
+              <input class="contact-page__input" type="email" name="email" required autocomplete="email">
+            </label>
+
+            <label class="contact-page__field">
+              <span class="contact-page__label">Sõnum *</span>
+              <textarea class="contact-page__input contact-page__textarea" name="message" required rows="6"></textarea>
+            </label>
+
+            <button class="contact-page__submit" type="submit">Saada</button>
+          </form>
+        </div>
+
+        <img
+          class="contact-page__box-decor"
+          src="Designi%20elemendid/Mesilask%C3%A4rg1.png"
+          alt=""
+          width="90"
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Tarukoda avaleht">
+            <span class="footer__logo-icon" aria-hidden="true"></span>
+            <span class="footer__logo-text">TARUKODA</span>
+          </a>
+          <p class="footer__desc">Pakume ehtsat mahemett Eesti puhtast loodusest, järgides jätkusuutliku mesinduse põhimõtteid ja hoolitsedes oma mesilasperede heaolu eest.</p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link" aria-label="Facebook">
+              <img src="Ikoonid/facebook.svg" alt="" width="16" height="16">
+            </a>
+            <a href="#" class="footer__social-link" aria-label="Instagram">
+              <img src="Ikoonid/instagram.svg" alt="" width="16" height="16">
+            </a>
+            <a href="#" class="footer__social-link" aria-label="TikTok">
+              <img src="Ikoonid/tiktok.svg" alt="" width="16" height="16">
+            </a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading">Lehed</h3>
+          <ul class="footer__links">
+            <li><a href="index.html">Avaleht</a></li>
+            <li><a href="index.html">Tooted</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="index.html#our-mission">Meist</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading">Tooted</h3>
+          <ul class="footer__links">
+            <li><a href="#">Mesi</a></li>
+            <li><a href="#">Mesilasvaha küünlad</a></li>
+            <li><a href="#">Kinkekomplektid</a></li>
+            <li><a href="#">Hooajatooted</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h3 class="footer__heading">Kontakt</h3>
+          <ul class="footer__contact">
+            <li>
+              <span class="footer__contact-icon footer__contact-icon--location" aria-hidden="true"></span>
+              Niidu tn 6, Põltsamaa
+            </li>
+            <li>
+              <span class="footer__contact-icon footer__contact-icon--phone" aria-hidden="true"></span>
+              +372 567 8901
+            </li>
+            <li>
+              <span class="footer__contact-icon footer__contact-icon--mail" aria-hidden="true"></span>
+              info@tarukoda.ee
+            </li>
+            <li>
+              <span class="footer__contact-icon footer__contact-icon--clock" aria-hidden="true"></span>
+              E-R 9:00-17:00
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__divider" aria-hidden="true"></div>
+
+      <div class="footer__bottom">
+        <p>© 2026 Tarukoda OÜ • Reg. 12345678</p>
+        <p>Kõik õigused kaitstud • Mahe sertifikaat EE-MAH-001</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

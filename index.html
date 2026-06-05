@@ -6,12 +6,12 @@
   <title>Tarukoda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
-    <div class="header__inner">
+    <div class="header__inner container">
       <a href="#" class="header__logo" aria-label="Tarukoda avaleht">
         <span class="header__logo-icon" aria-hidden="true"></span>
         <span class="header__logo-text">TARUKODA</span>
@@ -34,25 +34,202 @@
   </header>
 
   <section class="hero" aria-label="Avalehe sissejuhatus">
-    <img
-      class="hero__image"
-      src="pildid/hero-taust.png"
-      alt=""
-      width="1920"
-      height="993"
-      loading="lazy"
-    >
-    <img
-      class="hero__swirl"
-      src="Designi elemendid/Swirlywirly.png"
-      alt=""
-      width="1920"
-      loading="lazy"
-    >
+    <div class="hero__media">
+      <img
+        class="hero__image"
+        src="pildid/hero-taust.png"
+        alt=""
+        width="1920"
+        height="993"
+        loading="lazy"
+      >
+      <img
+        class="hero__swirl"
+        src="Designi%20elemendid/Swirlywirly.png"
+        alt=""
+        width="1920"
+        height="163"
+        loading="lazy"
+      >
+      <img
+        class="hero__honeycomb hero__honeycomb--left"
+        src="Designi%20elemendid/Mesilask%C3%A4rg4.png"
+        alt=""
+        width="250"
+        height="169"
+        loading="lazy"
+      >
+      <img
+        class="hero__honeycomb hero__honeycomb--right"
+        src="Designi%20elemendid/Mesilask%C3%A4rg4.png"
+        alt=""
+        width="269.07"
+        height="187.55"
+        loading="lazy"
+      >
+    </div>
     <div class="hero__inner">
-      <div class="hero__content">
+      <div class="container">
+        <div class="hero__content">
         <h1 class="hero__title">Mahemesi Eesti<br>puhtast loodusest.</h1>
         <p class="hero__text">Tarukoda on väike Eesti mesindustalu, kus austame looduse rütmi ning hoolitseme iga mesilaspere eest armastuse ja pühendumusega. Meie mesi jõuab Sinuni täpselt sellisena, nagu loodus selle loonud on.</p>
+        <div class="hero__actions">
+          <a href="#" class="hero__btn hero__btn--primary">Vaata tooteid</a>
+          <a href="#our-mission" class="hero__btn hero__btn--secondary">Meie missioon</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="new-products" aria-labelledby="new-products-title">
+    <div class="container">
+      <div class="new-products__box">
+        <header class="new-products__header">
+          <h2 id="new-products-title" class="new-products__title">Uued tooted</h2>
+          <div class="new-products__divider">
+            <span class="new-products__divider-line" aria-hidden="true"></span>
+            <img
+              class="new-products__bee"
+              src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
+              alt=""
+              width="32"
+              height="32"
+              loading="lazy"
+            >
+            <span class="new-products__divider-line" aria-hidden="true"></span>
+          </div>
+        </header>
+
+        <div class="new-products__grid">
+        <article class="product-card">
+          <div class="product-card__media">
+            <img
+              class="product-card__image"
+              src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
+              alt="Niidumesi"
+              width="295"
+              height="359"
+              loading="lazy"
+            >
+            <span class="product-card__badge">UUS</span>
+          </div>
+          <div class="product-card__top">
+            <h3 class="product-card__name">Niidumesi</h3>
+            <span class="product-card__price">8,90 €</span>
+          </div>
+          <p class="product-card__desc">Õrn ja lilleline maitse, mis peegeldab Eesti suviseid niite.</p>
+          <a href="#" class="product-card__btn">Vaata lähemalt</a>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__media">
+            <img
+              class="product-card__image"
+              src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_50_10%20PM.png"
+              alt="Metsamesi"
+              width="295"
+              height="359"
+              loading="lazy"
+            >
+            <span class="product-card__badge">UUS</span>
+          </div>
+          <div class="product-card__top">
+            <h3 class="product-card__name">Metsamesi</h3>
+            <span class="product-card__price">8,90 €</span>
+          </div>
+          <p class="product-card__desc">Tugevama iseloomuga mesi metstaimede nektarist.</p>
+          <a href="#" class="product-card__btn">Vaata lähemalt</a>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__media">
+            <img
+              class="product-card__image"
+              src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_55_14%20PM.png"
+              alt="Pärnamesi"
+              width="295"
+              height="359"
+              loading="lazy"
+            >
+            <span class="product-card__badge">UUS</span>
+          </div>
+          <div class="product-card__top">
+            <h3 class="product-card__name">Pärnamesi</h3>
+            <span class="product-card__price">8,90 €</span>
+          </div>
+          <p class="product-card__desc">Sametine tekstuur ning meeldivalt aromaatne järelmaitse.</p>
+          <a href="#" class="product-card__btn">Vaata lähemalt</a>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card__media">
+            <img
+              class="product-card__image"
+              src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2005_04_47%20PM.png"
+              alt="Kinkekarp"
+              width="295"
+              height="359"
+              loading="lazy"
+            >
+            <span class="product-card__badge">UUS</span>
+          </div>
+          <div class="product-card__top">
+            <h3 class="product-card__name">Kinkekarp</h3>
+            <span class="product-card__price">8,90 €</span>
+          </div>
+          <p class="product-card__desc">Kolm hoolikalt valitud meeliiki kaunis kindkepakendis.</p>
+          <a href="#" class="product-card__btn">Vaata lähemalt</a>
+        </article>
+      </div>
+
+        <a href="#" class="new-products__link">Vaata kõiki</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="our-mission" id="our-mission" aria-labelledby="our-mission-title">
+    <img
+      class="our-mission__decor our-mission__decor--left"
+      src="Designi elemendid/Mesilaskärg3_SUUR.png"
+      alt=""
+      width="220"
+      loading="lazy"
+    >
+    <img
+      class="our-mission__decor our-mission__decor--right"
+      src="Designi elemendid/Mesilaskärg2_SUUR.png"
+      alt=""
+      width="300px"
+      loading="lazy"
+    >
+    <img
+      class="our-mission__decor our-mission__decor--bee"
+      src="Designi%20elemendid/Mesilane.png"
+      alt=""
+      width="130"
+      loading="lazy"
+    >
+    <div class="container">
+      <div class="our-mission__inner">
+        <div class="our-mission__content">
+          <h2 id="our-mission-title" class="our-mission__title">Meie missioon</h2>
+          <p class="our-mission__text">Tarukoda eesmärk on pakkuda ehtsat mahemett, mis kannab endas Eesti looduse puhtust ja rikkalikke maitseid. Usume, et kvaliteetne mesi sünnib hoolivast mesindusest, tervetest mesilasperedest ning austusest looduse loomuliku tasakaalu vastu.</p>
+          <p class="our-mission__text">Lisaks kvaliteetsete toodete loomisele soovime hoida elus Eesti mesindustraditsioone ning toetada mesilaste heaolu ka tulevaste põlvkondade jaoks. Iga Tarukoja meepurk on looduse, käsitöö ja jätkusuutliku mõtteviisi tulemus.</p>
+          <a href="#" class="our-mission__btn">Võta ühendust</a>
+        </div>
+        <div class="our-mission__visual">
+          <div class="our-mission__hex">
+            <img
+              class="our-mission__hex-image"
+              src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.png"
+              alt="Mesinik kontrollib mesitaru raami"
+              width="380"
+              height="420"
+              loading="lazy"
+            >
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -83,6 +83,13 @@
   </section>
 
   <section class="new-products" aria-labelledby="new-products-title">
+    <img
+      class="new-products__decor"
+      src="Designi elemendid/Mesilaskärg1_SUUR.png"
+      alt=""
+      width="300"
+      loading="lazy"
+    >
     <div class="container">
       <div class="new-products__box">
         <header class="new-products__header">
@@ -197,13 +204,6 @@
       loading="lazy"
     >
     <img
-      class="our-mission__decor our-mission__decor--right"
-      src="Designi elemendid/Mesilaskärg2_SUUR.png"
-      alt=""
-      width="300px"
-      loading="lazy"
-    >
-    <img
       class="our-mission__decor our-mission__decor--bee"
       src="Designi%20elemendid/Mesilane.png"
       alt=""
@@ -220,18 +220,153 @@
         </div>
         <div class="our-mission__visual">
           <div class="our-mission__hex">
-            <img
-              class="our-mission__hex-image"
-              src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.png"
-              alt="Mesinik kontrollib mesitaru raami"
-              width="380"
-              height="420"
-              loading="lazy"
-            >
+            <div class="our-mission__hex-inner">
+              <img
+                class="our-mission__hex-image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.png"
+                alt="Mesinik kontrollib mesitaru raami"
+                width="380"
+                height="420"
+                loading="lazy"
+              >
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <section class="best-offers" aria-labelledby="best-offers-title">
+    <div class="container">
+      <header class="best-offers__header">
+        <h2 id="best-offers-title" class="best-offers__title">Parimad pakkumised</h2>
+        <div class="best-offers__divider">
+          <span class="best-offers__divider-line" aria-hidden="true"></span>
+          <img
+            class="best-offers__bee"
+            src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
+            alt=""
+            width="32"
+            height="32"
+            loading="lazy"
+          >
+          <span class="best-offers__divider-line" aria-hidden="true"></span>
+        </div>
+      </header>
+
+      <div class="best-offers__slider">
+        <button class="best-offers__arrow best-offers__arrow--prev" type="button" aria-label="Eelmine toode">
+          <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
+        </button>
+
+        <div class="best-offers__track">
+          <article class="product-card">
+            <div class="product-card__media">
+              <img
+                class="product-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_50_10%20PM.png"
+                alt="Metsamesi"
+                width="295"
+                height="359"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-card__top">
+              <h3 class="product-card__name">Metsamesi</h3>
+              <span class="product-card__price">9,90 €</span>
+            </div>
+            <p class="product-card__desc">Tugevama iseloomuga mesi metsataimede nektarist.</p>
+            <a href="#" class="product-card__btn">Vaata lähemalt</a>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__media">
+              <img
+                class="product-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
+                alt="Niidumesi"
+                width="295"
+                height="359"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-card__top">
+              <h3 class="product-card__name">Niidumesi</h3>
+              <span class="product-card__price">8,90 €</span>
+            </div>
+            <p class="product-card__desc">Õrn ja lilleline maitse, mis peegeldab Eesti suviseid niite.</p>
+            <a href="#" class="product-card__btn">Vaata lähemalt</a>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__media">
+              <img
+                class="product-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_55_14%20PM.png"
+                alt="Pärnamesi"
+                width="295"
+                height="359"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-card__top">
+              <h3 class="product-card__name">Pärnamesi</h3>
+              <span class="product-card__price">7,90 €</span>
+            </div>
+            <p class="product-card__desc">Sametine tekstuur ning meeldivalt aromaatne järelmaitse.</p>
+            <a href="#" class="product-card__btn">Vaata lähemalt</a>
+          </article>
+
+          <article class="product-card">
+            <div class="product-card__media">
+              <img
+                class="product-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2005_04_47%20PM.png"
+                alt="Kinkekarp"
+                width="295"
+                height="359"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-card__top">
+              <h3 class="product-card__name">Kinkekarp</h3>
+              <span class="product-card__price">25,70 €</span>
+            </div>
+            <p class="product-card__desc">Kolm hoolikalt valitud meeliiki kaunis kinkepakendis.</p>
+            <a href="#" class="product-card__btn">Vaata lähemalt</a>
+          </article>
+        </div>
+
+        <button class="best-offers__arrow best-offers__arrow--next" type="button" aria-label="Järgmine toode">
+          <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
+        </button>
+      </div>
+
+      <a href="#" class="best-offers__link">Vaata kõiki</a>
+    </div>
+  </section>
+
+  <script>
+    const bestOffersTrack = document.querySelector(".best-offers__track");
+    const bestOffersPrev = document.querySelector(".best-offers__arrow--prev");
+    const bestOffersNext = document.querySelector(".best-offers__arrow--next");
+
+    if (bestOffersTrack && bestOffersPrev && bestOffersNext) {
+      const scrollStep = () => {
+        const card = bestOffersTrack.querySelector(".product-card");
+        if (!card) return 271;
+        const gap = parseFloat(getComputedStyle(bestOffersTrack).columnGap || getComputedStyle(bestOffersTrack).gap) || 48;
+        return card.offsetWidth + gap;
+      };
+
+      bestOffersPrev.addEventListener("click", () => {
+        bestOffersTrack.scrollBy({ left: -scrollStep(), behavior: "smooth" });
+      });
+
+      bestOffersNext.addEventListener("click", () => {
+        bestOffersTrack.scrollBy({ left: scrollStep(), behavior: "smooth" });
+      });
+    }
+  </script>
 </body>
 </html>

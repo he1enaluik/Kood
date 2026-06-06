@@ -54,6 +54,29 @@
     }
 
     saveUsers(updated);
+    refreshSessionFromUsers(updated);
+  }
+
+  function refreshSessionFromUsers(users) {
+    const session = getSession();
+    if (!session) {
+      return;
+    }
+
+    const user = users.find((entry) => entry.email === session.email);
+    if (!user) {
+      return;
+    }
+
+    const nextSession = {
+      ...session,
+      name: user.name,
+      role: user.role || "user",
+    };
+
+    if (JSON.stringify(nextSession) !== JSON.stringify(session)) {
+      localStorage.setItem(SESSION_KEY, JSON.stringify(nextSession));
+    }
   }
 
   function getSession() {
@@ -95,8 +118,9 @@
   }
 
   function isAdmin() {
+    const session = getSession();
     const user = getCurrentUser();
-    return user?.role === "admin";
+    return user?.role === "admin" || session?.role === "admin";
   }
 
   function isLoggedIn() {
@@ -317,6 +341,7 @@
     await seedDefaultUsers();
     updateHeader();
     initProfileMenu();
+    window.dispatchEvent(new CustomEvent("tarukoda-auth-ready"));
 
     if (document.getElementById("login-form")) {
       initLoginPage();

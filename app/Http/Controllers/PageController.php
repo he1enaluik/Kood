@@ -38,9 +38,4 @@ class PageController extends Controller
     {
         return view('pages.order');
     }
-
-    public function legal()
-    {
-        return view('pages.legal');
-    }
 }

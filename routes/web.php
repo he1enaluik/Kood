@@ -12,7 +12,6 @@ Route::get('/kontakt', [PageController::class, 'contact'])->name('contact');
 Route::post('/kontakt', [MessageController::class, 'submitContact'])->name('contact.submit');
 Route::get('/tellimus', [PageController::class, 'order'])->name('order');
 Route::post('/tellimus', [MessageController::class, 'submitOrder'])->name('order.submit');
-Route::get('/oigused', [PageController::class, 'legal'])->name('legal');
 
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');

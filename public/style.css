@@ -492,6 +492,8 @@ body {
   margin-top: 6.7%;
   padding: 0 0 100px;
   overflow-x: clip;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
 }
 
 .new-products__decor {
@@ -678,6 +680,8 @@ body {
   padding: 100px 0 200px;
   scroll-margin-top: 88px;
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
 }
 
 .our-mission__decor {
@@ -829,6 +833,8 @@ body {
   z-index: 4;
   background-color: #fff;
   padding: 47px 0 47px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
 }
 
 .best-offers__header {
@@ -925,6 +931,8 @@ body {
   background-color: #fcead8;
   padding: 200px 0 200px;
   overflow-x: clip;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 700px;
 }
 
 .events__decor {

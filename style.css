@@ -2525,4 +2525,6 @@ body {
   transform: scale(1.04);
 }
 
-.order-page__
+.order-page__item:hover .order-page__item-image {
+  transform: scale(1.08);
+}

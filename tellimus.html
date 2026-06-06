@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt | Tarukoda</title>
+  <title>Tellimus | Tarukoda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
         <ul class="header__menu">
           <li><a href="index.html">Avaleht</a></li>
           <li><a href="tooted.html">Tooted</a></li>
-          <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
           <li><a href="index.html#our-mission">Meist</a></li>
         </ul>
 
@@ -33,35 +33,23 @@
     </div>
   </header>
 
-  <main class="contact-page" aria-labelledby="contact-heading">
+  <main class="order-page" aria-labelledby="order-title">
     <img
-      class="contact-page__decor contact-page__decor--honeycomb-left"
+      class="order-page__decor order-page__decor--left"
       src="Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png"
       alt=""
-      width="280"
+      width="240"
     >
     <img
-      class="contact-page__decor contact-page__decor--honeycomb-right"
-      src="Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png"
-      alt=""
-      width="260"
-    >
-    <img
-      class="contact-page__decor contact-page__decor--bee-left"
-      src="Designi%20elemendid/Mesilane.png"
-      alt=""
-      width="120"
-    >
-    <img
-      class="contact-page__decor contact-page__decor--bee-right"
+      class="order-page__decor order-page__decor--bee"
       src="Designi%20elemendid/Mesilane.png"
       alt=""
       width="100"
     >
 
     <div class="container">
-      <div class="contact-page__box">
-        <header class="contact-page__header">
+      <div class="order-page__box">
+        <header class="order-page__header">
           <div class="best-offers__divider">
             <span class="best-offers__divider-line" aria-hidden="true"></span>
             <img
@@ -75,36 +63,51 @@
           </div>
         </header>
 
-        <div class="contact-page__inner">
-          <div class="contact-page__info">
-            <h1 id="contact-heading" class="contact-page__heading">Võta ühendust</h1>
-            <p class="contact-page__subtitle">Meeleldi vastame sulle</p>
-            <p class="contact-page__text">Soovid rohkem teada meie mahemee, toodete või tellimisvõimaluste kohta? Saada meile sõnum ja vastame esimesel võimalusel.</p>
+        <div class="order-page__inner">
+          <div class="order-page__summary">
+            <h1 id="order-title" class="order-page__heading">Tellimus</h1>
+            <p class="order-page__subtitle">Kontrolli tellimust ja täida andmed</p>
 
-            <a href="mailto:info@tarukoda.ee" class="contact-page__email">info@tarukoda.ee</a>
+            <article class="order-page__item">
+              <img
+                class="order-page__item-image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
+                alt="Niidumesi"
+                width="80"
+                height="96"
+              >
+              <div class="order-page__item-info">
+                <h2 class="order-page__item-name">Niidumesi</h2>
+                <p class="order-page__item-meta">350 g • 1 tk</p>
+              </div>
+              <span class="order-page__item-price">8,90 €</span>
+            </article>
 
-            <div class="contact-page__social">
-              <a href="#" class="contact-page__social-link" aria-label="TikTok">
-                <img src="Ikoonid/tiktok.svg" alt="" width="27" height="27">
-              </a>
-              <a href="#" class="contact-page__social-link" aria-label="Instagram">
-                <img src="Ikoonid/instagram.svg" alt="" width="27" height="27">
-              </a>
-              <a href="#" class="contact-page__social-link" aria-label="Facebook">
-                <img src="Ikoonid/facebook.svg" alt="" width="27" height="27">
-              </a>
-            </div>
+            <dl class="order-page__totals">
+              <div class="order-page__total-row">
+                <dt>Vahesumma</dt>
+                <dd>8,90 €</dd>
+              </div>
+              <div class="order-page__total-row">
+                <dt>Tarne</dt>
+                <dd>3,50 €</dd>
+              </div>
+              <div class="order-page__total-row order-page__total-row--final">
+                <dt>Kokku</dt>
+                <dd>12,40 €</dd>
+              </div>
+            </dl>
           </div>
 
-          <form class="contact-page__form" action="#" method="post">
-            <div class="contact-page__form-row">
+          <form class="order-page__form" action="#" method="post">
+            <div class="order-page__form-row">
               <label class="contact-page__field">
-                <span class="contact-page__label">Eesnimi</span>
-                <input class="contact-page__input" type="text" name="firstname" autocomplete="given-name">
+                <span class="contact-page__label">Eesnimi <span class="contact-page__required" aria-hidden="true">*</span></span>
+                <input class="contact-page__input" type="text" name="firstname" required autocomplete="given-name">
               </label>
               <label class="contact-page__field">
-                <span class="contact-page__label">Perekonnanimi</span>
-                <input class="contact-page__input" type="text" name="lastname" autocomplete="family-name">
+                <span class="contact-page__label">Perekonnanimi <span class="contact-page__required" aria-hidden="true">*</span></span>
+                <input class="contact-page__input" type="text" name="lastname" required autocomplete="family-name">
               </label>
             </div>
 
@@ -114,21 +117,33 @@
             </label>
 
             <label class="contact-page__field">
-              <span class="contact-page__label">Sõnum <span class="contact-page__required" aria-hidden="true">*</span></span>
-              <textarea class="contact-page__input contact-page__textarea" name="message" required></textarea>
+              <span class="contact-page__label">Telefon <span class="contact-page__required" aria-hidden="true">*</span></span>
+              <input class="contact-page__input" type="tel" name="phone" required autocomplete="tel">
             </label>
 
-            <button class="contact-page__submit" type="submit">Saada</button>
+            <label class="contact-page__field">
+              <span class="contact-page__label">Tarneaadress <span class="contact-page__required" aria-hidden="true">*</span></span>
+              <input class="contact-page__input" type="text" name="address" required autocomplete="street-address">
+            </label>
+
+            <label class="contact-page__field">
+              <span class="contact-page__label">Linn <span class="contact-page__required" aria-hidden="true">*</span></span>
+              <input class="contact-page__input" type="text" name="city" required autocomplete="address-level2">
+            </label>
+
+            <label class="contact-page__field">
+              <span class="contact-page__label">Postiindeks <span class="contact-page__required" aria-hidden="true">*</span></span>
+              <input class="contact-page__input" type="text" name="postcode" required autocomplete="postal-code">
+            </label>
+
+            <label class="contact-page__field">
+              <span class="contact-page__label">Märkused</span>
+              <textarea class="contact-page__input contact-page__textarea" name="notes"></textarea>
+            </label>
+
+            <button class="contact-page__submit" type="submit">Esita tellimus</button>
           </form>
         </div>
-
-        <img
-          class="contact-page__box-decor"
-          src="Designi%20elemendid/Mesilask%C3%A4rg1.png"
-          alt=""
-          width="90"
-          loading="lazy"
-        >
       </div>
     </div>
   </main>

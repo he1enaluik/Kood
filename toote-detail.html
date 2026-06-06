@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt | Tarukoda</title>
+  <title>Niidumesi | Tarukoda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@
       <nav class="header__nav" aria-label="Peamenüü">
         <ul class="header__menu">
           <li><a href="index.html">Avaleht</a></li>
-          <li><a href="tooted.html">Tooted</a></li>
-          <li><a href="kontakt.html" aria-current="page">Kontakt</a></li>
+          <li><a href="tooted.html" aria-current="page">Tooted</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
           <li><a href="index.html#our-mission">Meist</a></li>
         </ul>
 
@@ -33,102 +33,59 @@
     </div>
   </header>
 
-  <main class="contact-page" aria-labelledby="contact-heading">
-    <img
-      class="contact-page__decor contact-page__decor--honeycomb-left"
-      src="Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png"
-      alt=""
-      width="280"
-    >
-    <img
-      class="contact-page__decor contact-page__decor--honeycomb-right"
-      src="Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png"
-      alt=""
-      width="260"
-    >
-    <img
-      class="contact-page__decor contact-page__decor--bee-left"
-      src="Designi%20elemendid/Mesilane.png"
-      alt=""
-      width="120"
-    >
-    <img
-      class="contact-page__decor contact-page__decor--bee-right"
-      src="Designi%20elemendid/Mesilane.png"
-      alt=""
-      width="100"
-    >
-
+  <main class="product-detail" aria-labelledby="product-detail-title">
     <div class="container">
-      <div class="contact-page__box">
-        <header class="contact-page__header">
-          <div class="best-offers__divider">
-            <span class="best-offers__divider-line" aria-hidden="true"></span>
+      <a href="tooted.html" class="product-detail__back">
+        <img src="Ikoonid/arrow_back_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="20" height="20">
+        Tagasi toodete juurde
+      </a>
+
+      <div class="product-detail__box">
+        <div class="product-detail__inner">
+          <div class="product-detail__gallery">
             <img
-              class="best-offers__bee"
-              src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
-              alt=""
-              width="32"
-              height="32"
+              class="product-detail__image"
+              src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
+              alt="Niidumesi purk"
+              width="480"
+              height="580"
             >
-            <span class="best-offers__divider-line" aria-hidden="true"></span>
-          </div>
-        </header>
-
-        <div class="contact-page__inner">
-          <div class="contact-page__info">
-            <h1 id="contact-heading" class="contact-page__heading">Võta ühendust</h1>
-            <p class="contact-page__subtitle">Meeleldi vastame sulle</p>
-            <p class="contact-page__text">Soovid rohkem teada meie mahemee, toodete või tellimisvõimaluste kohta? Saada meile sõnum ja vastame esimesel võimalusel.</p>
-
-            <a href="mailto:info@tarukoda.ee" class="contact-page__email">info@tarukoda.ee</a>
-
-            <div class="contact-page__social">
-              <a href="#" class="contact-page__social-link" aria-label="TikTok">
-                <img src="Ikoonid/tiktok.svg" alt="" width="27" height="27">
-              </a>
-              <a href="#" class="contact-page__social-link" aria-label="Instagram">
-                <img src="Ikoonid/instagram.svg" alt="" width="27" height="27">
-              </a>
-              <a href="#" class="contact-page__social-link" aria-label="Facebook">
-                <img src="Ikoonid/facebook.svg" alt="" width="27" height="27">
-              </a>
-            </div>
+            <span class="product-card__badge">UUS</span>
           </div>
 
-          <form class="contact-page__form" action="#" method="post">
-            <div class="contact-page__form-row">
-              <label class="contact-page__field">
-                <span class="contact-page__label">Eesnimi</span>
-                <input class="contact-page__input" type="text" name="firstname" autocomplete="given-name">
-              </label>
-              <label class="contact-page__field">
-                <span class="contact-page__label">Perekonnanimi</span>
-                <input class="contact-page__input" type="text" name="lastname" autocomplete="family-name">
-              </label>
+          <div class="product-detail__info">
+            <div class="best-offers__divider product-detail__divider">
+              <span class="best-offers__divider-line" aria-hidden="true"></span>
+              <img
+                class="best-offers__bee"
+                src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
+                alt=""
+                width="32"
+                height="32"
+              >
+              <span class="best-offers__divider-line" aria-hidden="true"></span>
             </div>
 
-            <label class="contact-page__field">
-              <span class="contact-page__label">Email <span class="contact-page__required" aria-hidden="true">*</span></span>
-              <input class="contact-page__input" type="email" name="email" required autocomplete="email">
-            </label>
+            <h1 id="product-detail-title" class="product-detail__title">Niidumesi</h1>
+            <p class="product-detail__price">8,90 €</p>
+            <p class="product-detail__desc">Õrn ja lilleline maitse, mis peegeldab Eesti suviseid niite. Meie niidumesi on kogutud puhtatest mahepõldudest, kus mesilased saavad vabalt lendata lillede vahel. Mesi on kreemjas, kergelt magus ja sobib suurepäraselt tee, jogurti või värskete saiade kõrvale.</p>
 
-            <label class="contact-page__field">
-              <span class="contact-page__label">Sõnum <span class="contact-page__required" aria-hidden="true">*</span></span>
-              <textarea class="contact-page__input contact-page__textarea" name="message" required></textarea>
-            </label>
+            <ul class="product-detail__list">
+              <li>Mahe sertifitseeritud (EE-MAH-001)</li>
+              <li>Netokaal: 350 g</li>
+              <li>Päritolu: Põltsamaa, Jõgevamaa</li>
+              <li>Hoiustamine: jahedas ja kuivas kohas</li>
+            </ul>
 
-            <button class="contact-page__submit" type="submit">Saada</button>
-          </form>
+            <div class="product-detail__actions">
+              <label class="product-detail__qty">
+                <span class="product-detail__qty-label">Kogus</span>
+                <input class="product-detail__qty-input" type="number" name="quantity" value="1" min="1" max="20">
+              </label>
+              <a href="tellimus.html" class="product-detail__btn">Telli</a>
+            </div>
+          </div>
         </div>
-
-        <img
-          class="contact-page__box-decor"
-          src="Designi%20elemendid/Mesilask%C3%A4rg1.png"
-          alt=""
-          width="90"
-          loading="lazy"
-        >
       </div>
     </div>
   </main>

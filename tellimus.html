@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Esita Tarukoja toodete tellimus. Täida andmed ja saadame mahemee ja mesindustooted Sinu aadressile.">
   <title>Tellimus | Tarukoda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -174,17 +176,18 @@
           <p class="footer__desc">Pakume ehtsat mahemett Eesti puhtast loodusest, järgides jätkusuutliku mesinduse põhimõtteid ja hoolitsedes oma mesilasperede heaolu eest.</p>
           <div class="footer__social">
             <a href="#" class="footer__social-link" aria-label="Facebook">
-              <img src="Ikoonid/facebook.svg" alt="" width="16" height="16">
+              <img src="Ikoonid/facebook.svg" alt="" width="32" height="32">
             </a>
             <a href="#" class="footer__social-link" aria-label="Instagram">
-              <img src="Ikoonid/instagram.svg" alt="" width="16" height="16">
+              <img src="Ikoonid/instagram.svg" alt="" width="32" height="32">
             </a>
             <a href="#" class="footer__social-link" aria-label="TikTok">
-              <img src="Ikoonid/tiktok.svg" alt="" width="16" height="16">
+              <img src="Ikoonid/tiktok.svg" alt="" width="32" height="32">
             </a>
           </div>
         </div>
 
+        <div class="footer__cols">
         <div class="footer__col">
           <h3 class="footer__heading">Lehed</h3>
           <ul class="footer__links">
@@ -209,7 +212,9 @@
           <h3 class="footer__heading">Kontakt</h3>
           <ul class="footer__contact">
             <li>
-              <span class="footer__contact-icon footer__contact-icon--location" aria-hidden="true"></span>
+              <a href="https://www.google.com/maps/search/?api=1&query=Niidu+tn+6,+P%C3%B5ltsamaa" class="footer__map-link" target="_blank" rel="noopener noreferrer" aria-label="Ava kaardil">
+                <span class="footer__contact-icon footer__contact-icon--location" aria-hidden="true"></span>
+              </a>
               Niidu tn 6, Põltsamaa
             </li>
             <li>
@@ -226,13 +231,14 @@
             </li>
           </ul>
         </div>
+        </div>
       </div>
 
       <div class="footer__divider" aria-hidden="true"></div>
 
       <div class="footer__bottom">
         <p>© 2026 Tarukoda OÜ • Reg. 12345678</p>
-        <p>Kõik õigused kaitstud • Mahe sertifikaat EE-MAH-001</p>
+        <p><a href="oigused.html">Kõik õigused kaitstud</a> • Mahe sertifikaat EE-MAH-001</p>
       </div>
     </div>
   </footer>
@@ -242,6 +248,8 @@
   <script src="js/search.js"></script>
   <script src="js/auth.js"></script>
   <script src="js/order-page.js"></script>
+  <script src="js/site-config.js"></script>
+  <script src="js/forms.js"></script>
   <script>
     const phoneInput = document.querySelector('input[name="phone"]');
 

@@ -9,17 +9,18 @@
         <p class="footer__desc">Pakume ehtsat mahemett Eesti puhtast loodusest, järgides jätkusuutliku mesinduse põhimõtteid ja hoolitsedes oma mesilasperede heaolu eest.</p>
         <div class="footer__social">
           <a href="#" class="footer__social-link" aria-label="Facebook">
-            <img src="{{ asset('Ikoonid/facebook.svg') }}" alt="" width="16" height="16">
+            <img src="{{ asset('Ikoonid/facebook.svg') }}" alt="" width="32" height="32">
           </a>
           <a href="#" class="footer__social-link" aria-label="Instagram">
-            <img src="{{ asset('Ikoonid/instagram.svg') }}" alt="" width="16" height="16">
+            <img src="{{ asset('Ikoonid/instagram.svg') }}" alt="" width="32" height="32">
           </a>
           <a href="#" class="footer__social-link" aria-label="TikTok">
-            <img src="{{ asset('Ikoonid/tiktok.svg') }}" alt="" width="16" height="16">
+            <img src="{{ asset('Ikoonid/tiktok.svg') }}" alt="" width="32" height="32">
           </a>
         </div>
       </div>
 
+      <div class="footer__cols">
       <div class="footer__col">
         <h3 class="footer__heading">Lehed</h3>
         <ul class="footer__links">
@@ -44,7 +45,9 @@
         <h3 class="footer__heading">Kontakt</h3>
         <ul class="footer__contact">
           <li>
-            <span class="footer__contact-icon footer__contact-icon--location" aria-hidden="true"></span>
+            <a href="https://www.google.com/maps/search/?api=1&query=Niidu+tn+6,+P%C3%B5ltsamaa" class="footer__map-link" target="_blank" rel="noopener noreferrer" aria-label="Ava kaardil">
+              <span class="footer__contact-icon footer__contact-icon--location" aria-hidden="true"></span>
+            </a>
             Niidu tn 6, Põltsamaa
           </li>
           <li>
@@ -61,13 +64,14 @@
           </li>
         </ul>
       </div>
+      </div>
     </div>
 
     <div class="footer__divider" aria-hidden="true"></div>
 
     <div class="footer__bottom">
       <p>© 2026 Tarukoda OÜ • Reg. 12345678</p>
-      <p>Kõik õigused kaitstud • Mahe sertifikaat EE-MAH-001</p>
+      <p><a href="{{ route('legal') }}">Kõik õigused kaitstud</a> • Mahe sertifikaat EE-MAH-001</p>
     </div>
   </div>
 </footer>

@@ -47,7 +47,17 @@
             <dl class="order-page__totals" id="order-cart-totals"></dl>
           </div>
 
-          <form class="order-page__form" action="#" method="post">
+          <form class="order-page__form" method="post" action="{{ route('order.submit') }}">
+            @csrf
+
+            @if (session('success'))
+              <p class="form-message form-message--success">{{ session('success') }}</p>
+            @endif
+
+            @if ($errors->any())
+              <p class="form-message form-message--error">{{ $errors->first() }}</p>
+            @endif
+
             <div class="order-page__form-row">
               <label class="contact-page__field">
                 <span class="contact-page__label">Eesnimi <span class="contact-page__required" aria-hidden="true">*</span></span>

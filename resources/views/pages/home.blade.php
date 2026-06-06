@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('title', 'Tarukoda')
+@section('description', 'Tarukoda pakub ehtsat mahemett Eesti puhtast loodusest. Vaata mesi, mesilasvaha küünlad ja kinkekomplekte.')
+
+@push('head')
+  <link rel="preload" as="image" href="{{ asset('pildid/hero-taust.png') }}" fetchpriority="high">
+@endpush
 
 @section('content')
 <section class="hero" aria-label="Avalehe sissejuhatus">
@@ -11,7 +16,8 @@
         alt=""
         width="1920"
         height="993"
-        loading="lazy"
+        fetchpriority="high"
+        decoding="async"
       >
       <img
         class="hero__swirl"

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Tellimus | Tarukoda')
+@section('description', 'Esita Tarukoja toodete tellimus. Täida andmed ja saadame mahemee ja mesindustooted Sinu aadressile.')
 
 @section('content')
 <main class="order-page" aria-labelledby="order-title" data-products-url="{{ route('products') }}">
@@ -108,7 +109,7 @@
 @endsection
 
 @push('scripts')
-  <script src="{{ asset('js/order-page.js') }}"></script>
+  <script src="{{ asset('js/order-page.js') }}" defer></script>
   <script>
     const phoneInput = document.querySelector('input[name="phone"]');
 

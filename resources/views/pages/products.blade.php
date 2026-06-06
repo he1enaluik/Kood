@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Tooted | Tarukoda')
+@section('description', 'Vaata Tarukoja mahemett, mesilasvaha küünlad, kinkekomplekte ja hooajatooteid. Tellimine ja kohaletoimetamine üle Eesti.')
 
 @section('content')
 <main class="products-page" aria-labelledby="products-page-title">

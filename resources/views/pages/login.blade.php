@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Logi sisse | Tarukoda')
+@section('description', 'Logi sisse Tarukoja kontole, et tellimusi hallata ja ostukogemust isikupärastada.')
 
 @section('content')
 <main class="login-page" aria-labelledby="login-heading">

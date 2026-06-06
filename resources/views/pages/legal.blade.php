@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Autoriõigused | Tarukoda')
+@section('description', 'Tarukoja veebilehe autoriõigused, privaatsustingimused ja kasutustingimused.')
 
 @section('content')
 <main class="legal-page" aria-labelledby="legal-heading">

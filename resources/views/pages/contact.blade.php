@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Kontakt | Tarukoda')
+@section('description', 'Võta Tarukodaga ühendust. Küsimused meie mahemee, tellimiste või koostöö kohta – vastame esimesel võimalusel.')
 
 @section('content')
 <main class="contact-page" aria-labelledby="contact-heading">

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $product['name'] . ' | Tarukoda')
+@section('description', \Illuminate\Support\Str::limit($product['description'], 155))
 
 @section('content')
 <main class="product-detail" aria-labelledby="product-detail-title">

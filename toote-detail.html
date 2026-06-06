@@ -26,8 +26,45 @@
         </ul>
 
         <div class="header__actions">
-          <a href="#" class="header__icon header__icon--search" aria-label="Otsi"></a>
-          <a href="#" class="header__icon header__icon--profile" aria-label="Profiil"></a>
+          <div class="header__search" data-product-base="toote-detail.html?toode=">
+            <button
+              type="button"
+              class="header__search-toggle"
+              id="header-search-toggle"
+              aria-label="Ava otsing"
+              aria-expanded="false"
+              aria-controls="header-search-panel"
+            >
+              <span class="header__icon header__icon--search" aria-hidden="true"></span>
+            </button>
+            <div class="header__search-panel" id="header-search-panel">
+              <label class="visually-hidden" for="header-search">Otsi tooteid</label>
+              <input
+                type="search"
+                class="header__search-input"
+                id="header-search"
+                placeholder="Otsi tooteid..."
+                autocomplete="off"
+                aria-controls="header-search-results"
+                aria-expanded="false"
+                aria-autocomplete="list"
+              >
+            </div>
+            <div class="header__search-dropdown" id="header-search-results" role="listbox" hidden></div>
+          </div>
+          <a href="tellimus.html" class="header__cart-wrap" aria-label="Ostukorv">
+            <span class="header__icon header__icon--cart"></span>
+            <span class="header__cart-badge" data-cart-badge hidden></span>
+          </a>
+          <div class="header__profile" data-login-url="login.html" data-home-url="index.html">
+            <a href="login.html" class="header__profile-link" id="header-profile-link" aria-label="Logi sisse">
+              <span class="header__icon header__icon--profile"></span>
+            </a>
+            <div class="header__profile-menu" id="header-profile-menu" hidden>
+              <p class="header__profile-greeting">Tere, <span id="header-profile-name"></span>!</p>
+              <button type="button" class="header__profile-logout" id="header-profile-logout">Logi välja</button>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -43,14 +80,24 @@
       <div class="product-detail__box">
         <div class="product-detail__inner">
           <div class="product-detail__gallery">
-            <img
-              class="product-detail__image"
-              src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
-              alt="Niidumesi purk"
-              width="480"
-              height="580"
-            >
-            <span class="product-card__badge">UUS</span>
+            <div class="product-detail__main">
+              <img
+                class="product-detail__image"
+                id="product-detail-main-image"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
+                alt="Niidumesi purk"
+                width="406"
+                height="400"
+              >
+              <button class="product-detail__arrow product-detail__arrow--prev" type="button" aria-label="Eelmine pilt">
+                <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
+              </button>
+              <button class="product-detail__arrow product-detail__arrow--next" type="button" aria-label="Järgmine pilt">
+                <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
+              </button>
+            </div>
+
+            <div class="product-detail__thumbs" id="product-detail-thumbs" role="tablist" aria-label="Toote pildid"></div>
           </div>
 
           <div class="product-detail__info">
@@ -66,23 +113,25 @@
               <span class="best-offers__divider-line" aria-hidden="true"></span>
             </div>
 
-            <h1 id="product-detail-title" class="product-detail__title">Niidumesi</h1>
-            <p class="product-detail__price">8,90 €</p>
-            <p class="product-detail__desc">Õrn ja lilleline maitse, mis peegeldab Eesti suviseid niite. Meie niidumesi on kogutud puhtatest mahepõldudest, kus mesilased saavad vabalt lendata lillede vahel. Mesi on kreemjas, kergelt magus ja sobib suurepäraselt tee, jogurti või värskete saiade kõrvale.</p>
+            <h1 id="product-detail-title" class="product-detail__title">Toode</h1>
+            <p class="product-detail__price" id="product-detail-price"></p>
+            <p class="product-detail__desc" id="product-detail-desc"></p>
 
-            <ul class="product-detail__list">
-              <li>Mahe sertifitseeritud (EE-MAH-001)</li>
-              <li>Netokaal: 350 g</li>
-              <li>Päritolu: Põltsamaa, Jõgevamaa</li>
-              <li>Hoiustamine: jahedas ja kuivas kohas</li>
-            </ul>
+            <div class="product-detail__specs">
+              <p class="product-detail__spec"><span class="product-detail__spec-label">Päritolu:</span> <span id="product-detail-origin"></span></p>
+              <p class="product-detail__spec"><span class="product-detail__spec-label">Kaal:</span> <span id="product-detail-weight"></span></p>
+            </div>
 
             <div class="product-detail__actions">
-              <label class="product-detail__qty">
-                <span class="product-detail__qty-label">Kogus</span>
-                <input class="product-detail__qty-input" type="number" name="quantity" value="1" min="1" max="20">
-              </label>
-              <a href="tellimus.html" class="product-detail__btn">Telli</a>
+              <div class="product-detail__stepper">
+                <button type="button" class="product-detail__stepper-btn" id="qty-minus" aria-label="Vähenda kogust">−</button>
+                <span class="product-detail__stepper-value" id="product-qty" aria-live="polite">1</span>
+                <button type="button" class="product-detail__stepper-btn" id="qty-plus" aria-label="Suurenda kogust">+</button>
+              </div>
+              <button type="button" class="product-detail__btn" id="product-add-to-cart">
+                Lisa korvi
+                <img class="product-detail__btn-icon" src="Ikoonid/Ostukorv.svg" alt="" width="20" height="20">
+              </button>
             </div>
           </div>
         </div>
@@ -163,5 +212,11 @@
       </div>
     </div>
   </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/product-detail.js"></script>
 </body>
 </html>

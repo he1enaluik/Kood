@@ -26,8 +26,45 @@
         </ul>
 
         <div class="header__actions">
-          <a href="#" class="header__icon header__icon--search" aria-label="Otsi"></a>
-          <a href="#" class="header__icon header__icon--profile" aria-label="Profiil"></a>
+          <div class="header__search" data-product-base="toote-detail.html?toode=">
+            <button
+              type="button"
+              class="header__search-toggle"
+              id="header-search-toggle"
+              aria-label="Ava otsing"
+              aria-expanded="false"
+              aria-controls="header-search-panel"
+            >
+              <span class="header__icon header__icon--search" aria-hidden="true"></span>
+            </button>
+            <div class="header__search-panel" id="header-search-panel">
+              <label class="visually-hidden" for="header-search">Otsi tooteid</label>
+              <input
+                type="search"
+                class="header__search-input"
+                id="header-search"
+                placeholder="Otsi tooteid..."
+                autocomplete="off"
+                aria-controls="header-search-results"
+                aria-expanded="false"
+                aria-autocomplete="list"
+              >
+            </div>
+            <div class="header__search-dropdown" id="header-search-results" role="listbox" hidden></div>
+          </div>
+          <a href="tellimus.html" class="header__cart-wrap" aria-label="Ostukorv">
+            <span class="header__icon header__icon--cart"></span>
+            <span class="header__cart-badge" data-cart-badge hidden></span>
+          </a>
+          <div class="header__profile" data-login-url="login.html" data-home-url="index.html">
+            <a href="login.html" class="header__profile-link" id="header-profile-link" aria-label="Logi sisse">
+              <span class="header__icon header__icon--profile"></span>
+            </a>
+            <div class="header__profile-menu" id="header-profile-menu" hidden>
+              <p class="header__profile-greeting">Tere, <span id="header-profile-name"></span>!</p>
+              <button type="button" class="header__profile-logout" id="header-profile-logout">Logi välja</button>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -68,35 +105,13 @@
             <h1 id="order-title" class="order-page__heading">Tellimus</h1>
             <p class="order-page__subtitle">Kontrolli tellimust ja täida andmed</p>
 
-            <article class="order-page__item">
-              <img
-                class="order-page__item-image"
-                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
-                alt="Niidumesi"
-                width="80"
-                height="96"
-              >
-              <div class="order-page__item-info">
-                <h2 class="order-page__item-name">Niidumesi</h2>
-                <p class="order-page__item-meta">350 g • 1 tk</p>
-              </div>
-              <span class="order-page__item-price">8,90 €</span>
-            </article>
+            <div id="order-cart-items"></div>
 
-            <dl class="order-page__totals">
-              <div class="order-page__total-row">
-                <dt>Vahesumma</dt>
-                <dd>8,90 €</dd>
-              </div>
-              <div class="order-page__total-row">
-                <dt>Tarne</dt>
-                <dd>3,50 €</dd>
-              </div>
-              <div class="order-page__total-row order-page__total-row--final">
-                <dt>Kokku</dt>
-                <dd>12,40 €</dd>
-              </div>
-            </dl>
+            <p id="order-cart-empty" class="order-page__empty" hidden>
+              Ostukorv on tühi. <a href="tooted.html">Vaata tooteid</a>
+            </p>
+
+            <dl class="order-page__totals" id="order-cart-totals"></dl>
           </div>
 
           <form class="order-page__form" action="#" method="post">
@@ -118,7 +133,7 @@
 
             <label class="contact-page__field">
               <span class="contact-page__label">Telefon <span class="contact-page__required" aria-hidden="true">*</span></span>
-              <input class="contact-page__input" type="tel" name="phone" required autocomplete="tel">
+              <input class="contact-page__input" type="tel" name="phone" required autocomplete="tel" inputmode="numeric" pattern="[0-9]+" title="Sisesta ainult numbrid">
             </label>
 
             <label class="contact-page__field">
@@ -221,5 +236,26 @@
       </div>
     </div>
   </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/order-page.js"></script>
+  <script>
+    const phoneInput = document.querySelector('input[name="phone"]');
+
+    if (phoneInput) {
+      phoneInput.addEventListener("input", () => {
+        phoneInput.value = phoneInput.value.replace(/\D/g, "");
+      });
+
+      phoneInput.addEventListener("paste", (event) => {
+        event.preventDefault();
+        const pasted = (event.clipboardData || window.clipboardData).getData("text");
+        phoneInput.value = (phoneInput.value + pasted).replace(/\D/g, "");
+      });
+    }
+  </script>
 </body>
 </html>

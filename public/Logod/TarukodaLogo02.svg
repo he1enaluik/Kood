@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 535.37 390.45">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: NCLNeovibes-Demo, 'NCL Neovibes';
+        font-size: 70.67px;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #231f20;
+      }
+
+      .cls-3 {
+        letter-spacing: .03em;
+      }
+
+      .cls-4 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.28em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.15em;
+      }
+
+      .cls-8 {
+        letter-spacing: -.2em;
+      }
+
+      .cls-9 {
+        letter-spacing: -.05em;
+      }
+    </style>
+  </defs>
+  <g>
+    <path class="cls-2" d="M189.09,101.64h157.19c12.29,0,22.25-9.96,22.25-22.25s-9.96-22.25-22.25-22.25h-157.19c-12.29,0-22.25,9.96-22.25,22.25s9.96,22.25,22.25,22.25Z"/>
+    <rect class="cls-2" x="208.94" width="117.49" height="44.5" rx="22.25" ry="22.25"/>
+    <path class="cls-2" d="M267.68,145.69h0c11.04,0,20.78,5.58,26.54,14.08h80.15c12.29,0,22.25-9.96,22.25-22.25h0c0-12.29-9.96-22.25-22.25-22.25h-213.37c-12.29,0-22.25,9.96-22.25,22.25h0c0,12.29,9.96,22.25,22.25,22.25h80.15c5.77-8.5,15.5-14.08,26.54-14.08Z"/>
+    <path class="cls-2" d="M267.68,245.61h0c-10.61,0-20.01-5.16-25.84-13.1h-80.4c-12.29,0-22.25,9.96-22.25,22.25h0c0,12.29,9.96,22.25,22.25,22.25h212.48c12.29,0,22.25-9.96,22.25-22.25h0c0-12.29-9.96-22.25-22.25-22.25h-80.4c-5.83,7.94-15.24,13.1-25.84,13.1Z"/>
+    <path class="cls-2" d="M391.43,173.4h-91.99c.19,1.42.3,2.87.3,4.34v35.81c0,1.47-.11,2.92-.3,4.34h91.99c12.29,0,22.25-9.96,22.25-22.25h0c0-12.29-9.96-22.25-22.25-22.25Z"/>
+    <path class="cls-2" d="M235.63,177.75c0-1.47.11-2.92.3-4.34h-91.99c-12.29,0-22.25,9.96-22.25,22.25h0c0,12.29,9.96,22.25,22.25,22.25h91.99c-.19-1.42-.3-2.87-.3-4.34v-35.81Z"/>
+  </g>
+  <text class="cls-1" transform="translate(0 361.23)"><tspan class="cls-6" x="0" y="0">T</tspan><tspan class="cls-5" x="47.31" y="0">A</tspan><tspan class="cls-9" x="120.5" y="0">R</tspan><tspan class="cls-3" x="184.89" y="0">U</tspan><tspan class="cls-8" x="255.04" y="0">K</tspan><tspan class="cls-4" x="314.25" y="0">O</tspan><tspan class="cls-7" x="395.38" y="0">D</tspan><tspan x="458.11" y="0">A</tspan></text>
+</svg>

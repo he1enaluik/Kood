@@ -26,8 +26,45 @@
         </ul>
 
         <div class="header__actions">
-          <a href="#" class="header__icon header__icon--search" aria-label="Otsi"></a>
-          <a href="#" class="header__icon header__icon--profile" aria-label="Profiil"></a>
+          <div class="header__search" data-product-base="toote-detail.html?toode=">
+            <button
+              type="button"
+              class="header__search-toggle"
+              id="header-search-toggle"
+              aria-label="Ava otsing"
+              aria-expanded="false"
+              aria-controls="header-search-panel"
+            >
+              <span class="header__icon header__icon--search" aria-hidden="true"></span>
+            </button>
+            <div class="header__search-panel" id="header-search-panel">
+              <label class="visually-hidden" for="header-search">Otsi tooteid</label>
+              <input
+                type="search"
+                class="header__search-input"
+                id="header-search"
+                placeholder="Otsi tooteid..."
+                autocomplete="off"
+                aria-controls="header-search-results"
+                aria-expanded="false"
+                aria-autocomplete="list"
+              >
+            </div>
+            <div class="header__search-dropdown" id="header-search-results" role="listbox" hidden></div>
+          </div>
+          <a href="tellimus.html" class="header__cart-wrap" aria-label="Ostukorv">
+            <span class="header__icon header__icon--cart"></span>
+            <span class="header__cart-badge" data-cart-badge hidden></span>
+          </a>
+          <div class="header__profile" data-login-url="login.html" data-home-url="index.html">
+            <a href="login.html" class="header__profile-link" id="header-profile-link" aria-label="Logi sisse">
+              <span class="header__icon header__icon--profile"></span>
+            </a>
+            <div class="header__profile-menu" id="header-profile-menu" hidden>
+              <p class="header__profile-greeting">Tere, <span id="header-profile-name"></span>!</p>
+              <button type="button" class="header__profile-logout" id="header-profile-logout">Logi välja</button>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -126,7 +163,7 @@
             <span class="product-card__price">8,90 €</span>
           </div>
           <p class="product-card__desc">Õrn ja lilleline maitse, mis peegeldab Eesti suviseid niite.</p>
-          <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+          <a href="toote-detail.html?toode=niidumesi" class="product-card__btn">Vaata lähemalt</a>
         </article>
 
         <article class="product-card">
@@ -146,7 +183,7 @@
             <span class="product-card__price">8,90 €</span>
           </div>
           <p class="product-card__desc">Tugevama iseloomuga mesi metstaimede nektarist.</p>
-          <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+          <a href="toote-detail.html?toode=metsamesi" class="product-card__btn">Vaata lähemalt</a>
         </article>
 
         <article class="product-card">
@@ -166,7 +203,7 @@
             <span class="product-card__price">8,90 €</span>
           </div>
           <p class="product-card__desc">Sametine tekstuur ning meeldivalt aromaatne järelmaitse.</p>
-          <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+          <a href="toote-detail.html?toode=parnamesi" class="product-card__btn">Vaata lähemalt</a>
         </article>
 
         <article class="product-card">
@@ -186,7 +223,7 @@
             <span class="product-card__price">8,90 €</span>
           </div>
           <p class="product-card__desc">Kolm hoolikalt valitud meeliiki kaunis kindkepakendis.</p>
-          <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+          <a href="toote-detail.html?toode=kinkekarp" class="product-card__btn">Vaata lähemalt</a>
         </article>
       </div>
 
@@ -276,7 +313,7 @@
               <span class="product-card__price">9,90 €</span>
             </div>
             <p class="product-card__desc">Tugevama iseloomuga mesi metsataimede nektarist.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <a href="toote-detail.html?toode=metsamesi" class="product-card__btn">Vaata lähemalt</a>
           </article>
 
           <article class="product-card">
@@ -295,7 +332,7 @@
               <span class="product-card__price">8,90 €</span>
             </div>
             <p class="product-card__desc">Õrn ja lilleline maitse, mis peegeldab Eesti suviseid niite.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <a href="toote-detail.html?toode=niidumesi" class="product-card__btn">Vaata lähemalt</a>
           </article>
 
           <article class="product-card">
@@ -314,7 +351,7 @@
               <span class="product-card__price">7,90 €</span>
             </div>
             <p class="product-card__desc">Sametine tekstuur ning meeldivalt aromaatne järelmaitse.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <a href="toote-detail.html?toode=parnamesi" class="product-card__btn">Vaata lähemalt</a>
           </article>
 
           <article class="product-card">
@@ -333,7 +370,7 @@
               <span class="product-card__price">25,70 €</span>
             </div>
             <p class="product-card__desc">Kolm hoolikalt valitud meeliiki kaunis kinkepakendis.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <a href="toote-detail.html?toode=kinkekarp" class="product-card__btn">Vaata lähemalt</a>
           </article>
         </div>
 
@@ -389,8 +426,8 @@
             <div class="event-card__media">
               <img
                 class="event-card__image"
-                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.png"
-                alt="Mesinik kontrollib mesitaru raami"
+                src="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_18_14%20PM.png"
+                alt="Mesilane lillel"
                 loading="lazy"
               >
               <div class="event-card__date">
@@ -415,8 +452,8 @@
             <div class="event-card__media">
               <img
                 class="event-card__image"
-                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2006_09_39%20PM.png"
-                alt="Mesilaat ja meedegusteerimine"
+                src="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2007_20_29%20PM.png"
+                alt="Mesindustalu mesitarudega"
                 loading="lazy"
               >
               <div class="event-card__date">
@@ -441,8 +478,8 @@
             <div class="event-card__media">
               <img
                 class="event-card__image"
-                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_30_31%20PM.png"
-                alt="Meeküünalde valmistamise töötuba"
+                src="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2007_32_18%20PM.png"
+                alt="Meedegusteerimine meepurkidega"
                 loading="lazy"
               >
               <div class="event-card__date">
@@ -574,5 +611,9 @@
     initCarousel(".best-offers__track", ".best-offers__arrow--prev", ".best-offers__arrow--next", ".product-card");
     initCarousel(".events__track", ".events__arrow--prev", ".events__arrow--next", ".event-card");
   </script>
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>

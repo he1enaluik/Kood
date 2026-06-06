@@ -26,8 +26,45 @@
         </ul>
 
         <div class="header__actions">
-          <a href="#" class="header__icon header__icon--search" aria-label="Otsi"></a>
-          <a href="#" class="header__icon header__icon--profile" aria-label="Profiil"></a>
+          <div class="header__search" data-product-base="toote-detail.html?toode=">
+            <button
+              type="button"
+              class="header__search-toggle"
+              id="header-search-toggle"
+              aria-label="Ava otsing"
+              aria-expanded="false"
+              aria-controls="header-search-panel"
+            >
+              <span class="header__icon header__icon--search" aria-hidden="true"></span>
+            </button>
+            <div class="header__search-panel" id="header-search-panel">
+              <label class="visually-hidden" for="header-search">Otsi tooteid</label>
+              <input
+                type="search"
+                class="header__search-input"
+                id="header-search"
+                placeholder="Otsi tooteid..."
+                autocomplete="off"
+                aria-controls="header-search-results"
+                aria-expanded="false"
+                aria-autocomplete="list"
+              >
+            </div>
+            <div class="header__search-dropdown" id="header-search-results" role="listbox" hidden></div>
+          </div>
+          <a href="tellimus.html" class="header__cart-wrap" aria-label="Ostukorv">
+            <span class="header__icon header__icon--cart"></span>
+            <span class="header__cart-badge" data-cart-badge hidden></span>
+          </a>
+          <div class="header__profile" data-login-url="login.html" data-home-url="index.html">
+            <a href="login.html" class="header__profile-link" id="header-profile-link" aria-label="Logi sisse">
+              <span class="header__icon header__icon--profile"></span>
+            </a>
+            <div class="header__profile-menu" id="header-profile-menu" hidden>
+              <p class="header__profile-greeting">Tere, <span id="header-profile-name"></span>!</p>
+              <button type="button" class="header__profile-logout" id="header-profile-logout">Logi välja</button>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -206,5 +243,9 @@
       </div>
     </div>
   </footer>
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>

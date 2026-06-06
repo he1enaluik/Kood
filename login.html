@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logi sisse | Tarukoda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner container">
+      <a href="index.html" class="header__logo" aria-label="Tarukoda avaleht">
+        <span class="header__logo-icon" aria-hidden="true"></span>
+        <span class="header__logo-text">TARUKODA</span>
+      </a>
+
+      <nav class="header__nav" aria-label="Peamenüü">
+        <ul class="header__menu">
+          <li><a href="index.html">Avaleht</a></li>
+          <li><a href="tooted.html">Tooted</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="index.html#our-mission">Meist</a></li>
+        </ul>
+
+        <div class="header__actions">
+          <div class="header__search" data-product-base="toote-detail.html?toode=">
+            <button
+              type="button"
+              class="header__search-toggle"
+              id="header-search-toggle"
+              aria-label="Ava otsing"
+              aria-expanded="false"
+              aria-controls="header-search-panel"
+            >
+              <span class="header__icon header__icon--search" aria-hidden="true"></span>
+            </button>
+            <div class="header__search-panel" id="header-search-panel">
+              <label class="visually-hidden" for="header-search">Otsi tooteid</label>
+              <input
+                type="search"
+                class="header__search-input"
+                id="header-search"
+                placeholder="Otsi tooteid..."
+                autocomplete="off"
+                aria-controls="header-search-results"
+                aria-expanded="false"
+                aria-autocomplete="list"
+              >
+            </div>
+            <div class="header__search-dropdown" id="header-search-results" role="listbox" hidden></div>
+          </div>
+          <a href="tellimus.html" class="header__cart-wrap" aria-label="Ostukorv">
+            <span class="header__icon header__icon--cart"></span>
+            <span class="header__cart-badge" data-cart-badge hidden></span>
+          </a>
+          <div class="header__profile" data-login-url="login.html" data-home-url="index.html">
+            <a href="login.html" class="header__profile-link" id="header-profile-link" aria-label="Logi sisse">
+              <span class="header__icon header__icon--profile"></span>
+            </a>
+            <div class="header__profile-menu" id="header-profile-menu" hidden>
+              <p class="header__profile-greeting">Tere, <span id="header-profile-name"></span>!</p>
+              <button type="button" class="header__profile-logout" id="header-profile-logout">Logi välja</button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="login-page" aria-labelledby="login-heading">
+    <div class="container">
+      <div class="login-page__box">
+        <h1 id="login-heading" class="login-page__heading">Konto</h1>
+        <p class="login-page__subtitle">Logi sisse või loo uus konto</p>
+
+        <div class="login-page__tabs" role="tablist" aria-label="Konto tüüp">
+          <button type="button" class="login-page__tab login-page__tab--active" id="auth-tab-login" role="tab" aria-selected="true">Logi sisse</button>
+          <button type="button" class="login-page__tab" id="auth-tab-register" role="tab" aria-selected="false">Registreeru</button>
+        </div>
+
+        <p class="login-page__message" id="auth-message" hidden></p>
+
+        <form class="login-page__panel login-page__panel--active contact-page__form" id="login-form" novalidate>
+          <label class="contact-page__field">
+            <span class="contact-page__label">E-post <span class="contact-page__required" aria-hidden="true">*</span></span>
+            <input class="contact-page__input" type="email" name="email" required autocomplete="email">
+          </label>
+          <label class="contact-page__field">
+            <span class="contact-page__label">Parool <span class="contact-page__required" aria-hidden="true">*</span></span>
+            <input class="contact-page__input" type="password" name="password" required autocomplete="current-password" minlength="6">
+          </label>
+          <button class="contact-page__submit" type="submit">Logi sisse</button>
+        </form>
+
+        <form class="login-page__panel contact-page__form" id="register-form" novalidate>
+          <label class="contact-page__field">
+            <span class="contact-page__label">Nimi <span class="contact-page__required" aria-hidden="true">*</span></span>
+            <input class="contact-page__input" type="text" name="name" required autocomplete="name">
+          </label>
+          <label class="contact-page__field">
+            <span class="contact-page__label">E-post <span class="contact-page__required" aria-hidden="true">*</span></span>
+            <input class="contact-page__input" type="email" name="email" required autocomplete="email">
+          </label>
+          <label class="contact-page__field">
+            <span class="contact-page__label">Parool <span class="contact-page__required" aria-hidden="true">*</span></span>
+            <input class="contact-page__input" type="password" name="password" required autocomplete="new-password" minlength="6">
+          </label>
+          <label class="contact-page__field">
+            <span class="contact-page__label">Korda parooli <span class="contact-page__required" aria-hidden="true">*</span></span>
+            <input class="contact-page__input" type="password" name="password_confirm" required autocomplete="new-password" minlength="6">
+          </label>
+          <button class="contact-page__submit" type="submit">Loo konto</button>
+        </form>
+
+        <p class="login-page__hint">
+          Demo konto: <strong>demo@tarukoda.ee</strong> / <strong>tarukoda123</strong>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo" aria-label="Tarukoda avaleht">
+            <span class="footer__logo-icon" aria-hidden="true"></span>
+            <span class="footer__logo-text">TARUKODA</span>
+          </a>
+          <p class="footer__desc">Pakume ehtsat mahemett Eesti puhtast loodusest, järgides jätkusuutliku mesinduse põhimõtteid ja hoolitsedes oma mesilasperede heaolu eest.</p>
+        </div>
+      </div>
+      <div class="footer__divider" aria-hidden="true"></div>
+      <div class="footer__bottom">
+        <p>© 2026 Tarukoda OÜ • Reg. 12345678</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -26,8 +26,45 @@
         </ul>
 
         <div class="header__actions">
-          <a href="#" class="header__icon header__icon--search" aria-label="Otsi"></a>
-          <a href="#" class="header__icon header__icon--profile" aria-label="Profiil"></a>
+          <div class="header__search" data-product-base="toote-detail.html?toode=">
+            <button
+              type="button"
+              class="header__search-toggle"
+              id="header-search-toggle"
+              aria-label="Ava otsing"
+              aria-expanded="false"
+              aria-controls="header-search-panel"
+            >
+              <span class="header__icon header__icon--search" aria-hidden="true"></span>
+            </button>
+            <div class="header__search-panel" id="header-search-panel">
+              <label class="visually-hidden" for="header-search">Otsi tooteid</label>
+              <input
+                type="search"
+                class="header__search-input"
+                id="header-search"
+                placeholder="Otsi tooteid..."
+                autocomplete="off"
+                aria-controls="header-search-results"
+                aria-expanded="false"
+                aria-autocomplete="list"
+              >
+            </div>
+            <div class="header__search-dropdown" id="header-search-results" role="listbox" hidden></div>
+          </div>
+          <a href="tellimus.html" class="header__cart-wrap" aria-label="Ostukorv">
+            <span class="header__icon header__icon--cart"></span>
+            <span class="header__cart-badge" data-cart-badge hidden></span>
+          </a>
+          <div class="header__profile" data-login-url="login.html" data-home-url="index.html">
+            <a href="login.html" class="header__profile-link" id="header-profile-link" aria-label="Logi sisse">
+              <span class="header__icon header__icon--profile"></span>
+            </a>
+            <div class="header__profile-menu" id="header-profile-menu" hidden>
+              <p class="header__profile-greeting">Tere, <span id="header-profile-name"></span>!</p>
+              <button type="button" class="header__profile-logout" id="header-profile-logout">Logi välja</button>
+            </div>
+          </div>
         </div>
       </nav>
     </div>
@@ -65,8 +102,42 @@
           <p class="products-page__intro">Avastage meie hoolikalt valitud mahetooted — otse Eesti loodusest Sinu lauale.</p>
         </header>
 
-        <div class="products-page__grid">
-          <article class="product-card">
+        <div class="products-page__filters" aria-label="Toote filtrid">
+          <div class="products-page__filter">
+            <label class="products-page__filter-label" for="filter-category">Kategooria</label>
+            <select class="products-page__filter-select" id="filter-category">
+              <option value="all">Kõik tooted</option>
+              <option value="mesi">Mesi</option>
+              <option value="kunlad">Mesilasvaha küünlad</option>
+              <option value="kinke">Kinkekomplektid</option>
+              <option value="hooaeg">Hooajatooted</option>
+            </select>
+          </div>
+
+          <div class="products-page__filter">
+            <label class="products-page__filter-label" for="filter-origin">Päritolu</label>
+            <select class="products-page__filter-select" id="filter-origin">
+              <option value="all">Kõik piirkonnad</option>
+              <option value="poltsamaa">Põltsamaa</option>
+              <option value="jogevamaa">Jõgevamaa</option>
+              <option value="laane">Lääne-Eesti</option>
+            </select>
+          </div>
+
+          <div class="products-page__filter">
+            <label class="products-page__filter-label" for="filter-sort">Sorteeri</label>
+            <select class="products-page__filter-select" id="filter-sort">
+              <option value="default">Vaikimisi</option>
+              <option value="price-asc">Hind: odavam enne</option>
+              <option value="price-desc">Hind: kallim enne</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="products-page__count" id="products-count" aria-live="polite"></p>
+
+        <div class="products-page__grid" id="products-grid">
+          <article class="product-card" data-category="mesi" data-origin="poltsamaa" data-price="8.90">
             <div class="product-card__media">
               <img
                 class="product-card__image"
@@ -83,10 +154,11 @@
               <span class="product-card__price">8,90 €</span>
             </div>
             <p class="product-card__desc">Õrn ja lilleline maitse, mis peegeldab Eesti suviseid niite.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <p class="product-card__meta">Päritolu: Põltsamaa, Jõgevamaa</p>
+            <a href="toote-detail.html?toode=niidumesi" class="product-card__btn">Vaata lähemalt</a>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="mesi" data-origin="jogevamaa" data-price="8.90">
             <div class="product-card__media">
               <img
                 class="product-card__image"
@@ -103,10 +175,11 @@
               <span class="product-card__price">8,90 €</span>
             </div>
             <p class="product-card__desc">Tugevama iseloomuga mesi metstaimede nektarist.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <p class="product-card__meta">Päritolu: Jõgevamaa</p>
+            <a href="toote-detail.html?toode=metsamesi" class="product-card__btn">Vaata lähemalt</a>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="mesi" data-origin="laane" data-price="8.90">
             <div class="product-card__media">
               <img
                 class="product-card__image"
@@ -123,10 +196,11 @@
               <span class="product-card__price">8,90 €</span>
             </div>
             <p class="product-card__desc">Sametine tekstuur ning meeldivalt aromaatne järelmaitse.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <p class="product-card__meta">Päritolu: Lääne-Eesti</p>
+            <a href="toote-detail.html?toode=parnamesi" class="product-card__btn">Vaata lähemalt</a>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="kinke" data-origin="poltsamaa" data-price="25.70">
             <div class="product-card__media">
               <img
                 class="product-card__image"
@@ -143,10 +217,11 @@
               <span class="product-card__price">25,70 €</span>
             </div>
             <p class="product-card__desc">Kolm hoolikalt valitud meeliiki kaunis kinkepakendis.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <p class="product-card__meta">Päritolu: Põltsamaa</p>
+            <a href="toote-detail.html?toode=kinkekarp" class="product-card__btn">Vaata lähemalt</a>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="kunlad" data-origin="poltsamaa" data-price="12.50">
             <div class="product-card__media">
               <img
                 class="product-card__image"
@@ -162,10 +237,11 @@
               <span class="product-card__price">12,50 €</span>
             </div>
             <p class="product-card__desc">Käsitööna valmistatud looduslik vahaküünal mee aroomiga.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <p class="product-card__meta">Päritolu: Põltsamaa</p>
+            <a href="toote-detail.html?toode=mesilasvaha-kuunal" class="product-card__btn">Vaata lähemalt</a>
           </article>
 
-          <article class="product-card">
+          <article class="product-card" data-category="hooaeg" data-origin="jogevamaa" data-price="9.90">
             <div class="product-card__media">
               <img
                 class="product-card__image"
@@ -181,9 +257,12 @@
               <span class="product-card__price">9,90 €</span>
             </div>
             <p class="product-card__desc">Piiratud koguses erimaitsega mesi vastavalt hooajale.</p>
-            <a href="toote-detail.html" class="product-card__btn">Vaata lähemalt</a>
+            <p class="product-card__meta">Päritolu: Jõgevamaa</p>
+            <a href="toote-detail.html?toode=hooajaline-mesi" class="product-card__btn">Vaata lähemalt</a>
           </article>
         </div>
+
+        <p class="products-page__empty" id="products-empty" hidden>Valitud filtritele vastavaid tooteid ei leitud.</p>
       </div>
     </div>
   </main>
@@ -261,5 +340,54 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const grid = document.getElementById("products-grid");
+    const cards = [...grid.querySelectorAll(".product-card")];
+    const categorySelect = document.getElementById("filter-category");
+    const originSelect = document.getElementById("filter-origin");
+    const sortSelect = document.getElementById("filter-sort");
+    const countEl = document.getElementById("products-count");
+    const emptyEl = document.getElementById("products-empty");
+
+    function applyFilters() {
+      const category = categorySelect.value;
+      const origin = originSelect.value;
+      const sort = sortSelect.value;
+
+      let visible = cards.filter((card) => {
+        const matchCategory = category === "all" || card.dataset.category === category;
+        const matchOrigin = origin === "all" || card.dataset.origin === origin;
+        return matchCategory && matchOrigin;
+      });
+
+      if (sort === "price-asc") {
+        visible.sort((a, b) => parseFloat(a.dataset.price) - parseFloat(b.dataset.price));
+      } else if (sort === "price-desc") {
+        visible.sort((a, b) => parseFloat(b.dataset.price) - parseFloat(a.dataset.price));
+      }
+
+      cards.forEach((card) => {
+        card.hidden = !visible.includes(card);
+      });
+
+      visible.forEach((card) => grid.appendChild(card));
+
+      const count = visible.length;
+      countEl.textContent = count === 1 ? "Näitan 1 toodet" : `Näitan ${count} toodet`;
+      emptyEl.hidden = count > 0;
+      grid.hidden = count === 0;
+    }
+
+    [categorySelect, originSelect, sortSelect].forEach((select) => {
+      select.addEventListener("change", applyFilters);
+    });
+
+    applyFilters();
+  </script>
+  <script src="js/products-data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/auth.js"></script>
 </body>
 </html>

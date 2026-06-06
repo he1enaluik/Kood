@@ -56,7 +56,8 @@
         </form>
 
         <p class="login-page__hint">
-          Demo konto: <strong>demo@tarukoda.ee</strong> / <strong>tarukoda123</strong>
+          Demo konto: <strong>demo@tarukoda.ee</strong> / <strong>tarukoda123</strong><br>
+          Admin: <strong>test@test.ee</strong> / <strong>test</strong>
         </p>
       </div>
     </div>

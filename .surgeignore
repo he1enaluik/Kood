@@ -1,0 +1,28 @@
+# Laravel / backend (Surge is static hosting only)
+app/
+bootstrap/
+config/
+database/
+resources/
+routes/
+storage/
+vendor/
+tests/
+artisan
+composer.json
+composer.lock
+phpunit.xml
+.env
+.env.*
+
+# Dev / tooling
+.git/
+.gitignore
+node_modules/
+.cursor/
+*.md
+LARAVEL_SETUP.md
+agent-transcripts/
+
+# Optional: keep api/ out — PHP won't run on Surge anyway
+api/

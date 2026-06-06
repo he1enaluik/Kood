@@ -25,18 +25,35 @@
     localStorage.setItem(USERS_KEY, JSON.stringify(users));
   }
 
-  async function seedDemoUser() {
-    if (getUsers().length > 0) {
-      return;
+  async function seedDefaultUsers() {
+    const users = getUsers();
+    const adminEmail = "test@test.ee";
+    const demoEmail = "demo@tarukoda.ee";
+    let updated = [...users];
+
+    if (!updated.some((user) => user.email === adminEmail)) {
+      updated.push({
+        name: "Admin",
+        email: adminEmail,
+        passwordHash: await hashPassword("test"),
+        role: "admin",
+      });
+    } else {
+      updated = updated.map((user) =>
+        user.email === adminEmail ? { ...user, role: "admin" } : user
+      );
     }
 
-    saveUsers([
-      {
+    if (!updated.some((user) => user.email === demoEmail)) {
+      updated.push({
         name: "Demo Kasutaja",
-        email: "demo@tarukoda.ee",
+        email: demoEmail,
         passwordHash: await hashPassword("tarukoda123"),
-      },
-    ]);
+        role: "user",
+      });
+    }
+
+    saveUsers(updated);
   }
 
   function getSession() {
@@ -54,6 +71,7 @@
       JSON.stringify({
         email: user.email,
         name: user.name,
+        role: user.role || "user",
         loggedInAt: new Date().toISOString(),
       })
     );
@@ -74,6 +92,11 @@
     }
 
     return getUsers().find((user) => user.email === session.email) || null;
+  }
+
+  function isAdmin() {
+    const user = getCurrentUser();
+    return user?.role === "admin";
   }
 
   function isLoggedIn() {
@@ -106,6 +129,7 @@
       name: trimmedName,
       email: trimmedEmail,
       passwordHash: await hashPassword(password),
+      role: "user",
     };
 
     saveUsers([...users, newUser]);
@@ -151,8 +175,13 @@
     if (session) {
       profileName.textContent = session.name;
       profileLink.href = "#";
-      profileLink.setAttribute("aria-label", `Profiil: ${session.name}`);
+      profileLink.setAttribute("aria-label", `Profiil: ${session.name}${session.role === "admin" ? " (admin)" : ""}`);
       profileLink.dataset.loggedIn = "true";
+      if (session.role === "admin") {
+        profileLink.dataset.admin = "true";
+      } else {
+        delete profileLink.dataset.admin;
+      }
     } else {
       profileName.textContent = "";
       profileLink.href = loginUrl;
@@ -285,7 +314,7 @@
       return;
     }
 
-    await seedDemoUser();
+    await seedDefaultUsers();
     updateHeader();
     initProfileMenu();
 
@@ -299,6 +328,7 @@
     login,
     logout,
     isLoggedIn,
+    isAdmin,
     getCurrentUser,
     updateHeader,
   };

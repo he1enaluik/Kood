@@ -1,0 +1,8 @@
+{
+  "name": "tarukoda",
+  "private": true,
+  "scripts": {
+    "deploy": "surge . tarukoda.surge.sh",
+    "deploy:preview": "surge ."
+  }
+}

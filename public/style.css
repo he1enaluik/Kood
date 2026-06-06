@@ -2444,3 +2444,189 @@ body {
 .order-page__item:hover .order-page__item-image {
   transform: scale(1.08);
 }
+
+.has-admin-bar {
+  padding-top: 40px;
+}
+
+.has-admin-bar .header {
+  margin-top: 0;
+}
+
+.admin-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #d25303;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+}
+
+.admin-bar__inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 40px;
+  padding: 8px 0;
+}
+
+.admin-bar__label {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.admin-bar__hint {
+  opacity: 0.92;
+}
+
+.admin-add-wrap {
+  margin-bottom: 20px;
+}
+
+.admin-add-wrap--center {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.admin-add-btn {
+  padding: 10px 18px;
+  border: 1px dashed #d25303;
+  border-radius: 999px;
+  background: #fff;
+  color: #d25303;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-add-btn:hover {
+  background: #fff5ef;
+}
+
+.product-card,
+.event-card {
+  position: relative;
+}
+
+.admin-card-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+  display: flex;
+  gap: 6px;
+}
+
+.admin-card-actions__btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(58, 42, 34, 0.88);
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.admin-card-actions__btn:hover {
+  background: #3a2a22;
+}
+
+.admin-card-actions__btn--danger {
+  background: rgba(180, 40, 40, 0.92);
+}
+
+.admin-card-actions__btn--danger:hover {
+  background: #b42828;
+}
+
+.admin-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(58, 42, 34, 0.55);
+}
+
+.admin-modal__dialog {
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow: auto;
+  padding: 24px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+}
+
+.admin-modal__title {
+  margin-bottom: 16px;
+  font-family: "Abhaya Libre", serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #3a2a22;
+}
+
+.admin-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-modal__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-modal__label {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3a2a22;
+}
+
+.admin-modal__field input,
+.admin-modal__field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d8c9bc;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+.admin-modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.admin-modal__btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-modal__btn--ghost {
+  background: #f3ece6;
+  color: #3a2a22;
+}
+
+.admin-modal__btn--primary {
+  background: #d25303;
+  color: #fff;
+}

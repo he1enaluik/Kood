@@ -15,6 +15,7 @@
 </head>
 <body
   data-auth-backend="laravel"
+  data-is-admin="{{ Auth::check() && Auth::user()->isAdmin() ? 'true' : 'false' }}"
   data-contact-endpoint="{{ route('contact.submit') }}"
   data-order-endpoint="{{ route('order.submit') }}"
 >
@@ -25,9 +26,11 @@
   @include('layouts.partials.footer')
 
   <script src="{{ asset('js/products-data.js') }}" defer></script>
+  <script src="{{ asset('js/admin-store.js') }}" defer></script>
   <script src="{{ asset('js/cart.js') }}" defer></script>
   <script src="{{ asset('js/search.js') }}" defer></script>
   <script src="{{ asset('js/auth.js') }}" defer></script>
+  <script src="{{ asset('js/admin-crud.js') }}" defer></script>
   <script src="{{ asset('js/forms.js') }}" defer></script>
   @stack('scripts')
 </body>

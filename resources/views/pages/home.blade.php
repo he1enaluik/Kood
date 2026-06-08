@@ -59,6 +59,15 @@
   </section>
 
   <section class="new-products" aria-labelledby="new-products-title">
+    <img
+      class="new-products__decor new-products__decor--honeycomb-right"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.png') }}"
+      alt=""
+      width="380"
+      height="479"
+      aria-hidden="true"
+      loading="lazy"
+    >
     <div class="container">
       <div class="new-products__box">
         <header class="new-products__header">
@@ -167,9 +176,10 @@
   <section class="our-mission" id="our-mission" aria-labelledby="our-mission-title">
     <img
       class="our-mission__decor our-mission__decor--left"
-      src="Designi elemendid/Mesilaskärg3_SUUR.png') }}"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.png') }}"
       alt=""
-      width="220"
+      width="534"
+      aria-hidden="true"
       loading="lazy"
     >
     <img
@@ -327,7 +337,8 @@
       class="events__decor events__decor--honeycomb"
       src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png') }}"
       alt=""
-      width="220"
+      width="227"
+      height="390"
       loading="lazy"
     >
     <div class="container">

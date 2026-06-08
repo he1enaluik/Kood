@@ -5,6 +5,21 @@
 
 @section('content')
 <main class="order-page order-page--success" aria-labelledby="order-success-title">
+  <img
+    class="order-page__decor order-page__decor--honeycomb-left"
+    src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1.png') }}"
+    alt=""
+    width="200"
+    aria-hidden="true"
+  >
+  <img
+    class="order-page__decor order-page__decor--honeycomb-right"
+    src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
+    alt=""
+    width="130"
+    aria-hidden="true"
+  >
+
   <div class="container">
     <div class="order-page__box order-page__box--success">
       <h1 id="order-success-title" class="order-page__heading">Aitäh tellimuse eest!</h1>

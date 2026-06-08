@@ -6,6 +6,12 @@
   padding: 0;
 }
 
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 body {
   font-family: "Abhaya Libre", serif;
   font-weight: 800;
@@ -14,7 +20,11 @@ body {
   background-color: #ffe6d0;
 }
 
-body:has(.products-page) {
+body:has(.products-page),
+body:has(.contact-page),
+body:has(.order-page),
+body:has(.login-page),
+body:has(.product-detail) {
   background-color: #ffe9d7;
 }
 
@@ -406,6 +416,8 @@ body:has(.products-page) {
   position: absolute;
   width: 13%;
   height: auto;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
 }
 
 .hero__honeycomb--left {
@@ -494,11 +506,27 @@ body:has(.products-page) {
 .new-products {
   position: relative;
   z-index: 5;
+  width: 100%;
   margin-top: 6.7%;
   padding: 0 0 100px;
-  overflow-x: clip;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 600px;
+  overflow: visible;
+}
+
+.new-products__decor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 4;
+  mix-blend-mode: multiply;
+  opacity: 90%;
+}
+
+.new-products__decor--honeycomb-right {
+  --honeycomb-w: clamp(220px, 19.83vw, 380.39px);
+  top: clamp(400px, 32.03vw, 615px);
+  width: var(--honeycomb-w);
+  height: auto;
+  right: -200px;
+  left: auto;
 }
 
 .new-products__box {
@@ -682,11 +710,10 @@ body:has(.products-page) {
 .our-mission {
   --hex-clip: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   position: relative;
+  z-index: 1;
   padding: 100px 0 200px;
   scroll-margin-top: 88px;
-  overflow: hidden;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 800px;
+  overflow: visible;
 }
 
 .our-mission__decor {
@@ -694,15 +721,15 @@ body:has(.products-page) {
   pointer-events: none;
   z-index: 0;
   mix-blend-mode: multiply;
-  opacity: 70%;
 }
 
 .our-mission__decor--left {
-  left: -3.5%;
-  bottom: 0;
-  width: 26.8%;
-  height: AUTO;
-  TOP: 41.5%;
+  left: clamp(-40px, -3.75vw, -72px);
+  top: clamp(160px, 20vw, 384px);
+  bottom: auto;
+  width: clamp(280px, 27.84vw, 534.44px);
+  height: auto;
+  opacity: 0.9;
 }
 
 .our-mission__decor--bee {
@@ -775,8 +802,9 @@ body:has(.products-page) {
 
 .our-mission__hex {
   position: relative;
-  width: 626px;
-  height: 722px;
+  width: min(626px, calc(50vw - 48px));
+  height: auto;
+  aspect-ratio: 626 / 722;
 }
 
 .our-mission__hex::before,
@@ -944,11 +972,10 @@ body:has(.products-page) {
 .events {
   position: relative;
   z-index: 4;
+  width: 100%;
   background-color: #fcead8;
   padding: 200px 0 200px;
   overflow: visible;
-  content-visibility: auto;
-  contain-intrinsic-size: auto 700px;
 }
 
 .events__decor {
@@ -958,20 +985,23 @@ body:has(.products-page) {
 }
 
 .events__decor--bee {
-  left: -2%;
-  top: 18%;
-  width: clamp(100px, 12vw, 160px);
+  left: clamp(40px, 4.06vw, 78px);
+  top: clamp(360px, 34vw, 500px);
+  width: clamp(100px, 9.33vw, 179px);
   height: auto;
-  opacity: 0.85;
+  opacity: 0.9;
+  filter: sepia(0.35) saturate(2.4) hue-rotate(-8deg) brightness(1.12);
 }
 
 .events__decor--honeycomb {
-  right: 1%;
-  bottom: 48px;
-  width: clamp(110px, 14vw, 170px);
+  right: clamp(-40px, -4.5vw, -80px);
+  left: auto;
+  top: clamp(360px, 34vw, 500px);
+  bottom: auto;
+  width: clamp(140px, 11.8vw, 226.54px);
   height: auto;
   mix-blend-mode: multiply;
-  opacity: 0.65;
+  opacity: 0.9;
 }
 
 .events__header {
@@ -1213,7 +1243,7 @@ body:has(.products-page) {
 
 .footer {
   position: relative;
-  z-index: 1;
+  z-index: 10;
   background-color: #3a2a22;
   padding: 48px 0 48px;
 }
@@ -1436,6 +1466,7 @@ body:has(.products-page) {
   min-height: calc(100vh - 88px);
   padding: 104px 0 104px;
   overflow: visible;
+  background-color: #ffe9d7;
 }
 
 .contact-page > .container {
@@ -1459,12 +1490,12 @@ body:has(.products-page) {
 .products-page__decor--left,
 .login-page__decor--honeycomb-left,
 .product-detail__decor--honeycomb-left {
-  left: 50px;
-  bottom: -55px;
-  width: clamp(400px, 16vw, 450px);
+  left: 0px;
+  bottom: -45px;
+  width: clamp(50px, 28vw, 330px);
   height: auto;
   mix-blend-mode: multiply;
-  opacity: 0.55;
+  opacity: 0.9;
 }
 
 .contact-page__decor--honeycomb-right,
@@ -1474,10 +1505,10 @@ body:has(.products-page) {
 .product-detail__decor--honeycomb-right {
   right: 0;
   top: 40px;
-  width: clamp(90px, 10vw, 130px);
+  width: clamp(200px, 10vw, 130px);
   height: auto;
   mix-blend-mode: multiply;
-  opacity: 0.55;
+  opacity: 0.9;
 }
 
 .contact-page__decor--bee-left {
@@ -1707,6 +1738,7 @@ body:has(.products-page) {
   min-height: calc(100vh - 88px);
   padding: 104px 24px 104px;
   overflow: visible;
+  background-color: #ffe9d7;
 }
 
 .login-page__decor {
@@ -2222,7 +2254,7 @@ body:has(.products-page) {
   min-height: calc(100vh - 88px);
   padding: 104px 0 104px;
   overflow: visible;
-  background-color: #ffe6d0;
+  background-color: #ffe9d7;
 }
 
 .product-detail > .container {
@@ -2485,11 +2517,6 @@ body:has(.products-page) {
     min-height: 0;
   }
 
-  .product-detail__decor--honeycomb-left,
-  .product-detail__decor--honeycomb-right {
-    opacity: 0.5;
-  }
-
   .product-detail__decor--bee-left,
   .product-detail__decor--bee-right {
     width: clamp(56px, 12vw, 80px);
@@ -2549,6 +2576,7 @@ body:has(.products-page) {
   min-height: calc(100vh - 88px);
   padding: 104px 0 104px;
   overflow: visible;
+  background-color: #ffe9d7;
 }
 
 .order-page > .container {
@@ -2605,7 +2633,7 @@ body:has(.products-page) {
   width: 80px;
   height: auto;
   pointer-events: none;
-  opacity: 0.85;
+  opacity: 0.9;
   mix-blend-mode: multiply;
 }
 
@@ -3131,6 +3159,7 @@ body.nav-open {
     padding-bottom: 64px;
   }
 
+
   .new-products__box {
     height: auto;
     padding: 32px 24px 28px;
@@ -3161,6 +3190,12 @@ body.nav-open {
 
   .our-mission {
     padding: 64px 0 100px;
+  }
+
+  .our-mission__decor--left {
+    left: clamp(-24px, -4vw, -40px);
+    top: clamp(120px, 28vw, 220px);
+    width: clamp(160px, 40vw, 280px);
   }
 
   .our-mission__inner {
@@ -3195,6 +3230,22 @@ body.nav-open {
 
   .events__arrow {
     display: none;
+  }
+
+  .events__decor--bee {
+    left: 12px;
+    top: 260px;
+    width: 90px;
+    opacity: 0.9;
+    filter: sepia(0.35) saturate(2.4) hue-rotate(-8deg) brightness(1.12);
+  }
+
+  .events__decor--honeycomb {
+    right: -32px;
+    left: auto;
+    top: 280px;
+    width: 110px;
+    opacity: 0.9;
   }
 
   .events__track {

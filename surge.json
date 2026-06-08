@@ -1,10 +1,28 @@
 {
   "headers": {
-    "/js/*": {
+    "/**/*.html": {
       "Cache-Control": "public, max-age=0, must-revalidate"
     },
-    "/*.html": {
+    "/**/*.css": {
       "Cache-Control": "public, max-age=0, must-revalidate"
+    },
+    "/**/*.js": {
+      "Cache-Control": "public, max-age=0, must-revalidate"
+    },
+    "/**/*.webp": {
+      "Cache-Control": "public, max-age=86400"
+    },
+    "/**/*.png": {
+      "Cache-Control": "public, max-age=86400"
+    },
+    "/**/*.jpg": {
+      "Cache-Control": "public, max-age=86400"
+    },
+    "/**/*.jpeg": {
+      "Cache-Control": "public, max-age=86400"
+    },
+    "/**/*.svg": {
+      "Cache-Control": "public, max-age=86400"
     }
   }
 }

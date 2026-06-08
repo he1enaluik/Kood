@@ -27,9 +27,12 @@ docker/
 render.yaml
 phpunit.xml
 .cursor/
-*.md
-LARAVEL_SETUP.md
+README.md
 agent-transcripts/
+package.json
+package-lock.json
+surge.json
+.surgeignore
 
 # Optional: keep api/ out — PHP won't run on Surge anyway
 api/

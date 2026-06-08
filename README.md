@@ -102,11 +102,16 @@ docker compose up --build
 - Veeb: `http://localhost:8080`
 - Mailpit (e-kirjad): `http://localhost:8025`
 
-### 8. Testid
+### Surge deploy (avalik statiline leht)
 
 ```bash
-vendor/bin/phpunit
+npm install
+npm run deploy
 ```
+
+Leht avalikustatakse aadressil **https://tarukoda.surge.sh** (`CNAME` fail).
+
+Eel-deploy käivitab SEO injectimise ja WebP piltide kontrolli. Back-end (Laravel, `api/`) Surge'ile ei lähe — `.surgeignore` jätab serveripoole failid välja.
 
 ---
 

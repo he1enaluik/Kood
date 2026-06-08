@@ -34,10 +34,10 @@
       <div class="footer__col">
         <h3 class="footer__heading">Tooted</h3>
         <ul class="footer__links">
-          <li><a href="{{ route('products') }}">Mesi</a></li>
-          <li><a href="{{ route('products') }}">Mesilasvaha küünlad</a></li>
-          <li><a href="{{ route('products') }}">Kinkekomplektid</a></li>
-          <li><a href="{{ route('products') }}">Hooajatooted</a></li>
+          <li><a href="{{ route('products', ['category' => 'mesi']) }}">Mesi</a></li>
+          <li><a href="{{ route('products', ['category' => 'kunlad']) }}">Mesilasvaha küünlad</a></li>
+          <li><a href="{{ route('products', ['category' => 'kinke']) }}">Kinkekomplektid</a></li>
+          <li><a href="{{ route('products', ['category' => 'hooaeg']) }}">Hooajatooted</a></li>
         </ul>
       </div>
 

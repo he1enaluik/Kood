@@ -26,3 +26,6 @@ agent-transcripts/
 
 # Optional: keep api/ out — PHP won't run on Surge anyway
 api/
+
+# Duplicate Laravel webroot assets (canonical copies live at repo root)
+public/

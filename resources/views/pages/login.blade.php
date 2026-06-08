@@ -7,8 +7,7 @@
 <main class="login-page" aria-labelledby="login-heading">
     <div class="container">
       <div class="login-page__box">
-        <h1 id="login-heading" class="login-page__heading">Konto</h1>
-        <p class="login-page__subtitle">Logi sisse või loo uus konto</p>
+        <h1 id="login-heading" class="login-page__heading">Logi sisse</h1>
 
         @if ($errors->any())
           <p class="login-page__message login-page__message--error">
@@ -16,49 +15,72 @@
           </p>
         @endif
 
-        <div class="login-page__tabs" role="tablist" aria-label="Konto tüüp">
-          <button type="button" class="login-page__tab login-page__tab--active" id="auth-tab-login" role="tab" aria-selected="true">Logi sisse</button>
-          <button type="button" class="login-page__tab" id="auth-tab-register" role="tab" aria-selected="false">Registreeru</button>
-        </div>
-
-        <form class="login-page__panel login-page__panel--active contact-page__form" id="login-form" method="post" action="{{ route('login.submit') }}">
+        <form class="login-page__panel login-page__panel--active" id="login-form" method="post" action="{{ route('login.submit') }}">
           @csrf
-          <label class="contact-page__field">
-            <span class="contact-page__label">E-post <span class="contact-page__required" aria-hidden="true">*</span></span>
-            <input class="contact-page__input" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
-          </label>
-          <label class="contact-page__field">
-            <span class="contact-page__label">Parool <span class="contact-page__required" aria-hidden="true">*</span></span>
-            <input class="contact-page__input" type="password" name="password" required autocomplete="current-password" minlength="6">
-          </label>
-          <button class="contact-page__submit" type="submit">Logi sisse</button>
+          <div class="login-page__field">
+            <label class="visually-hidden" for="login-email">E-post</label>
+            <div class="login-page__input-wrap">
+              <input class="login-page__input" id="login-email" type="email" name="email" value="{{ old('email') }}" placeholder="E-post" required autocomplete="email">
+              <span class="login-page__input-icon login-page__input-icon--mail" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="login-page__field">
+            <label class="visually-hidden" for="login-password">Parool</label>
+            <div class="login-page__input-wrap">
+              <input class="login-page__input" id="login-password" type="password" name="password" placeholder="Parool" required autocomplete="current-password" minlength="6">
+              <span class="login-page__input-icon login-page__input-icon--lock" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="login-page__options">
+            <label class="login-page__remember">
+              <input type="checkbox" name="remember">
+              <span>Jäta mind meelde</span>
+            </label>
+            <button type="button" class="login-page__forgot">Unustasid parooli?</button>
+          </div>
+          <button class="login-page__submit" type="submit">Logi sisse</button>
+          <p class="login-page__footer">
+            Pole kontot?
+            <button type="button" class="login-page__switch" id="auth-switch-register">Registreeru</button>
+          </p>
         </form>
 
-        <form class="login-page__panel contact-page__form" id="register-form" method="post" action="{{ route('register.submit') }}">
+        <form class="login-page__panel" id="register-form" method="post" action="{{ route('register.submit') }}">
           @csrf
-          <label class="contact-page__field">
-            <span class="contact-page__label">Nimi <span class="contact-page__required" aria-hidden="true">*</span></span>
-            <input class="contact-page__input" type="text" name="name" value="{{ old('name') }}" required autocomplete="name">
-          </label>
-          <label class="contact-page__field">
-            <span class="contact-page__label">E-post <span class="contact-page__required" aria-hidden="true">*</span></span>
-            <input class="contact-page__input" type="email" name="email" value="{{ old('email') }}" required autocomplete="email">
-          </label>
-          <label class="contact-page__field">
-            <span class="contact-page__label">Parool <span class="contact-page__required" aria-hidden="true">*</span></span>
-            <input class="contact-page__input" type="password" name="password" required autocomplete="new-password" minlength="6">
-          </label>
-          <label class="contact-page__field">
-            <span class="contact-page__label">Korda parooli <span class="contact-page__required" aria-hidden="true">*</span></span>
-            <input class="contact-page__input" type="password" name="password_confirmation" required autocomplete="new-password" minlength="6">
-          </label>
-          <button class="contact-page__submit" type="submit">Loo konto</button>
+          <div class="login-page__field">
+            <label class="visually-hidden" for="register-name">Nimi</label>
+            <div class="login-page__input-wrap">
+              <input class="login-page__input" id="register-name" type="text" name="name" value="{{ old('name') }}" placeholder="Nimi" required autocomplete="name">
+              <span class="login-page__input-icon login-page__input-icon--user" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="login-page__field">
+            <label class="visually-hidden" for="register-email">E-post</label>
+            <div class="login-page__input-wrap">
+              <input class="login-page__input" id="register-email" type="email" name="email" value="{{ old('email') }}" placeholder="E-post" required autocomplete="email">
+              <span class="login-page__input-icon login-page__input-icon--mail" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="login-page__field">
+            <label class="visually-hidden" for="register-password">Parool</label>
+            <div class="login-page__input-wrap">
+              <input class="login-page__input" id="register-password" type="password" name="password" placeholder="Parool" required autocomplete="new-password" minlength="6">
+              <span class="login-page__input-icon login-page__input-icon--lock" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="login-page__field">
+            <label class="visually-hidden" for="register-password-confirm">Korda parooli</label>
+            <div class="login-page__input-wrap">
+              <input class="login-page__input" id="register-password-confirm" type="password" name="password_confirmation" placeholder="Korda parooli" required autocomplete="new-password" minlength="6">
+              <span class="login-page__input-icon login-page__input-icon--lock" aria-hidden="true"></span>
+            </div>
+          </div>
+          <button class="login-page__submit" type="submit">Loo konto</button>
+          <p class="login-page__footer">
+            On juba konto?
+            <button type="button" class="login-page__switch" id="auth-switch-login">Logi sisse</button>
+          </p>
         </form>
-
-        <p class="login-page__hint">
-          Demo konto: <strong>demo@tarukoda.ee</strong> / <strong>tarukoda123</strong><br>
-          Admin: <strong>test@test.ee</strong> / <strong>test</strong>
-        </p>
       </div>
     </div>
   </main>
@@ -66,8 +88,9 @@
 
 @push('scripts')
   <script>
-    const loginTab = document.getElementById("auth-tab-login");
-    const registerTab = document.getElementById("auth-tab-register");
+    const loginHeading = document.getElementById("login-heading");
+    const switchRegister = document.getElementById("auth-switch-register");
+    const switchLogin = document.getElementById("auth-switch-login");
     const loginForm = document.getElementById("login-form");
     const registerForm = document.getElementById("register-form");
 
@@ -75,12 +98,13 @@
       const isLogin = tab === "login";
       loginForm?.classList.toggle("login-page__panel--active", isLogin);
       registerForm?.classList.toggle("login-page__panel--active", !isLogin);
-      loginTab?.classList.toggle("login-page__tab--active", isLogin);
-      registerTab?.classList.toggle("login-page__tab--active", !isLogin);
+      if (loginHeading) {
+        loginHeading.textContent = isLogin ? "Logi sisse" : "Registreeru";
+      }
     }
 
-    loginTab?.addEventListener("click", () => switchTab("login"));
-    registerTab?.addEventListener("click", () => switchTab("register"));
+    switchRegister?.addEventListener("click", () => switchTab("register"));
+    switchLogin?.addEventListener("click", () => switchTab("login"));
 
     @if ($errors->has('name') || $errors->has('password_confirmation'))
       switchTab("register");

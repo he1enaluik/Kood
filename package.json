@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "deploy": "surge . tarukoda.surge.sh",
-    "deploy:preview": "surge ."
+    "deploy:preview": "surge .",
+    "stripe:server": "php -S localhost:8080",
+    "serve": "php -S localhost:8080"
   }
 }

@@ -15,16 +15,6 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Demo Kasutaja',
                 'password' => Hash::make('tarukoda123'),
-                'is_admin' => false,
-            ]
-        );
-
-        User::query()->firstOrCreate(
-            ['email' => 'test@test.ee'],
-            [
-                'name' => 'Admin',
-                'password' => Hash::make('test'),
-                'is_admin' => true,
             ]
         );
     }

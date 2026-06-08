@@ -38,4 +38,9 @@ class PageController extends Controller
     {
         return view('pages.order');
     }
+
+    public function orderSuccess()
+    {
+        return view('pages.order-success');
+    }
 }

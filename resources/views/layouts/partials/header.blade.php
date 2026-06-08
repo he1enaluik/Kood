@@ -5,6 +5,19 @@
       <span class="header__logo-text">TARUKODA</span>
     </a>
 
+    <button
+      type="button"
+      class="header__menu-toggle"
+      id="header-menu-toggle"
+      aria-label="Ava menüü"
+      aria-expanded="false"
+      aria-controls="header-mobile-panel"
+    >
+      <span class="header__menu-toggle-bar" aria-hidden="true"></span>
+      <span class="header__menu-toggle-bar" aria-hidden="true"></span>
+      <span class="header__menu-toggle-bar" aria-hidden="true"></span>
+    </button>
+
     <nav class="header__nav" aria-label="Peamenüü">
       <ul class="header__menu">
         <li><a href="{{ route('home') }}" @if(request()->routeIs('home')) aria-current="page" @endif>Avaleht</a></li>
@@ -67,6 +80,17 @@
           </div>
         @endguest
       </div>
+    </nav>
+  </div>
+
+  <div class="header__mobile-panel" id="header-mobile-panel" hidden>
+    <nav class="header__mobile-nav" aria-label="Mobiilimenüü">
+      <ul class="header__mobile-menu">
+        <li><a href="{{ route('home') }}">Avaleht</a></li>
+        <li><a href="{{ route('products') }}">Tooted</a></li>
+        <li><a href="{{ route('contact') }}">Kontakt</a></li>
+        <li><a href="{{ route('home') }}#our-mission">Meist</a></li>
+      </ul>
     </nav>
   </div>
 </header>

@@ -6,13 +6,25 @@
 @section('content')
 <main class="order-page" aria-labelledby="order-title" data-products-url="{{ route('products') }}">
     <img
-      class="order-page__decor order-page__decor--left"
+      class="order-page__decor order-page__decor--honeycomb-left"
       src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
       alt=""
-      width="240"
+      width="280"
     >
     <img
-      class="order-page__decor order-page__decor--bee"
+      class="order-page__decor order-page__decor--honeycomb-right"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png') }}"
+      alt=""
+      width="260"
+    >
+    <img
+      class="order-page__decor order-page__decor--bee-left"
+      src="{{ asset('Designi%20elemendid/Mesilane.png') }}"
+      alt=""
+      width="120"
+    >
+    <img
+      class="order-page__decor order-page__decor--bee-right"
       src="{{ asset('Designi%20elemendid/Mesilane.png') }}"
       alt=""
       width="100"
@@ -45,7 +57,9 @@
               Ostukorv on tühi. <a href="{{ route('products') }}">Vaata tooteid</a>
             </p>
 
-            <dl class="order-page__totals" id="order-cart-totals"></dl>
+            <button type="button" class="order-page__promo" id="order-promo-toggle" hidden>Sisesta sooduskood</button>
+
+            <div class="order-page__totals" id="order-cart-totals"></div>
           </div>
 
           <form class="order-page__form" method="post" action="{{ route('order.submit') }}">
@@ -103,6 +117,14 @@
             <button class="contact-page__submit" type="submit">Esita tellimus</button>
           </form>
         </div>
+
+        <img
+          class="order-page__box-decor"
+          src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1.png') }}"
+          alt=""
+          width="90"
+          loading="lazy"
+        >
       </div>
     </div>
   </main>

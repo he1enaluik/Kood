@@ -1,11 +1,20 @@
 /**
- * E-posti seadistus staatilisele HTML-le (Live Server, GitHub Pages jne).
+ * Stripe testkeskkonna seadistus.
  *
- * 1. Mine https://web3forms.com
- * 2. Sisesta oma e-post ja kopeeri Access Key
- * 3. Kleebi võti allpool web3formsKey väljale
+ * Live Server (port 5500) ei käita PHP-d — makse-API jookseb eraldi:
+ *   npm run stripe:server
  */
-window.TARUKODA_MAIL = {
-  web3formsKey: "e46aaca6-968c-4b2f-9759-c2555bad21f6",
-  toEmail: "mardomais7@gmail.com",
-};
+(function () {
+  const liveServerPorts = new Set(["5500", "5501"]);
+  const isLiveServer = liveServerPorts.has(window.location.port);
+  const checkoutEndpoint = isLiveServer
+    ? "http://localhost:8080/api/stripe-checkout.php"
+    : "api/stripe-checkout.php";
+
+  window.TARUKODA_STRIPE = {
+    publishableKey:
+      "pk_test_51TfPwUKuzkXTZt1CJwnedMi88WhXbjd9PSp7RvGlKNd3kaKHyRzVNepEZXI27eOOwQzqoHFIAyHK3Inx7udZeJG100wuk73SAh",
+    checkoutEndpoint,
+    usesLiveServer: isLiveServer,
+  };
+})();

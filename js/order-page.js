@@ -3,6 +3,7 @@
     const itemsContainer = document.getElementById("order-cart-items");
     const emptyMessage = document.getElementById("order-cart-empty");
     const totalsContainer = document.getElementById("order-cart-totals");
+    const promoToggle = document.getElementById("order-promo-toggle");
     const form = document.querySelector(".order-page__form");
 
     if (!itemsContainer || !totalsContainer) return;
@@ -21,30 +22,38 @@
         emptyMessage.hidden = false;
       }
       totalsContainer.innerHTML = "";
+      if (promoToggle) promoToggle.hidden = true;
       if (form) form.hidden = true;
       return;
     }
 
     if (emptyMessage) emptyMessage.hidden = true;
+    if (promoToggle) promoToggle.hidden = false;
     if (form) form.hidden = false;
 
     itemsContainer.innerHTML = items
       .map(
         (item) => `
         <article class="order-page__item" data-slug="${item.slug}">
-          <img
+          ${
+            item.product.image
+              ? `<img
             class="order-page__item-image"
             src="${encode(item.product.image)}"
             alt="${item.product.name}"
-            width="80"
-            height="96"
-          >
-          <div class="order-page__item-info">
-            <h2 class="order-page__item-name">${item.product.name}</h2>
-            <p class="order-page__item-meta">${item.product.weight} • ${item.quantity} tk</p>
+            width="56"
+            height="56"
+          >`
+              : `<div class="order-page__item-image order-page__item-image--placeholder" aria-hidden="true"></div>`
+          }
+          <div class="order-page__item-body">
+            <div class="order-page__item-top">
+              <h2 class="order-page__item-name">${item.product.name}</h2>
+              <span class="order-page__item-price">${formatPrice(item.lineTotal)}</span>
+            </div>
+            <p class="order-page__item-meta">${item.product.weight} • ${item.quantity}tk</p>
             <button type="button" class="order-page__item-remove" data-remove="${item.slug}">Eemalda</button>
           </div>
-          <span class="order-page__item-price">${formatPrice(item.lineTotal)}</span>
         </article>
       `
       )
@@ -56,16 +65,20 @@
 
     totalsContainer.innerHTML = `
       <div class="order-page__total-row">
-        <dt>Vahesumma</dt>
-        <dd>${formatPrice(subtotal)}</dd>
+        <span class="order-page__total-label">Subtotal</span>
+        <span class="order-page__total-value">${formatPrice(subtotal)}</span>
       </div>
       <div class="order-page__total-row">
-        <dt>Tarne</dt>
-        <dd>${formatPrice(shipping)}</dd>
+        <span class="order-page__total-label">Käibemaks</span>
+        <span class="order-page__total-value">22%</span>
+      </div>
+      <div class="order-page__total-row">
+        <span class="order-page__total-label">Tarne</span>
+        <span class="order-page__total-value">${formatPrice(shipping)}</span>
       </div>
       <div class="order-page__total-row order-page__total-row--final">
-        <dt>Kokku</dt>
-        <dd>${formatPrice(total)}</dd>
+        <span class="order-page__total-label">Kokku</span>
+        <span class="order-page__total-value">${formatPrice(total)}</span>
       </div>
     `;
 

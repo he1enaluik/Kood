@@ -4,7 +4,7 @@
 @section('description', 'Tarukoda pakub ehtsat mahemett Eesti puhtast loodusest. Vaata mesi, mesilasvaha küünlad ja kinkekomplekte.')
 
 @push('head')
-  <link rel="preload" as="image" href="{{ asset('pildid/hero-taust.png') }}" fetchpriority="high">
+  <link rel="preload" as="image" href="{{ asset('pildid/hero-taust1.png') }}" fetchpriority="high">
 @endpush
 
 @section('content')
@@ -12,7 +12,7 @@
     <div class="hero__media">
       <img
         class="hero__image"
-        src="{{ asset('pildid/hero-taust.png') }}"
+        src="{{ asset('pildid/hero-taust1.png') }}"
         alt=""
         width="1920"
         height="993"
@@ -59,13 +59,6 @@
   </section>
 
   <section class="new-products" aria-labelledby="new-products-title">
-    <img
-      class="new-products__decor"
-      src="Designi elemendid/Mesilaskärg1_SUUR.png') }}"
-      alt=""
-      width="220"
-      height="220"
-    >
     <div class="container">
       <div class="new-products__box">
         <header class="new-products__header">
@@ -370,7 +363,7 @@
                 loading="lazy"
               >
               <div class="event-card__date">
-                <img class="event-card__date-icon" src="{{ asset('Ikoonid/Kalender.svg') }}" alt="" width="18" height="18">
+                <img class="event-card__date-icon" src="{{ asset('Ikoonid/Kalender.svg') }}" alt="" width="14" height="14">
                 <span class="event-card__day">17</span>
                 <span class="event-card__month">Mai</span>
                 <span class="event-card__year">2026</span>
@@ -396,7 +389,7 @@
                 loading="lazy"
               >
               <div class="event-card__date">
-                <img class="event-card__date-icon" src="{{ asset('Ikoonid/Kalender.svg') }}" alt="" width="18" height="18">
+                <img class="event-card__date-icon" src="{{ asset('Ikoonid/Kalender.svg') }}" alt="" width="14" height="14">
                 <span class="event-card__day">8</span>
                 <span class="event-card__month">Juuni</span>
                 <span class="event-card__year">2026</span>
@@ -418,13 +411,13 @@
               <img
                 class="event-card__image"
                 src="{{ asset('pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2007_32_18%20PM.png') }}"
-                alt="Meedegusteerimine meepurkidega"
+                alt="Mee degusteerimine meepurkidega"
                 loading="lazy"
               >
               <div class="event-card__date">
-                <img class="event-card__date-icon" src="{{ asset('Ikoonid/Kalender.svg') }}" alt="" width="18" height="18">
+                <img class="event-card__date-icon" src="{{ asset('Ikoonid/Kalender.svg') }}" alt="" width="14" height="14">
                 <span class="event-card__day">22</span>
-                <span class="event-card__month">Juuli6</span>
+                <span class="event-card__month">Juuli</span>
                 <span class="event-card__year">2026</span>
               </div>
             </div>
@@ -433,8 +426,34 @@
                 <img class="event-card__time-icon" src="{{ asset('Ikoonid/Kell.svg') }}" alt="" width="16" height="16">
                 11:00
               </p>
-              <h3 class="product-card__name">Meedegusteerimine ja toote tutvustus</h3>
+              <h3 class="product-card__name">Mee degusteerimine ja toote tutvustus</h3>
               <p class="product-card__desc">Maitse erinevaid meeliike ja saa teada Tarukoja toodetest.</p>
+              <a href="#" class="event-card__link">Loe lähemalt <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-card__media">
+              <img
+                class="event-card__image event-card__image--flip"
+                src="{{ asset('pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.png') }}"
+                alt="Mesilane mesitaru lähedal"
+                loading="lazy"
+              >
+              <div class="event-card__date">
+                <img class="event-card__date-icon" src="{{ asset('Ikoonid/Kalender.svg') }}" alt="" width="14" height="14">
+                <span class="event-card__day">31</span>
+                <span class="event-card__month">Juuli</span>
+                <span class="event-card__year">2026</span>
+              </div>
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__time">
+                <img class="event-card__time-icon" src="{{ asset('Ikoonid/Kell.svg') }}" alt="" width="16" height="16">
+                14:00
+              </p>
+              <h3 class="product-card__name">Mesinikukoolitus algajatele</h3>
+              <p class="product-card__desc">Õpi mesilaste hooldamise põhitõdesid meie kogenud mesinikuga.</p>
               <a href="#" class="event-card__link">Loe lähemalt <span aria-hidden="true">→</span></a>
             </div>
           </article>
@@ -445,7 +464,7 @@
         </button>
       </div>
 
-      <a href="{{ route('products') }}" class="best-offers__link">Vaata kõiki</a>
+      <span class="events__link">Vaata kõiki</span>
     </div>
   </section>
 @endsection
@@ -461,9 +480,15 @@
 
       const scrollStep = () => {
         const card = track.querySelector(cardSelector);
-        if (!card) return 271;
-        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 48;
+        if (!card) return 0;
+        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
         return card.offsetWidth + gap;
+      };
+
+      const updateButtons = () => {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        prev.disabled = track.scrollLeft <= 1;
+        next.disabled = track.scrollLeft >= maxScroll - 1;
       };
 
       prev.addEventListener("click", () => {
@@ -473,9 +498,80 @@
       next.addEventListener("click", () => {
         track.scrollBy({ left: scrollStep(), behavior: "smooth" });
       });
+
+      track.addEventListener("scroll", updateButtons, { passive: true });
+      window.addEventListener("resize", updateButtons);
+      updateButtons();
     }
 
     initCarousel(".best-offers__track", ".best-offers__arrow--prev", ".best-offers__arrow--next", ".product-card");
-    initCarousel(".events__track", ".events__arrow--prev", ".events__arrow--next", ".event-card");
+
+    function initEventsCarousel() {
+      const track = document.querySelector(".events__track");
+      const prev = document.querySelector(".events__arrow--prev");
+      const next = document.querySelector(".events__arrow--next");
+      if (!track || !prev || !next) return;
+
+      const originals = [...track.querySelectorAll(".event-card:not(.event-card--clone)")];
+      if (!originals.length) return;
+
+      originals.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.classList.add("event-card--clone");
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelectorAll("a, button").forEach((el) => {
+          el.tabIndex = -1;
+        });
+        track.appendChild(clone);
+      });
+
+      const cardStep = () => {
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return originals[0].offsetWidth + gap;
+      };
+
+      const loopWidth = () => cardStep() * originals.length;
+
+      let jumping = false;
+
+      const normalize = () => {
+        if (jumping) return;
+        const loop = loopWidth();
+        if (loop <= 0) return;
+
+        if (track.scrollLeft >= loop) {
+          jumping = true;
+          track.style.scrollBehavior = "auto";
+          track.scrollLeft -= loop;
+          track.style.scrollBehavior = "";
+          jumping = false;
+        }
+      };
+
+      const jumpToCloneStart = () => {
+        jumping = true;
+        track.style.scrollBehavior = "auto";
+        track.scrollLeft += loopWidth();
+        track.style.scrollBehavior = "";
+        jumping = false;
+      };
+
+      track.addEventListener("scroll", normalize, { passive: true });
+
+      next.addEventListener("click", () => {
+        track.scrollBy({ left: cardStep(), behavior: "smooth" });
+      });
+
+      prev.addEventListener("click", () => {
+        if (track.scrollLeft <= 1) {
+          jumpToCloneStart();
+        }
+        track.scrollBy({ left: -cardStep(), behavior: "smooth" });
+      });
+
+      window.addEventListener("resize", normalize);
+    }
+
+    initEventsCarousel();
   </script>
 @endpush

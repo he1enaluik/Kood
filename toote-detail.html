@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    if (location.protocol === "http:" && !/localhost|127\.0\.0\.1|^$/.test(location.hostname)) {
+      location.replace(location.href.replace(/^http:/, "https:"));
+    }
+  </script>
   <meta name="description" content="Tarukoja toote detailid, koostis, hind ja tellimisinfo. Ehtne mahemesi ja mesindustooted Eestist.">
   <title>Niidumesi | Tarukoda</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +23,19 @@
         <span class="header__logo-icon" aria-hidden="true"></span>
         <span class="header__logo-text">TARUKODA</span>
       </a>
+
+      <button
+        type="button"
+        class="header__menu-toggle"
+        id="header-menu-toggle"
+        aria-label="Ava menüü"
+        aria-expanded="false"
+        aria-controls="header-mobile-panel"
+      >
+        <span class="header__menu-toggle-bar" aria-hidden="true"></span>
+        <span class="header__menu-toggle-bar" aria-hidden="true"></span>
+        <span class="header__menu-toggle-bar" aria-hidden="true"></span>
+      </button>
 
       <nav class="header__nav" aria-label="Peamenüü">
         <ul class="header__menu">
@@ -70,15 +88,46 @@
         </div>
       </nav>
     </div>
+
+    <div class="header__mobile-panel" id="header-mobile-panel" hidden>
+      <nav class="header__mobile-nav" aria-label="Mobiilimenüü">
+        <ul class="header__mobile-menu">
+          <li><a href="index.html">Avaleht</a></li>
+          <li><a href="tooted.html">Tooted</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="index.html#our-mission">Meist</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main class="product-detail" aria-labelledby="product-detail-title">
-    <div class="container">
-      <a href="tooted.html" class="product-detail__back">
-        <img src="Ikoonid/arrow_back_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="20" height="20">
-        Tagasi toodete juurde
-      </a>
+    <img
+      class="product-detail__decor product-detail__decor--honeycomb-left"
+      src="Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png"
+      alt=""
+      width="280"
+    >
+    <img
+      class="product-detail__decor product-detail__decor--honeycomb-right"
+      src="Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png"
+      alt=""
+      width="260"
+    >
+    <img
+      class="product-detail__decor product-detail__decor--bee-left"
+      src="Designi%20elemendid/Mesilane.png"
+      alt=""
+      width="120"
+    >
+    <img
+      class="product-detail__decor product-detail__decor--bee-right"
+      src="Designi%20elemendid/Mesilane.png"
+      alt=""
+      width="100"
+    >
 
+    <div class="container">
       <div class="product-detail__box">
         <div class="product-detail__inner">
           <div class="product-detail__gallery">
@@ -89,17 +138,11 @@
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
                 alt="Niidumesi purk"
                 width="406"
-                height="400"
+                height="406"
               >
-              <button class="product-detail__arrow product-detail__arrow--prev" type="button" aria-label="Eelmine pilt">
-                <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
-              </button>
-              <button class="product-detail__arrow product-detail__arrow--next" type="button" aria-label="Järgmine pilt">
-                <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
-              </button>
             </div>
 
-            <div class="product-detail__thumbs" id="product-detail-thumbs" role="tablist" aria-label="Toote pildid"></div>
+            <div class="product-detail__thumbs" id="product-detail-thumbs" hidden></div>
           </div>
 
           <div class="product-detail__info">
@@ -219,12 +262,10 @@
     </div>
   </footer>
 
-  <script src="js/products-data.js" defer></script>
-  <script src="js/admin-store.js" defer></script>
-  <script src="js/cart.js" defer></script>
+  <script src="js/products-data.js" defer></script>  <script src="js/cart.js" defer></script>
   <script src="js/search.js" defer></script>
-  <script src="js/auth.js" defer></script>
-  <script src="js/admin-crud.js" defer></script>
-  <script src="js/product-detail.js" defer></script>
+  <script src="js/auth.js?v=3" defer></script>
+  <script src="js/mobile-nav.js" defer></script>
+  <script src="js/product-detail.js?v=2" defer></script>
 </body>
 </html>

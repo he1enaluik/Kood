@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    if (location.protocol === "http:" && !/localhost|127\.0\.0\.1|^$/.test(location.hostname)) {
+      location.replace(location.href.replace(/^http:/, "https:"));
+    }
+  </script>
   <meta name="description" content="Tarukoda pakub ehtsat mahemett Eesti puhtast loodusest. Vaata mesi, mesilasvaha küünlad ja kinkekomplekte.">
   <title>Tarukoda</title>
-  <link rel="preload" as="image" href="pildid/hero-taust.png" fetchpriority="high">
+  <link rel="preload" as="image" href="pildid/hero-taust1.png" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Inter:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -19,6 +24,19 @@
         <span class="header__logo-icon" aria-hidden="true"></span>
         <span class="header__logo-text">TARUKODA</span>
       </a>
+
+      <button
+        type="button"
+        class="header__menu-toggle"
+        id="header-menu-toggle"
+        aria-label="Ava menüü"
+        aria-expanded="false"
+        aria-controls="header-mobile-panel"
+      >
+        <span class="header__menu-toggle-bar" aria-hidden="true"></span>
+        <span class="header__menu-toggle-bar" aria-hidden="true"></span>
+        <span class="header__menu-toggle-bar" aria-hidden="true"></span>
+      </button>
 
       <nav class="header__nav" aria-label="Peamenüü">
         <ul class="header__menu">
@@ -71,13 +89,24 @@
         </div>
       </nav>
     </div>
+
+    <div class="header__mobile-panel" id="header-mobile-panel" hidden>
+      <nav class="header__mobile-nav" aria-label="Mobiilimenüü">
+        <ul class="header__mobile-menu">
+          <li><a href="index.html">Avaleht</a></li>
+          <li><a href="tooted.html">Tooted</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li><a href="index.html#our-mission">Meist</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <section class="hero" aria-label="Avalehe sissejuhatus">
     <div class="hero__media">
       <img
         class="hero__image"
-        src="pildid/hero-taust.png"
+        src="pildid/hero-taust1.png"
         alt=""
         width="1920"
         height="993"
@@ -124,15 +153,6 @@
   </section>
 
   <section class="new-products" aria-labelledby="new-products-title">
-    <img
-      class="new-products__decor"
-      src="Designi elemendid/Mesilaskärg1_SUUR.png"
-      alt=""
-      width="220"
-      height="220"
-      loading="lazy"
-      decoding="async"
-    >
     <div class="container">
       <div class="new-products__box">
         <header class="new-products__header">
@@ -437,7 +457,7 @@
                 loading="lazy"
               >
               <div class="event-card__date">
-                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="18" height="18">
+                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="14" height="14">
                 <span class="event-card__day">17</span>
                 <span class="event-card__month">Mai</span>
                 <span class="event-card__year">2026</span>
@@ -463,7 +483,7 @@
                 loading="lazy"
               >
               <div class="event-card__date">
-                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="18" height="18">
+                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="14" height="14">
                 <span class="event-card__day">8</span>
                 <span class="event-card__month">Juuni</span>
                 <span class="event-card__year">2026</span>
@@ -485,13 +505,13 @@
               <img
                 class="event-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2007_32_18%20PM.png"
-                alt="Meedegusteerimine meepurkidega"
+                alt="Mee degusteerimine meepurkidega"
                 loading="lazy"
               >
               <div class="event-card__date">
-                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="18" height="18">
+                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="14" height="14">
                 <span class="event-card__day">22</span>
-                <span class="event-card__month">Juuli6</span>
+                <span class="event-card__month">Juuli</span>
                 <span class="event-card__year">2026</span>
               </div>
             </div>
@@ -500,8 +520,34 @@
                 <img class="event-card__time-icon" src="Ikoonid/Kell.svg" alt="" width="16" height="16">
                 11:00
               </p>
-              <h3 class="product-card__name">Meedegusteerimine ja toote tutvustus</h3>
+              <h3 class="product-card__name">Mee degusteerimine ja toote tutvustus</h3>
               <p class="product-card__desc">Maitse erinevaid meeliike ja saa teada Tarukoja toodetest.</p>
+              <a href="#" class="event-card__link">Loe lähemalt <span aria-hidden="true">→</span></a>
+            </div>
+          </article>
+
+          <article class="event-card">
+            <div class="event-card__media">
+              <img
+                class="event-card__image event-card__image--flip"
+                src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.png"
+                alt="Mesilane mesitaru lähedal"
+                loading="lazy"
+              >
+              <div class="event-card__date">
+                <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="14" height="14">
+                <span class="event-card__day">31</span>
+                <span class="event-card__month">Juuli</span>
+                <span class="event-card__year">2026</span>
+              </div>
+            </div>
+            <div class="event-card__body">
+              <p class="event-card__time">
+                <img class="event-card__time-icon" src="Ikoonid/Kell.svg" alt="" width="16" height="16">
+                14:00
+              </p>
+              <h3 class="product-card__name">Mesinikukoolitus algajatele</h3>
+              <p class="product-card__desc">Õpi mesilaste hooldamise põhitõdesid meie kogenud mesinikuga.</p>
               <a href="#" class="event-card__link">Loe lähemalt <span aria-hidden="true">→</span></a>
             </div>
           </article>
@@ -512,7 +558,7 @@
         </button>
       </div>
 
-      <a href="tooted.html" class="best-offers__link">Vaata kõiki</a>
+      <span class="events__link">Vaata kõiki</span>
     </div>
   </section>
 
@@ -552,10 +598,10 @@
         <div class="footer__col">
           <h3 class="footer__heading">Tooted</h3>
           <ul class="footer__links">
-            <li><a href="tooted.html">Mesi</a></li>
-            <li><a href="tooted.html">Mesilasvaha küünlad</a></li>
-            <li><a href="tooted.html">Kinkekomplektid</a></li>
-            <li><a href="tooted.html">Hooajatooted</a></li>
+            <li><a href="tooted.html?category=mesi">Mesi</a></li>
+            <li><a href="tooted.html?category=kunlad">Mesilasvaha küünlad</a></li>
+            <li><a href="tooted.html?category=kinke">Kinkekomplektid</a></li>
+            <li><a href="tooted.html?category=hooaeg">Hooajatooted</a></li>
           </ul>
         </div>
 
@@ -604,9 +650,15 @@
 
       const scrollStep = () => {
         const card = track.querySelector(cardSelector);
-        if (!card) return 271;
-        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 48;
+        if (!card) return 0;
+        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
         return card.offsetWidth + gap;
+      };
+
+      const updateButtons = () => {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        prev.disabled = track.scrollLeft <= 1;
+        next.disabled = track.scrollLeft >= maxScroll - 1;
       };
 
       prev.addEventListener("click", () => {
@@ -616,16 +668,84 @@
       next.addEventListener("click", () => {
         track.scrollBy({ left: scrollStep(), behavior: "smooth" });
       });
+
+      track.addEventListener("scroll", updateButtons, { passive: true });
+      window.addEventListener("resize", updateButtons);
+      updateButtons();
+    }
+
+    function initEventsCarousel() {
+      const track = document.querySelector(".events__track");
+      const prev = document.querySelector(".events__arrow--prev");
+      const next = document.querySelector(".events__arrow--next");
+      if (!track || !prev || !next) return;
+
+      const originals = [...track.querySelectorAll(".event-card:not(.event-card--clone)")];
+      if (!originals.length) return;
+
+      originals.forEach((card) => {
+        const clone = card.cloneNode(true);
+        clone.classList.add("event-card--clone");
+        clone.setAttribute("aria-hidden", "true");
+        clone.querySelectorAll("a, button").forEach((el) => {
+          el.tabIndex = -1;
+        });
+        track.appendChild(clone);
+      });
+
+      const cardStep = () => {
+        const gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return originals[0].offsetWidth + gap;
+      };
+
+      const loopWidth = () => cardStep() * originals.length;
+
+      let jumping = false;
+
+      const normalize = () => {
+        if (jumping) return;
+        const loop = loopWidth();
+        if (loop <= 0) return;
+
+        if (track.scrollLeft >= loop) {
+          jumping = true;
+          track.style.scrollBehavior = "auto";
+          track.scrollLeft -= loop;
+          track.style.scrollBehavior = "";
+          jumping = false;
+        }
+      };
+
+      const jumpToCloneStart = () => {
+        jumping = true;
+        track.style.scrollBehavior = "auto";
+        track.scrollLeft += loopWidth();
+        track.style.scrollBehavior = "";
+        jumping = false;
+      };
+
+      track.addEventListener("scroll", normalize, { passive: true });
+
+      next.addEventListener("click", () => {
+        track.scrollBy({ left: cardStep(), behavior: "smooth" });
+      });
+
+      prev.addEventListener("click", () => {
+        if (track.scrollLeft <= 1) {
+          jumpToCloneStart();
+        }
+        track.scrollBy({ left: -cardStep(), behavior: "smooth" });
+      });
+
+      window.addEventListener("resize", normalize);
     }
 
     initCarousel(".best-offers__track", ".best-offers__arrow--prev", ".best-offers__arrow--next", ".product-card");
-    initCarousel(".events__track", ".events__arrow--prev", ".events__arrow--next", ".event-card");
+    initEventsCarousel();
   </script>
-  <script src="js/products-data.js" defer></script>
-  <script src="js/admin-store.js" defer></script>
-  <script src="js/cart.js" defer></script>
+  <script src="js/products-data.js" defer></script>  <script src="js/cart.js" defer></script>
   <script src="js/search.js" defer></script>
-  <script src="js/auth.js" defer></script>
-  <script src="js/admin-crud.js" defer></script>
+  <script src="js/auth.js?v=3" defer></script>
+  <script src="js/mobile-nav.js" defer></script>
 </body>
 </html>

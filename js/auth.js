@@ -1,14 +1,114 @@
 (function () {
   const USERS_KEY = "tarukoda-users";
   const SESSION_KEY = "tarukoda-session";
+  const DEFAULT_PASSWORD_HASHES = {
+    tarukoda123: "db3bef59e23163bf0914f904e2766f4b4eba1d0dc1927035fc0f5913be061ee8",
+  };
+
+  function bytesToHex(bytes) {
+    return Array.from(bytes)
+      .map((byte) => byte.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  function sha256Pure(message) {
+    const rotr = (n, x) => (x >>> n) | (x << (32 - n));
+    const sigma0 = (x) => rotr(2, x) ^ rotr(13, x) ^ rotr(22, x);
+    const sigma1 = (x) => rotr(6, x) ^ rotr(11, x) ^ rotr(25, x);
+    const ch = (x, y, z) => (x & y) ^ (~x & z);
+    const maj = (x, y, z) => (x & y) ^ (x & z) ^ (y & z);
+    const sigma0small = (x) => rotr(7, x) ^ rotr(18, x) ^ (x >>> 3);
+    const sigma1small = (x) => rotr(17, x) ^ rotr(19, x) ^ (x >>> 10);
+    const K = [
+      0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
+      0xd807aa98, 0x12835b01, 0x243185be, 0x550c7dc3, 0x72be5d74, 0x80deb1fe, 0x9bdc06a7, 0xc19bf174,
+      0xe49b69c1, 0xefbe4786, 0x0fc19dc6, 0x240ca1cc, 0x2de92c6f, 0x4a7484aa, 0x5cb0a9dc, 0x76f988da,
+      0x983e5152, 0xa831c66d, 0xb00327c8, 0xbf597fc7, 0xc6e00bf3, 0xd5a79147, 0x06ca6351, 0x14292967,
+      0x27b70a85, 0x2e1b2138, 0x4d2c6dfc, 0x53380d13, 0x650a7354, 0x766a0abb, 0x81c2c92e, 0x92722c85,
+      0xa2bfe8a1, 0xa81a664b, 0xc24b8b70, 0xc76c51a3, 0xd192e819, 0xd6990624, 0xf40e3585, 0x106aa070,
+      0x19a4c116, 0x1e376c08, 0x2748774c, 0x34b0bcb5, 0x391c0cb3, 0x4ed8aa4a, 0x5b9cca4f, 0x682e6ff3,
+      0x748f82ee, 0x78a5636f, 0x84c87814, 0x8cc70208, 0x90befffa, 0xa4506ceb, 0xbef9a3f7, 0xc67178f2,
+    ];
+
+    let h0 = 0x6a09e667;
+    let h1 = 0xbb67ae85;
+    let h2 = 0x3c6ef372;
+    let h3 = 0xa54ff53a;
+    let h4 = 0x510e527f;
+    let h5 = 0x9b05688c;
+    let h6 = 0x1f83d9ab;
+    let h7 = 0x5be0cd19;
+
+    const bitLen = message.length * 8;
+    const padLen = (64 + 56 - ((message.length + 1) % 64)) % 64;
+    const totalLen = message.length + 1 + padLen + 8;
+    const padded = new Uint8Array(totalLen);
+    padded.set(message);
+    padded[message.length] = 0x80;
+
+    const view = new DataView(padded.buffer);
+    view.setUint32(totalLen - 8, Math.floor(bitLen / 0x100000000), false);
+    view.setUint32(totalLen - 4, bitLen >>> 0, false);
+
+    const w = new Uint32Array(64);
+
+    for (let offset = 0; offset < totalLen; offset += 64) {
+      for (let i = 0; i < 16; i += 1) {
+        w[i] = view.getUint32(offset + i * 4, false);
+      }
+
+      for (let i = 16; i < 64; i += 1) {
+        w[i] = (sigma1small(w[i - 2]) + w[i - 7] + sigma0small(w[i - 15]) + w[i - 16]) >>> 0;
+      }
+
+      let a = h0;
+      let b = h1;
+      let c = h2;
+      let d = h3;
+      let e = h4;
+      let f = h5;
+      let g = h6;
+      let h = h7;
+
+      for (let i = 0; i < 64; i += 1) {
+        const t1 = (h + sigma1(e) + ch(e, f, g) + K[i] + w[i]) >>> 0;
+        const t2 = (sigma0(a) + maj(a, b, c)) >>> 0;
+        h = g;
+        g = f;
+        f = e;
+        e = (d + t1) >>> 0;
+        d = c;
+        c = b;
+        b = a;
+        a = (t1 + t2) >>> 0;
+      }
+
+      h0 = (h0 + a) >>> 0;
+      h1 = (h1 + b) >>> 0;
+      h2 = (h2 + c) >>> 0;
+      h3 = (h3 + d) >>> 0;
+      h4 = (h4 + e) >>> 0;
+      h5 = (h5 + f) >>> 0;
+      h6 = (h6 + g) >>> 0;
+      h7 = (h7 + h) >>> 0;
+    }
+
+    return [h0, h1, h2, h3, h4, h5, h6, h7].map((value) => value.toString(16).padStart(8, "0")).join("");
+  }
 
   async function hashPassword(password) {
     const data = new TextEncoder().encode(password);
-    const hash = await crypto.subtle.digest("SHA-256", data);
 
-    return Array.from(new Uint8Array(hash))
-      .map((byte) => byte.toString(16).padStart(2, "0"))
-      .join("");
+    if (window.isSecureContext && globalThis.crypto?.subtle?.digest) {
+      try {
+        const hash = await crypto.subtle.digest("SHA-256", data);
+        return bytesToHex(new Uint8Array(hash));
+      } catch {
+        // Fall back when SubtleCrypto is unavailable (e.g. mixed/insecure context).
+      }
+    }
+
+    return sha256Pure(data);
   }
 
   function getUsers() {
@@ -27,31 +127,21 @@
 
   async function seedDefaultUsers() {
     const users = getUsers();
-    const adminEmail = "test@test.ee";
     const demoEmail = "demo@tarukoda.ee";
-    let updated = [...users];
 
-    if (!updated.some((user) => user.email === adminEmail)) {
-      updated.push({
-        name: "Admin",
-        email: adminEmail,
-        passwordHash: await hashPassword("test"),
-        role: "admin",
-      });
-    } else {
-      updated = updated.map((user) =>
-        user.email === adminEmail ? { ...user, role: "admin" } : user
-      );
+    if (users.some((user) => user.email === demoEmail)) {
+      refreshSessionFromUsers(users);
+      return;
     }
 
-    if (!updated.some((user) => user.email === demoEmail)) {
-      updated.push({
+    const updated = [
+      ...users,
+      {
         name: "Demo Kasutaja",
         email: demoEmail,
-        passwordHash: await hashPassword("tarukoda123"),
-        role: "user",
-      });
-    }
+        passwordHash: DEFAULT_PASSWORD_HASHES.tarukoda123,
+      },
+    ];
 
     saveUsers(updated);
     refreshSessionFromUsers(updated);
@@ -71,7 +161,6 @@
     const nextSession = {
       ...session,
       name: user.name,
-      role: user.role || "user",
     };
 
     if (JSON.stringify(nextSession) !== JSON.stringify(session)) {
@@ -94,7 +183,6 @@
       JSON.stringify({
         email: user.email,
         name: user.name,
-        role: user.role || "user",
         loggedInAt: new Date().toISOString(),
       })
     );
@@ -115,12 +203,6 @@
     }
 
     return getUsers().find((user) => user.email === session.email) || null;
-  }
-
-  function isAdmin() {
-    const session = getSession();
-    const user = getCurrentUser();
-    return user?.role === "admin" || session?.role === "admin";
   }
 
   function isLoggedIn() {
@@ -153,7 +235,6 @@
       name: trimmedName,
       email: trimmedEmail,
       passwordHash: await hashPassword(password),
-      role: "user",
     };
 
     saveUsers([...users, newUser]);
@@ -199,13 +280,8 @@
     if (session) {
       profileName.textContent = session.name;
       profileLink.href = "#";
-      profileLink.setAttribute("aria-label", `Profiil: ${session.name}${session.role === "admin" ? " (admin)" : ""}`);
+      profileLink.setAttribute("aria-label", `Profiil: ${session.name}`);
       profileLink.dataset.loggedIn = "true";
-      if (session.role === "admin") {
-        profileLink.dataset.admin = "true";
-      } else {
-        delete profileLink.dataset.admin;
-      }
     } else {
       profileName.textContent = "";
       profileLink.href = loginUrl;
@@ -278,21 +354,23 @@
   function initLoginPage() {
     const loginForm = document.getElementById("login-form");
     const registerForm = document.getElementById("register-form");
-    const loginTab = document.getElementById("auth-tab-login");
-    const registerTab = document.getElementById("auth-tab-register");
+    const loginHeading = document.getElementById("login-heading");
+    const switchRegister = document.getElementById("auth-switch-register");
+    const switchLogin = document.getElementById("auth-switch-login");
     const redirectUrl = new URLSearchParams(window.location.search).get("redirect") || "index.html";
 
     function switchTab(tab) {
       const isLogin = tab === "login";
       loginForm?.classList.toggle("login-page__panel--active", isLogin);
       registerForm?.classList.toggle("login-page__panel--active", !isLogin);
-      loginTab?.classList.toggle("login-page__tab--active", isLogin);
-      registerTab?.classList.toggle("login-page__tab--active", !isLogin);
+      if (loginHeading) {
+        loginHeading.textContent = isLogin ? "Logi sisse" : "Registreeru";
+      }
       showAuthMessage("");
     }
 
-    loginTab?.addEventListener("click", () => switchTab("login"));
-    registerTab?.addEventListener("click", () => switchTab("register"));
+    switchRegister?.addEventListener("click", () => switchTab("register"));
+    switchLogin?.addEventListener("click", () => switchTab("login"));
 
     loginForm?.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -341,7 +419,6 @@
     await seedDefaultUsers();
     updateHeader();
     initProfileMenu();
-    window.dispatchEvent(new CustomEvent("tarukoda-auth-ready"));
 
     if (document.getElementById("login-form")) {
       initLoginPage();
@@ -353,7 +430,6 @@
     login,
     logout,
     isLoggedIn,
-    isAdmin,
     getCurrentUser,
     updateHeader,
   };

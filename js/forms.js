@@ -266,6 +266,12 @@
 
       try {
         setSubmitting(form, true);
+
+        if (window.TarukodaStripe?.isEnabled?.()) {
+          await window.TarukodaStripe.startCheckout(payload);
+          return;
+        }
+
         const result = await submitMessage("order", payload, getEndpoints().order);
         showFormMessage(form, result.message, false);
         form.reset();
@@ -281,5 +287,6 @@
   document.addEventListener("DOMContentLoaded", () => {
     initContactForm();
     initOrderForm();
+
   });
 })();

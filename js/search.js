@@ -49,13 +49,17 @@
       .map(
         (product) => `
         <a href="${productUrl(product.slug)}" class="header__search-result" role="option">
-          <img
+          ${
+            product.image
+              ? `<img
             class="header__search-result-image"
             src="${encode(product.image)}"
             alt=""
             width="40"
             height="48"
-          >
+          >`
+              : `<span class="header__search-result-image header__search-result-image--placeholder" aria-hidden="true"></span>`
+          }
           <span class="header__search-result-info">
             <span class="header__search-result-name">${product.name}</span>
             <span class="header__search-result-desc">${product.short_desc}</span>

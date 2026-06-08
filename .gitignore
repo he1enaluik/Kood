@@ -20,6 +20,10 @@ yarn-error.log
 /.vscode
 /.phpunit.cache
 
-# OS
+api/stripe-config.php
+public/api/stripe-config.php
+api/inbox/order-pending/*.json
+composer.phar
+database/database.sqlite
 .DS_Store
 Thumbs.db

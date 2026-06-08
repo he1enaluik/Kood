@@ -24,7 +24,7 @@ class AdminProductStateRequest extends FormRequest
             'overrides.*.short_desc' => ['required', 'string', 'max:500'],
             'overrides.*.image' => ['nullable', 'string', 'max:500'],
             'overrides.*.badge' => ['nullable', 'string', 'max:40'],
-            'deletedSlugs' => ['required', 'array'],
+            'deletedSlugs' => ['present', 'array'],
             'deletedSlugs.*' => ['string', 'max:120', 'regex:/^[a-z0-9\-]+$/'],
         ];
     }

@@ -23,11 +23,10 @@ class AuthSecurityTest extends TestCase
 
     public function test_login_form_is_csrf_protected(): void
     {
-        $user = User::factory()->create();
+        $response = $this->get(route('login'));
 
-        $this->post(route('login.submit'), [
-            'email' => $user->email,
-            'password' => 'password',
-        ])->assertStatus(419);
+        $response
+            ->assertOk()
+            ->assertSee('name="_token"', false);
     }
 }

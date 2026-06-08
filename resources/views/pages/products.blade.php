@@ -7,15 +7,17 @@
 <main class="products-page" aria-labelledby="products-page-title">
     <img
       class="products-page__decor products-page__decor--left"
-      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1.png') }}"
       alt=""
-      width="240"
+      width="200"
+      aria-hidden="true"
     >
     <img
       class="products-page__decor products-page__decor--right"
-      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png') }}"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
       alt=""
-      width="220"
+      width="130"
+      aria-hidden="true"
     >
 
     <div class="container">

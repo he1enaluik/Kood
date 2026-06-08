@@ -7,15 +7,17 @@
 <main class="contact-page" aria-labelledby="contact-heading">
     <img
       class="contact-page__decor contact-page__decor--honeycomb-left"
-      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1.png') }}"
       alt=""
-      width="280"
+      width="200"
+      aria-hidden="true"
     >
     <img
       class="contact-page__decor contact-page__decor--honeycomb-right"
-      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png') }}"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
       alt=""
-      width="260"
+      width="130"
+      aria-hidden="true"
     >
     <img
       class="contact-page__decor contact-page__decor--bee-left"

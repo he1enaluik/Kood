@@ -7,15 +7,17 @@
 <main class="order-page" aria-labelledby="order-title" data-products-url="{{ route('products') }}">
     <img
       class="order-page__decor order-page__decor--honeycomb-left"
-      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1.png') }}"
       alt=""
-      width="280"
+      width="200"
+      aria-hidden="true"
     >
     <img
       class="order-page__decor order-page__decor--honeycomb-right"
-      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png') }}"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
       alt=""
-      width="260"
+      width="130"
+      aria-hidden="true"
     >
     <img
       class="order-page__decor order-page__decor--bee-left"

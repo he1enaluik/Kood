@@ -7,15 +7,15 @@
 <main class="product-detail" aria-labelledby="product-detail-title">
     <img
       class="product-detail__decor product-detail__decor--honeycomb-left"
-      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1.png') }}"
       alt=""
-      width="280"
+      width="200"
     >
     <img
       class="product-detail__decor product-detail__decor--honeycomb-right"
-      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png') }}"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
       alt=""
-      width="260"
+      width=""
     >
     <img
       class="product-detail__decor product-detail__decor--bee-left"

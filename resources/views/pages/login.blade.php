@@ -5,6 +5,21 @@
 
 @section('content')
 <main class="login-page" aria-labelledby="login-heading">
+    <img
+      class="login-page__decor login-page__decor--honeycomb-left"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1.png') }}"
+      alt=""
+      width="200"
+      aria-hidden="true"
+    >
+    <img
+      class="login-page__decor login-page__decor--honeycomb-right"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png') }}"
+      alt=""
+      width="130"
+      aria-hidden="true"
+    >
+
     <div class="container">
       <div class="login-page__box">
         <h1 id="login-heading" class="login-page__heading">Logi sisse</h1>

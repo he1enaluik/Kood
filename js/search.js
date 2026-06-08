@@ -1,4 +1,27 @@
 (function () {
+  let productsLoadPromise = null;
+
+  function loadProductsData() {
+    if (window.TARUKODA_PRODUCTS) {
+      return Promise.resolve();
+    }
+
+    if (productsLoadPromise) {
+      return productsLoadPromise;
+    }
+
+    productsLoadPromise = new Promise((resolve, reject) => {
+      const script = document.createElement("script");
+      script.src = "js/products-data.js";
+      script.async = true;
+      script.onload = () => resolve();
+      script.onerror = () => reject(new Error("Tootenimekirja laadimine ebaõnnestus."));
+      document.head.appendChild(script);
+    });
+
+    return productsLoadPromise;
+  }
+
   function getProductBase() {
     const wrap = document.querySelector("[data-product-base]");
     return wrap?.dataset.productBase || "toote-detail.html?toode=";
@@ -41,14 +64,13 @@
     if (!results.length) {
       dropdown.innerHTML = `<p class="header__search-empty">Tooteid ei leitud</p>`;
       dropdown.hidden = false;
-      input.setAttribute("aria-expanded", "true");
       return;
     }
 
     dropdown.innerHTML = results
       .map(
         (product) => `
-        <a href="${productUrl(product.slug)}" class="header__search-result" role="option">
+        <a href="${productUrl(product.slug)}" class="header__search-result">
           ${
             product.image
               ? `<img
@@ -71,13 +93,11 @@
       .join("");
 
     dropdown.hidden = false;
-    input.setAttribute("aria-expanded", "true");
   }
 
-  function closeDropdown(dropdown, input) {
+  function closeDropdown(dropdown) {
     dropdown.hidden = true;
     dropdown.innerHTML = "";
-    input.setAttribute("aria-expanded", "false");
   }
 
   function initSearch() {
@@ -98,6 +118,7 @@
       searchWrap.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
       toggle.setAttribute("aria-label", "Sulge otsing");
+      loadProductsData().catch(() => {});
 
       window.requestAnimationFrame(() => {
         input.focus();
@@ -121,20 +142,32 @@
       }
     });
 
-    input.addEventListener("input", () => {
-      const results = searchProducts(input.value);
-
+    input.addEventListener("input", async () => {
       if (!input.value.trim()) {
         closeDropdown(dropdown, input);
         return;
       }
 
-      renderResults(results, dropdown, input);
+      try {
+        await loadProductsData();
+      } catch {
+        return;
+      }
+
+      renderResults(searchProducts(input.value), dropdown, input);
     });
 
     input.addEventListener("keydown", (event) => {
       if (event.key === "Escape") {
         closeSearch();
+        return;
+      }
+
+      if (event.key === "Enter" && document.body.dataset.authBackend === "laravel") {
+        const query = input.value.trim();
+        if (query.length >= 2) {
+          window.location.href = `/tooted?q=${encodeURIComponent(query)}`;
+        }
       }
     });
 

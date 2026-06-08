@@ -4,6 +4,7 @@
     "description": "Tarukoda mesindustalu veebileht",
     "require": {
         "php": "^8.2",
+        "firebase/php-jwt": "^6.10",
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
         "stripe/stripe-php": "^16.0"
@@ -29,6 +30,7 @@
         }
     },
     "scripts": {
+        "test": "phpunit",
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"

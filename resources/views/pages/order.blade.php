@@ -1,4 +1,4 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 
 @section('title', 'Tellimus | Tarukoda')
 @section('description', 'Esita Tarukoja toodete tellimus. Täida andmed ja saadame mahemee ja mesindustooted Sinu aadressile.')
@@ -35,16 +35,16 @@
     <div class="container">
       <div class="order-page__box">
         <header class="order-page__header">
-          <div class="best-offers__divider">
-            <span class="best-offers__divider-line" aria-hidden="true"></span>
+          <div class="section-divider">
+            <span class="section-divider__line" aria-hidden="true"></span>
             <img
-              class="best-offers__bee"
+              class="section-divider__bee"
               src="{{ asset('Designi%20elemendid/Mesilane_V%C3%A4ike.png') }}"
               alt=""
               width="32"
               height="32"
             >
-            <span class="best-offers__divider-line" aria-hidden="true"></span>
+            <span class="section-divider__line" aria-hidden="true"></span>
           </div>
         </header>
 

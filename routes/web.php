@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductCatalogController;
+use App\Http\Controllers\Admin\ProductImageController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PageController;
@@ -20,3 +22,9 @@ Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth', 'admin'])->prefix('admin/api')->group(function () {
+    Route::get('/products', [ProductCatalogController::class, 'show'])->name('admin.products.show');
+    Route::put('/products', [ProductCatalogController::class, 'update'])->name('admin.products.update');
+    Route::post('/products/upload-image', [ProductImageController::class, 'store'])->name('admin.products.upload-image');
+});

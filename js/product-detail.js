@@ -4,82 +4,85 @@
     return params.get("toode") || "niidumesi";
   }
 
-  function buildDescription(product) {
-    const firstSentence = product.description?.split(/(?<=\.)\s+/)[0] || "";
-    const extra =
-      firstSentence && !product.short_desc.includes(firstSentence.slice(0, 24))
-        ? ` ${firstSentence}`
-        : "";
-    return `${product.short_desc}${extra}`;
-  }
-
-  function getPrimaryImage(product) {
-    if (product.gallery?.length) return product.gallery[0];
-    if (product.image) return { src: product.image, alt: product.name };
-    return null;
-  }
-
-  function renderThumbs(product) {
+  function renderGallery(gallery) {
+    const gallerySection = document.querySelector(".product-detail__gallery");
+    const inner = document.querySelector(".product-detail__inner");
     const thumbsContainer = document.getElementById("product-detail-thumbs");
-    if (!thumbsContainer) return;
+    const mainImage = document.getElementById("product-detail-main-image");
 
-    const primary = getPrimaryImage(product);
-    if (!primary) {
-      thumbsContainer.hidden = true;
-      thumbsContainer.innerHTML = "";
+    if (!gallery.length) {
+      if (gallerySection) gallerySection.hidden = true;
+      inner?.classList.add("product-detail__inner--no-gallery");
       return;
     }
+
+    if (gallerySection) gallerySection.hidden = false;
+    inner?.classList.remove("product-detail__inner--no-gallery");
+
+    if (!thumbsContainer || !mainImage) return;
 
     const encode = window.TarukodaProducts.encodeAssetPath;
-    thumbsContainer.hidden = false;
-    thumbsContainer.innerHTML = Array.from({ length: 4 }, (_, index) => `
-      <button
-        type="button"
-        class="product-detail__thumb${index === 0 ? " product-detail__thumb--active" : ""}"
-        data-index="${index}"
-        aria-label="Vaata pilti ${index + 1}"
-      >
-        <img
-          src="${encode(primary.src)}"
-          alt="${primary.alt}"
-          width="94"
-          height="94"
-          loading="lazy"
-        >
-      </button>
-    `).join("");
 
-    thumbsContainer.querySelectorAll(".product-detail__thumb").forEach((button) => {
-      button.addEventListener("click", () => {
-        thumbsContainer.querySelectorAll(".product-detail__thumb").forEach((el) => {
-          el.classList.remove("product-detail__thumb--active");
-        });
-        button.classList.add("product-detail__thumb--active");
-      });
-    });
+    mainImage.src = encode(gallery[0].src);
+    mainImage.alt = gallery[0].alt;
+
+    thumbsContainer.innerHTML = gallery
+      .map(
+        (item, index) => `
+        <button
+          type="button"
+          class="product-detail__thumb${index === 0 ? " is-active" : ""}"
+          role="tab"
+          aria-selected="${index === 0 ? "true" : "false"}"
+          aria-controls="product-detail-main-image"
+          data-image="${encode(item.src)}"
+          data-alt="${item.alt}"
+        >
+          <img src="${encode(item.src)}" alt="" width="88" height="88">
+        </button>
+      `
+      )
+      .join("");
+
+    initGallery();
   }
 
-  function renderGallery(product) {
-    const mainWrap = document.querySelector(".product-detail__main");
+  function initGallery() {
     const mainImage = document.getElementById("product-detail-main-image");
-    const primary = getPrimaryImage(product);
+    const thumbs = document.querySelectorAll(".product-detail__thumb");
+    const prevBtn = document.querySelector(".product-detail__arrow--prev");
+    const nextBtn = document.querySelector(".product-detail__arrow--next");
 
-    if (!mainWrap) return;
+    function selectImage(index) {
+      const thumb = thumbs[index];
+      if (!thumb || !mainImage) return;
 
-    if (!primary) {
-      mainWrap.classList.add("product-detail__main--placeholder");
-      if (mainImage) mainImage.hidden = true;
-      renderThumbs(product);
-      return;
+      mainImage.src = thumb.dataset.image;
+      mainImage.alt = thumb.dataset.alt;
+
+      thumbs.forEach((item, i) => {
+        item.classList.toggle("is-active", i === index);
+        item.setAttribute("aria-selected", i === index ? "true" : "false");
+      });
     }
 
-    mainWrap.classList.remove("product-detail__main--placeholder");
-    if (!mainImage) return;
+    function getActiveIndex() {
+      return [...thumbs].findIndex((thumb) => thumb.classList.contains("is-active"));
+    }
 
-    mainImage.hidden = false;
-    mainImage.src = window.TarukodaProducts.encodeAssetPath(primary.src);
-    mainImage.alt = primary.alt;
-    renderThumbs(product);
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => selectImage(index));
+    });
+
+    prevBtn?.addEventListener("click", () => {
+      const activeIndex = getActiveIndex();
+      selectImage((activeIndex - 1 + thumbs.length) % thumbs.length);
+    });
+
+    nextBtn?.addEventListener("click", () => {
+      const activeIndex = getActiveIndex();
+      selectImage((activeIndex + 1) % thumbs.length);
+    });
   }
 
   function initQuantityStepper() {
@@ -125,12 +128,12 @@
 
     if (title) title.textContent = product.name;
     if (price) price.textContent = window.TarukodaProducts.formatPrice(product.price);
-    if (desc) desc.textContent = buildDescription(product);
+    if (desc) desc.textContent = product.description;
     if (origin) origin.textContent = product.origin;
     if (weight) weight.textContent = product.weight;
     if (addBtn) addBtn.dataset.slug = product.slug;
 
-    renderGallery(product);
+    renderGallery(product.gallery);
     return product;
   }
 

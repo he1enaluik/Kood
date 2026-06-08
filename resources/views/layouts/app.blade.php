@@ -19,6 +19,18 @@
   data-order-endpoint="{{ route('order.submit') }}"
   data-stripe-checkout-endpoint="{{ route('stripe.checkout') }}"
 >
+  <script>
+    window.TARUKODA_STRIPE = {
+      publishableKey: @json(config('stripe.key')),
+      checkoutEndpoint: @json(route('stripe.checkout')),
+      usesLiveServer: false,
+    };
+  </script>
+  @auth
+    @if (Auth::user()->is_admin)
+      <script>window.TARUKODA_IS_ADMIN = true;</script>
+    @endif
+  @endauth
   @include('layouts.partials.header')
 
   @yield('content')

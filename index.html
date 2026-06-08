@@ -10,7 +10,33 @@
   </script>
   <meta name="description" content="Tarukoda pakub ehtsat mahemett Eesti puhtast loodusest. Vaata mesi, mesilasvaha küünlad ja kinkekomplekte.">
   <title>Tarukoda</title>
-  <link rel="preload" as="image" href="pildid/hero-taust1.png" fetchpriority="high">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffe6d0">
+  <link rel="canonical" href="https://tarukoda.surge.sh/">
+  <meta property="og:title" content="Tarukoda">
+  <meta property="og:description" content="Tarukoda pakub ehtsat mahemett Eesti puhtast loodusest. Vaata mesi, mesilasvaha küünlad ja kinkekomplekte.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tarukoda.surge.sh/">
+  <meta property="og:locale" content="et_EE">
+  <meta property="og:image" content="https://tarukoda.surge.sh/pildid/hero-taust1.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Tarukoda OÜ",
+    "url": "https://tarukoda.surge.sh/",
+    "description": "Mahemesi ja mesindustooted Eesti puhtast loodusest.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Niidu tn 6",
+      "addressLocality": "Põltsamaa",
+      "addressCountry": "EE"
+    },
+    "email": "info@tarukoda.ee"
+  }
+  </script>
+  <link rel="preload" as="image" href="pildid/hero-taust1.webp" type="image/webp" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Inter:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -18,9 +44,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Liigu põhisisu juurde</a>
   <header class="header">
     <div class="header__inner container">
-      <a href="index.html" class="header__logo" aria-label="Tarukoda avaleht">
+      <a href="index.html" class="header__logo" aria-label="Avaleht">
         <span class="header__logo-icon" aria-hidden="true"></span>
         <span class="header__logo-text">TARUKODA</span>
       </a>
@@ -66,12 +93,9 @@
                 id="header-search"
                 placeholder="Otsi tooteid..."
                 autocomplete="off"
-                aria-controls="header-search-results"
-                aria-expanded="false"
-                aria-autocomplete="list"
               >
             </div>
-            <div class="header__search-dropdown" id="header-search-results" role="listbox" hidden></div>
+            <div class="header__search-dropdown" id="header-search-results" role="region" aria-label="Otsingu tulemused" hidden></div>
           </div>
           <a href="tellimus.html" class="header__cart-wrap" aria-label="Ostukorv">
             <span class="header__icon header__icon--cart"></span>
@@ -102,41 +126,26 @@
     </div>
   </header>
 
+  <main id="main-content">
   <section class="hero" aria-label="Avalehe sissejuhatus">
     <div class="hero__media">
-      <img
+      <picture><source srcset="pildid/hero-taust1.webp" type="image/webp"><img
         class="hero__image"
         src="pildid/hero-taust1.png"
         alt=""
         width="1920"
         height="993"
         fetchpriority="high"
-        decoding="async"
-      >
-      <img
+        decoding="sync"
+      ></picture>
+      <picture><source srcset="Designi%20elemendid/Swirlywirly.webp" type="image/webp"><img
         class="hero__swirl"
         src="Designi%20elemendid/Swirlywirly.png"
         alt=""
         width="1920"
         height="163"
         loading="lazy"
-      >
-      <img
-        class="hero__honeycomb hero__honeycomb--left"
-        src="Designi%20elemendid/Mesilask%C3%A4rg4.png"
-        alt=""
-        width="250"
-        height="169"
-        loading="lazy"
-      >
-      <img
-        class="hero__honeycomb hero__honeycomb--right"
-        src="Designi%20elemendid/Mesilask%C3%A4rg4.png"
-        alt=""
-        width="269.07"
-        height="187.55"
-        loading="lazy"
-      >
+      ></picture>
     </div>
     <div class="hero__inner">
       <div class="container">
@@ -150,32 +159,39 @@
         </div>
       </div>
     </div>
+    <picture><source srcset="Designi%20elemendid/Mesilask%C3%A4rg4.webp" type="image/webp"><img
+      class="hero__honeycomb hero__honeycomb--left"
+      src="Designi%20elemendid/Mesilask%C3%A4rg4.png"
+      alt=""
+      width="250"
+      height="169"
+      loading="lazy"
+    ></picture>
+    <picture><source srcset="Designi%20elemendid/Mesilask%C3%A4rg4.webp" type="image/webp"><img
+      class="hero__honeycomb hero__honeycomb--right"
+      src="Designi%20elemendid/Mesilask%C3%A4rg4.png"
+      alt=""
+      width="269"
+      height="188"
+      loading="lazy"
+    ></picture>
   </section>
 
   <section class="new-products" aria-labelledby="new-products-title">
-    <img
-      class="new-products__decor new-products__decor--honeycomb-right"
-      src="Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.png"
-      alt=""
-      width="380"
-      height="479"
-      aria-hidden="true"
-      loading="lazy"
-    >
     <div class="container">
       <div class="new-products__box">
         <header class="new-products__header">
           <h2 id="new-products-title" class="new-products__title">Uued tooted</h2>
           <div class="new-products__divider">
             <span class="new-products__divider-line" aria-hidden="true"></span>
-            <img
+            <picture><source srcset="Designi%20elemendid/Mesilane_V%C3%A4ike.webp" type="image/webp"><img
               class="new-products__bee"
               src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
               alt=""
               width="32"
               height="32"
               loading="lazy"
-            >
+            ></picture>
             <span class="new-products__divider-line" aria-hidden="true"></span>
           </div>
         </header>
@@ -183,14 +199,14 @@
         <div class="new-products__grid">
         <article class="product-card">
           <div class="product-card__media">
-            <img
+            <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.webp" type="image/webp"><img
               class="product-card__image"
               src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
               alt="Niidumesi"
               width="295"
               height="359"
               loading="lazy"
-            >
+            ></picture>
             <span class="product-card__badge">UUS</span>
           </div>
           <div class="product-card__top">
@@ -203,14 +219,14 @@
 
         <article class="product-card">
           <div class="product-card__media">
-            <img
+            <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_50_10%20PM.webp" type="image/webp"><img
               class="product-card__image"
               src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_50_10%20PM.png"
               alt="Metsamesi"
               width="295"
               height="359"
               loading="lazy"
-            >
+            ></picture>
             <span class="product-card__badge">UUS</span>
           </div>
           <div class="product-card__top">
@@ -223,14 +239,14 @@
 
         <article class="product-card">
           <div class="product-card__media">
-            <img
+            <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_55_14%20PM.webp" type="image/webp"><img
               class="product-card__image"
               src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_55_14%20PM.png"
               alt="Pärnamesi"
               width="295"
               height="359"
               loading="lazy"
-            >
+            ></picture>
             <span class="product-card__badge">UUS</span>
           </div>
           <div class="product-card__top">
@@ -243,14 +259,14 @@
 
         <article class="product-card">
           <div class="product-card__media">
-            <img
+            <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2005_04_47%20PM.webp" type="image/webp"><img
               class="product-card__image"
               src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2005_04_47%20PM.png"
               alt="Kinkekarp"
               width="295"
               height="359"
               loading="lazy"
-            >
+            ></picture>
             <span class="product-card__badge">UUS</span>
           </div>
           <div class="product-card__top">
@@ -265,24 +281,33 @@
         <a href="tooted.html" class="new-products__link">Vaata kõiki</a>
       </div>
     </div>
+    <picture><source srcset="Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.webp" type="image/webp"><img
+      class="new-products__decor new-products__decor--honeycomb-right"
+      src="Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.png"
+      alt=""
+      width="380"
+      height="479"
+      aria-hidden="true"
+      loading="lazy"
+    ></picture>
   </section>
 
   <section class="our-mission" id="our-mission" aria-labelledby="our-mission-title">
-    <img
+    <picture><source srcset="Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.webp" type="image/webp"><img
       class="our-mission__decor our-mission__decor--left"
       src="Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.png"
       alt=""
       width="534"
       aria-hidden="true"
       loading="lazy"
-    >
-    <img
+    ></picture>
+    <picture><source srcset="Designi%20elemendid/Mesilane.webp" type="image/webp"><img
       class="our-mission__decor our-mission__decor--bee"
       src="Designi%20elemendid/Mesilane.png"
       alt=""
       width="130"
       loading="lazy"
-    >
+    ></picture>
     <div class="container">
       <div class="our-mission__inner">
         <div class="our-mission__content">
@@ -294,14 +319,14 @@
         <div class="our-mission__visual">
           <div class="our-mission__hex">
             <div class="our-mission__hex-inner">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.webp" type="image/webp"><img
                 class="our-mission__hex-image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.png"
                 alt="Mesinik kontrollib mesitaru raami"
                 width="380"
                 height="420"
                 loading="lazy"
-              >
+              ></picture>
             </div>
           </div>
         </div>
@@ -309,40 +334,40 @@
     </div>
   </section>
 
-  <section class="best-offers" aria-labelledby="best-offers-title">
+  <section class="clients-favourites" aria-labelledby="clients-favourites-title">
     <div class="container">
-      <header class="best-offers__header">
-        <h2 id="best-offers-title" class="new-products__title">Parimad pakkumised</h2>
-        <div class="best-offers__divider">
-          <span class="best-offers__divider-line" aria-hidden="true"></span>
-          <img
-            class="best-offers__bee"
+      <header class="clients-favourites__header">
+        <h2 id="clients-favourites-title" class="new-products__title">Meie klientide lemmikud</h2>
+        <div class="section-divider">
+          <span class="section-divider__line" aria-hidden="true"></span>
+          <picture><source srcset="Designi%20elemendid/Mesilane_V%C3%A4ike.webp" type="image/webp"><img
+            class="section-divider__bee"
             src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
             alt=""
             width="32"
             height="32"
             loading="lazy"
-          >
-          <span class="best-offers__divider-line" aria-hidden="true"></span>
+          ></picture>
+          <span class="section-divider__line" aria-hidden="true"></span>
         </div>
       </header>
 
-      <div class="best-offers__slider">
-        <button class="best-offers__arrow best-offers__arrow--prev" type="button" aria-label="Eelmine toode">
+      <div class="clients-favourites__slider">
+        <button class="clients-favourites__arrow clients-favourites__arrow--prev" type="button" aria-label="Eelmine toode">
           <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
         </button>
 
-        <div class="best-offers__track">
+        <div class="clients-favourites__track">
           <article class="product-card">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_50_10%20PM.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_50_10%20PM.png"
                 alt="Metsamesi"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
             </div>
             <div class="product-card__top">
               <h3 class="product-card__name">Metsamesi</h3>
@@ -354,14 +379,14 @@
 
           <article class="product-card">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
                 alt="Niidumesi"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
             </div>
             <div class="product-card__top">
               <h3 class="product-card__name">Niidumesi</h3>
@@ -373,14 +398,14 @@
 
           <article class="product-card">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_55_14%20PM.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_55_14%20PM.png"
                 alt="Pärnamesi"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
             </div>
             <div class="product-card__top">
               <h3 class="product-card__name">Pärnamesi</h3>
@@ -392,14 +417,14 @@
 
           <article class="product-card">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2005_04_47%20PM.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2005_04_47%20PM.png"
                 alt="Kinkekarp"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
             </div>
             <div class="product-card__top">
               <h3 class="product-card__name">Kinkekarp</h3>
@@ -410,45 +435,45 @@
           </article>
         </div>
 
-        <button class="best-offers__arrow best-offers__arrow--next" type="button" aria-label="Järgmine toode">
+        <button class="clients-favourites__arrow clients-favourites__arrow--next" type="button" aria-label="Järgmine toode">
           <img src="Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg" alt="" width="24" height="24">
         </button>
       </div>
 
-      <a href="tooted.html" class="best-offers__link">Vaata kõiki</a>
+      <a href="tooted.html" class="clients-favourites__link">Vaata kõiki</a>
     </div>
   </section>
 
   <section class="events" aria-labelledby="events-title">
-    <img
+    <picture><source srcset="Designi%20elemendid/Mesilane.webp" type="image/webp"><img
       class="events__decor events__decor--bee"
       src="Designi%20elemendid/Mesilane.png"
       alt=""
       width="130"
       loading="lazy"
-    >
-    <img
+    ></picture>
+    <picture><source srcset="Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.webp" type="image/webp"><img
       class="events__decor events__decor--honeycomb"
       src="Designi%20elemendid/Mesilask%C3%A4rg2_SUUR.png"
       alt=""
       width="227"
       height="390"
       loading="lazy"
-    >
+    ></picture>
     <div class="container">
       <header class="events__header">
         <h2 id="events-title" class="new-products__title">Toimuvad sündmused</h2>
-        <div class="best-offers__divider">
-          <span class="best-offers__divider-line" aria-hidden="true"></span>
-          <img
-            class="best-offers__bee"
+        <div class="section-divider">
+          <span class="section-divider__line" aria-hidden="true"></span>
+          <picture><source srcset="Designi%20elemendid/Mesilane_V%C3%A4ike.webp" type="image/webp"><img
+            class="section-divider__bee"
             src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
             alt=""
             width="32"
             height="32"
             loading="lazy"
-          >
-          <span class="best-offers__divider-line" aria-hidden="true"></span>
+          ></picture>
+          <span class="section-divider__line" aria-hidden="true"></span>
         </div>
         <p class="events__intro our-mission__text">Hoia end kursis Tarukoja tegemiste, laatade, degusteerimiste ja hooajaliste sündmustega.</p>
       </header>
@@ -461,12 +486,12 @@
         <div class="events__track">
           <article class="event-card">
             <div class="event-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_18_14%20PM.webp" type="image/webp"><img
                 class="event-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2003_18_14%20PM.png"
                 alt="Mesilane lillel"
                 loading="lazy"
-              >
+              ></picture>
               <div class="event-card__date">
                 <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="14" height="14">
                 <span class="event-card__day">17</span>
@@ -487,12 +512,12 @@
 
           <article class="event-card">
             <div class="event-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2007_20_29%20PM.webp" type="image/webp"><img
                 class="event-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2007_20_29%20PM.png"
                 alt="Mesindustalu mesitarudega"
                 loading="lazy"
-              >
+              ></picture>
               <div class="event-card__date">
                 <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="14" height="14">
                 <span class="event-card__day">8</span>
@@ -513,12 +538,12 @@
 
           <article class="event-card">
             <div class="event-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2007_32_18%20PM.webp" type="image/webp"><img
                 class="event-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%204%2C%202026%2C%2007_32_18%20PM.png"
                 alt="Mee degusteerimine meepurkidega"
                 loading="lazy"
-              >
+              ></picture>
               <div class="event-card__date">
                 <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="14" height="14">
                 <span class="event-card__day">22</span>
@@ -539,12 +564,12 @@
 
           <article class="event-card">
             <div class="event-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.webp" type="image/webp"><img
                 class="event-card__image event-card__image--flip"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2007_29_19%20PM.png"
                 alt="Mesilane mesitaru lähedal"
                 loading="lazy"
-              >
+              ></picture>
               <div class="event-card__date">
                 <img class="event-card__date-icon" src="Ikoonid/Kalender.svg" alt="" width="14" height="14">
                 <span class="event-card__day">31</span>
@@ -573,23 +598,25 @@
     </div>
   </section>
 
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="index.html" class="footer__logo" aria-label="Tarukoda avaleht">
+          <a href="index.html" class="footer__logo" aria-label="Avaleht">
             <span class="footer__logo-icon" aria-hidden="true"></span>
             <span class="footer__logo-text">TARUKODA</span>
           </a>
           <p class="footer__desc">Pakume ehtsat mahemett Eesti puhtast loodusest, järgides jätkusuutliku mesinduse põhimõtteid ja hoolitsedes oma mesilasperede heaolu eest.</p>
           <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Facebook">
+            <a href="https://www.facebook.com/" class="footer__social-link" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
               <img src="Ikoonid/facebook.svg" alt="" width="32" height="32">
             </a>
-            <a href="#" class="footer__social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/" class="footer__social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
               <img src="Ikoonid/instagram.svg" alt="" width="32" height="32">
             </a>
-            <a href="#" class="footer__social-link" aria-label="TikTok">
+            <a href="https://www.tiktok.com/" class="footer__social-link" aria-label="TikTok" rel="noopener noreferrer" target="_blank">
               <img src="Ikoonid/tiktok.svg" alt="" width="32" height="32">
             </a>
           </div>
@@ -651,112 +678,10 @@
     </div>
   </footer>
 
-  <script>
-    function initCarousel(trackSelector, prevSelector, nextSelector, cardSelector) {
-      const track = document.querySelector(trackSelector);
-      const prev = document.querySelector(prevSelector);
-      const next = document.querySelector(nextSelector);
-
-      if (!track || !prev || !next) return;
-
-      const scrollStep = () => {
-        const card = track.querySelector(cardSelector);
-        if (!card) return 0;
-        const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
-        return card.offsetWidth + gap;
-      };
-
-      const updateButtons = () => {
-        const maxScroll = track.scrollWidth - track.clientWidth;
-        prev.disabled = track.scrollLeft <= 1;
-        next.disabled = track.scrollLeft >= maxScroll - 1;
-      };
-
-      prev.addEventListener("click", () => {
-        track.scrollBy({ left: -scrollStep(), behavior: "smooth" });
-      });
-
-      next.addEventListener("click", () => {
-        track.scrollBy({ left: scrollStep(), behavior: "smooth" });
-      });
-
-      track.addEventListener("scroll", updateButtons, { passive: true });
-      window.addEventListener("resize", updateButtons);
-      updateButtons();
-    }
-
-    function initEventsCarousel() {
-      const track = document.querySelector(".events__track");
-      const prev = document.querySelector(".events__arrow--prev");
-      const next = document.querySelector(".events__arrow--next");
-      if (!track || !prev || !next) return;
-
-      const originals = [...track.querySelectorAll(".event-card:not(.event-card--clone)")];
-      if (!originals.length) return;
-
-      originals.forEach((card) => {
-        const clone = card.cloneNode(true);
-        clone.classList.add("event-card--clone");
-        clone.setAttribute("aria-hidden", "true");
-        clone.querySelectorAll("a, button").forEach((el) => {
-          el.tabIndex = -1;
-        });
-        track.appendChild(clone);
-      });
-
-      const cardStep = () => {
-        const gap = parseFloat(getComputedStyle(track).gap) || 0;
-        return originals[0].offsetWidth + gap;
-      };
-
-      const loopWidth = () => cardStep() * originals.length;
-
-      let jumping = false;
-
-      const normalize = () => {
-        if (jumping) return;
-        const loop = loopWidth();
-        if (loop <= 0) return;
-
-        if (track.scrollLeft >= loop) {
-          jumping = true;
-          track.style.scrollBehavior = "auto";
-          track.scrollLeft -= loop;
-          track.style.scrollBehavior = "";
-          jumping = false;
-        }
-      };
-
-      const jumpToCloneStart = () => {
-        jumping = true;
-        track.style.scrollBehavior = "auto";
-        track.scrollLeft += loopWidth();
-        track.style.scrollBehavior = "";
-        jumping = false;
-      };
-
-      track.addEventListener("scroll", normalize, { passive: true });
-
-      next.addEventListener("click", () => {
-        track.scrollBy({ left: cardStep(), behavior: "smooth" });
-      });
-
-      prev.addEventListener("click", () => {
-        if (track.scrollLeft <= 1) {
-          jumpToCloneStart();
-        }
-        track.scrollBy({ left: -cardStep(), behavior: "smooth" });
-      });
-
-      window.addEventListener("resize", normalize);
-    }
-
-    initCarousel(".best-offers__track", ".best-offers__arrow--prev", ".best-offers__arrow--next", ".product-card");
-    initEventsCarousel();
-  </script>
-  <script src="js/products-data.js" defer></script>  <script src="js/cart.js" defer></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/search.js" defer></script>
   <script src="js/auth.js?v=3" defer></script>
   <script src="js/mobile-nav.js" defer></script>
+  <script src="js/home-carousel.js" defer></script>
 </body>
 </html>

@@ -3,24 +3,37 @@
 namespace App\Http\Controllers;
 
 use App\Data\Products;
+use App\Services\ProductCatalogService;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
+    public function __construct(private readonly ProductCatalogService $catalog) {}
+
     public function home()
     {
         return view('pages.home');
     }
 
-    public function products()
+    public function products(Request $request)
     {
+        $filters = $request->only(['q', 'category', 'origin', 'sort', 'page']);
+        $paginator = $this->catalog->search($filters);
+
         return view('pages.products', [
-            'products' => Products::all(),
+            'products' => $paginator,
+            'filters' => array_merge([
+                'q' => '',
+                'category' => 'all',
+                'origin' => 'all',
+                'sort' => 'default',
+            ], $filters),
         ]);
     }
 
     public function productShow(string $slug)
     {
-        $product = Products::find($slug);
+        $product = $this->catalog->find($slug);
 
         if (!$product) {
             abort(404);

@@ -97,6 +97,10 @@
     applyFilters();
   }
 
+  window.TarukodaProductsFilter = {
+    init: initProductsFilter,
+  };
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initProductsFilter);
   } else {

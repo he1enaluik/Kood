@@ -72,6 +72,9 @@
             </a>
             <div class="header__profile-menu" id="header-profile-menu" hidden>
               <p class="header__profile-greeting">Tere, <span id="header-profile-name">{{ Auth::user()->name }}</span>!</p>
+              @if (Auth::user()->is_admin)
+                <a href="{{ route('products') }}" class="header__profile-admin" id="header-admin-link">Halda tooteid</a>
+              @endif
               <form method="post" action="{{ route('logout') }}">
                 @csrf
                 <button type="submit" class="header__profile-logout">Logi välja</button>

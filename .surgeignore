@@ -19,6 +19,13 @@ phpunit.xml
 .git/
 .gitignore
 node_modules/
+scripts/
+Dockerfile
+docker-compose.yml
+docker/
+.github/
+render.yaml
+phpunit.xml
 .cursor/
 *.md
 LARAVEL_SETUP.md

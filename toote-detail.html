@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="et">
 <head>
   <meta charset="UTF-8">
@@ -10,6 +10,16 @@
   </script>
   <meta name="description" content="Tarukoja toote detailid, koostis, hind ja tellimisinfo. Ehtne mahemesi ja mesindustooted Eestist.">
   <title>Niidumesi | Tarukoda</title>
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffe6d0">
+  <link rel="canonical" href="https://tarukoda.surge.sh/toote-detail.html">
+  <meta property="og:title" content="Toode | Tarukoda">
+  <meta property="og:description" content="Tarukoja toote detailid – mahe mesi ja mesindustooted Eesti loodusest.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tarukoda.surge.sh/toote-detail.html">
+  <meta property="og:locale" content="et_EE">
+  <meta property="og:image" content="https://tarukoda.surge.sh/pildid/hero-taust1.webp">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -17,9 +27,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Liigu põhisisu juurde</a>
+
   <header class="header">
     <div class="header__inner container">
-      <a href="index.html" class="header__logo" aria-label="Tarukoda avaleht">
+      <a href="index.html" class="header__logo" aria-label="Avaleht">
         <span class="header__logo-icon" aria-hidden="true"></span>
         <span class="header__logo-text">TARUKODA</span>
       </a>
@@ -65,12 +77,9 @@
                 id="header-search"
                 placeholder="Otsi tooteid..."
                 autocomplete="off"
-                aria-controls="header-search-results"
-                aria-expanded="false"
-                aria-autocomplete="list"
               >
             </div>
-            <div class="header__search-dropdown" id="header-search-results" role="listbox" hidden></div>
+            <div class="header__search-dropdown" id="header-search-results" role="region" aria-label="Otsingu tulemused" hidden></div>
           </div>
           <a href="tellimus.html" class="header__cart-wrap" aria-label="Ostukorv">
             <span class="header__icon header__icon--cart"></span>
@@ -102,60 +111,60 @@
   </header>
 
   <main class="product-detail" aria-labelledby="product-detail-title">
-    <img
+    <picture><source srcset="Designi%20elemendid/Mesilask%C3%A4rg1.webp" type="image/webp"><img
       class="product-detail__decor product-detail__decor--honeycomb-left"
       src="Designi%20elemendid/Mesilask%C3%A4rg1.png"
       alt=""
       width="200"
-    >
-    <img
+    ></picture>
+    <picture><source srcset="Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.webp" type="image/webp"><img
       class="product-detail__decor product-detail__decor--honeycomb-right"
       src="Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png"
       alt=""
       width="130"
-    >
-    <img
+    ></picture>
+    <picture><source srcset="Designi%20elemendid/Mesilane.webp" type="image/webp"><img
       class="product-detail__decor product-detail__decor--bee-left"
       src="Designi%20elemendid/Mesilane.png"
       alt=""
       width="120"
-    >
-    <img
+    ></picture>
+    <picture><source srcset="Designi%20elemendid/Mesilane.webp" type="image/webp"><img
       class="product-detail__decor product-detail__decor--bee-right"
       src="Designi%20elemendid/Mesilane.png"
       alt=""
       width="100"
-    >
+    ></picture>
 
     <div class="container">
       <div class="product-detail__box">
         <div class="product-detail__inner">
           <div class="product-detail__gallery">
             <div class="product-detail__main">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.webp" type="image/webp"><img
                 class="product-detail__image"
                 id="product-detail-main-image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
                 alt="Niidumesi purk"
                 width="406"
                 height="406"
-              >
+              ></picture>
             </div>
 
             <div class="product-detail__thumbs" id="product-detail-thumbs" hidden></div>
           </div>
 
           <div class="product-detail__info">
-            <div class="best-offers__divider product-detail__divider">
-              <span class="best-offers__divider-line" aria-hidden="true"></span>
-              <img
-                class="best-offers__bee"
+            <div class="section-divider product-detail__divider">
+              <span class="section-divider__line" aria-hidden="true"></span>
+              <picture><source srcset="Designi%20elemendid/Mesilane_V%C3%A4ike.webp" type="image/webp"><img
+                class="section-divider__bee"
                 src="Designi%20elemendid/Mesilane_V%C3%A4ike.png"
                 alt=""
                 width="32"
                 height="32"
-              >
-              <span class="best-offers__divider-line" aria-hidden="true"></span>
+              ></picture>
+              <span class="section-divider__line" aria-hidden="true"></span>
             </div>
 
             <h1 id="product-detail-title" class="product-detail__title">Toode</h1>
@@ -188,19 +197,19 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="index.html" class="footer__logo" aria-label="Tarukoda avaleht">
+          <a href="index.html" class="footer__logo" aria-label="Avaleht">
             <span class="footer__logo-icon" aria-hidden="true"></span>
             <span class="footer__logo-text">TARUKODA</span>
           </a>
           <p class="footer__desc">Pakume ehtsat mahemett Eesti puhtast loodusest, järgides jätkusuutliku mesinduse põhimõtteid ja hoolitsedes oma mesilasperede heaolu eest.</p>
           <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Facebook">
+            <a href="https://www.facebook.com/" class="footer__social-link" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
               <img src="Ikoonid/facebook.svg" alt="" width="32" height="32">
             </a>
-            <a href="#" class="footer__social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/" class="footer__social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
               <img src="Ikoonid/instagram.svg" alt="" width="32" height="32">
             </a>
-            <a href="#" class="footer__social-link" aria-label="TikTok">
+            <a href="https://www.tiktok.com/" class="footer__social-link" aria-label="TikTok" rel="noopener noreferrer" target="_blank">
               <img src="Ikoonid/tiktok.svg" alt="" width="32" height="32">
             </a>
           </div>
@@ -262,7 +271,9 @@
     </div>
   </footer>
 
-  <script src="js/products-data.js" defer></script>  <script src="js/cart.js" defer></script>
+  <script src="js/products-data.js" defer></script>
+  <script src="js/admin-store.js" defer></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/search.js" defer></script>
   <script src="js/auth.js?v=3" defer></script>
   <script src="js/mobile-nav.js" defer></script>

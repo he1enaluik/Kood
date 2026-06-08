@@ -2,9 +2,13 @@
   "name": "tarukoda",
   "private": true,
   "scripts": {
-    "deploy": "surge . tarukoda.surge.sh",
+    "images:webp": "node scripts/ensure-webp.js",
+    "seo": "node scripts/inject-seo.js",
+    "a11y": "node scripts/fix-a11y-html.js",
+    "deploy": "npm run seo && npm run images:webp && npx surge . tarukoda.surge.sh",
     "deploy:preview": "surge .",
     "stripe:server": "php -S localhost:8080",
-    "serve": "php -S localhost:8080"
+    "serve": "php -S localhost:8080",
+    "serve:local": "npx serve . -l 3000"
   }
 }

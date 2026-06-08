@@ -90,9 +90,11 @@
       short_desc: "Kerge ja õrn kevadine mesi varakevadiste õitelillede nektarist.",
       description:
         "Kevademesi on korjatud esimesest kevadisest õitsvusest, kui mesilased külastavad soldi, võililli ja teisi varakevadiseid taimi. Mesi on hele, õrna maitsega ja kreemja tekstuuriga. Pakendis 500 g. Sobib suurepäraselt hommikusöögiks, teele ja jogurtile.",
-      image: null,
+      image: "pildid/ChatGPT Image Jun 9, 2026, 12_33_59 AM.png",
       badge: null,
-      gallery: [],
+      gallery: [
+        { src: "pildid/ChatGPT Image Jun 9, 2026, 12_33_59 AM.png", alt: "Kevademesi purk" },
+      ],
     },
     suvemesi: {
       slug: "suvemesi",
@@ -105,9 +107,11 @@
       short_desc: "Lilleline ja mitmekesine suvine mesi Eesti põldudelt ja niitudelt.",
       description:
         "Suvemesi peegeldab rikkalikku suveõitsengut – mesilased koguvad nektarit rohumaadelt, põldudelt ja aiataimudelt. Mesi on kuldpruun, aromaatne ja magus. Pakendis 500 g. Ideaalne tee, smuutide ja magustoitude jaoks.",
-      image: null,
+      image: "pildid/Suvemesi.png",
       badge: null,
-      gallery: [],
+      gallery: [
+        { src: "pildid/Suvemesi.png", alt: "Suvemesi purk" },
+      ],
     },
     sugisemesi: {
       slug: "sugisemesi",
@@ -120,9 +124,11 @@
       short_desc: "Täismoka sügisene mesi hilisema hooaja õite ja metstaimede nektarist.",
       description:
         "Sügisemesi on kogutud hilisuvisest ja varasügise õitsvusest. Tumedamat tooni ja sügavamat maitset annavad võililled, raudrohi ja teised sügishooaja taimed. Pakendis 500 g. Sobib leivale, juustule ja soojadele jookidele.",
-      image: null,
+      image: "pildid/ChatGPT Image Jun 9, 2026, 12_34_05 AM.png",
       badge: null,
-      gallery: [],
+      gallery: [
+        { src: "pildid/ChatGPT Image Jun 9, 2026, 12_34_05 AM.png", alt: "Sügisemesi purk" },
+      ],
     },
     talvemesi: {
       slug: "talvemesi",
@@ -135,9 +141,11 @@
       short_desc: "Tugevama iseloomuga mesi, mis sobib hästi talveperioodiks.",
       description:
         "Talvemesi on hoolikalt valitud ja küpsenud mesi, mis säilitab oma loomuliku maitse ja aroomi kauem. Tumedam toon ja pehme tekstuur teevad sellest suurepärase valiku külmemate kuude jaoks. Pakendis 500 g. Kasuta teedes, küpsetistes või lihtsalt lusikatäie kaupa.",
-      image: null,
+      image: "pildid/ChatGPT Image Jun 9, 2026, 12_33_54 AM.png",
       badge: null,
-      gallery: [],
+      gallery: [
+        { src: "pildid/ChatGPT Image Jun 9, 2026, 12_33_54 AM.png", alt: "Talvemesi purk" },
+      ],
     },
     "tarukujuline-kuunal": {
       slug: "tarukujuline-kuunal",

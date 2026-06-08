@@ -11,10 +11,11 @@
     ? "http://localhost:8080/api/stripe-checkout.php"
     : "api/stripe-checkout.php";
 
-  window.TARUKODA_STRIPE = {
-    publishableKey:
-      "pk_test_51TfPwUKuzkXTZt1CJwnedMi88WhXbjd9PSp7RvGlKNd3kaKHyRzVNepEZXI27eOOwQzqoHFIAyHK3Inx7udZeJG100wuk73SAh",
-    checkoutEndpoint,
-    usesLiveServer: isLiveServer,
-  };
+  if (!window.TARUKODA_STRIPE) {
+    window.TARUKODA_STRIPE = {
+      publishableKey: "",
+      checkoutEndpoint,
+      usesLiveServer: isLiveServer,
+    };
+  }
 })();

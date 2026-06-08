@@ -1,8 +1,10 @@
 (function () {
   const USERS_KEY = "tarukoda-users";
   const SESSION_KEY = "tarukoda-session";
+  const ADMIN_EMAIL = "test@test.ee";
   const DEFAULT_PASSWORD_HASHES = {
     tarukoda123: "db3bef59e23163bf0914f904e2766f4b4eba1d0dc1927035fc0f5913be061ee8",
+    test: "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08",
   };
 
   function bytesToHex(bytes) {
@@ -126,25 +128,54 @@
   }
 
   async function seedDefaultUsers() {
-    const users = getUsers();
-    const demoEmail = "demo@tarukoda.ee";
+    let users = getUsers();
+    let changed = false;
 
-    if (users.some((user) => user.email === demoEmail)) {
-      refreshSessionFromUsers(users);
-      return;
-    }
-
-    const updated = [
-      ...users,
+    const defaults = [
       {
         name: "Demo Kasutaja",
-        email: demoEmail,
+        email: "demo@tarukoda.ee",
         passwordHash: DEFAULT_PASSWORD_HASHES.tarukoda123,
+      },
+      {
+        name: "Admin",
+        email: ADMIN_EMAIL,
+        passwordHash: DEFAULT_PASSWORD_HASHES.test,
+        isAdmin: true,
       },
     ];
 
-    saveUsers(updated);
-    refreshSessionFromUsers(updated);
+    defaults.forEach((entry) => {
+      if (!users.some((user) => user.email === entry.email)) {
+        users.push(entry);
+        changed = true;
+      }
+    });
+
+    users = users.map((user) => {
+      if (user.email !== ADMIN_EMAIL) {
+        return user;
+      }
+
+      const nextUser = {
+        ...user,
+        isAdmin: true,
+        passwordHash: DEFAULT_PASSWORD_HASHES.test,
+        name: user.name || "Admin",
+      };
+
+      if (JSON.stringify(nextUser) !== JSON.stringify(user)) {
+        changed = true;
+      }
+
+      return nextUser;
+    });
+
+    if (changed) {
+      saveUsers(users);
+    }
+
+    refreshSessionFromUsers(users);
   }
 
   function refreshSessionFromUsers(users) {
@@ -207,6 +238,11 @@
 
   function isLoggedIn() {
     return Boolean(getCurrentUser());
+  }
+
+  function isAdmin() {
+    const user = getCurrentUser();
+    return Boolean(user?.isAdmin || user?.email === ADMIN_EMAIL);
   }
 
   async function register(name, email, password) {
@@ -277,17 +313,43 @@
       return;
     }
 
+    let adminLink = document.getElementById("header-admin-link");
+
     if (session) {
       profileName.textContent = session.name;
       profileLink.href = "#";
       profileLink.setAttribute("aria-label", `Profiil: ${session.name}`);
       profileLink.dataset.loggedIn = "true";
+
+      if (isAdmin()) {
+        if (!adminLink && profileMenu) {
+          adminLink = document.createElement("a");
+          adminLink.id = "header-admin-link";
+          adminLink.className = "header__profile-admin";
+          adminLink.textContent = "Halda tooteid";
+          adminLink.href =
+            document.body.dataset.authBackend === "laravel"
+              ? "/tooted"
+              : "tooted.html";
+          profileMenu.insertBefore(adminLink, profileMenu.querySelector(".header__profile-logout"));
+        }
+
+        if (adminLink) {
+          adminLink.hidden = false;
+        }
+      } else if (adminLink) {
+        adminLink.hidden = true;
+      }
     } else {
       profileName.textContent = "";
       profileLink.href = loginUrl;
       profileLink.setAttribute("aria-label", "Logi sisse");
       delete profileLink.dataset.loggedIn;
       profileMenu.hidden = true;
+
+      if (adminLink) {
+        adminLink.hidden = true;
+      }
     }
   }
 
@@ -379,7 +441,14 @@
 
       try {
         await login(formData.get("email"), formData.get("password"));
-        window.location.href = redirectUrl;
+        const productsUrl =
+          document.body.dataset.authBackend === "laravel" ? "/tooted" : "tooted.html";
+        const destination = isAdmin()
+          ? redirectUrl.includes("tooted")
+            ? redirectUrl
+            : productsUrl
+          : redirectUrl;
+        window.location.href = destination;
       } catch (error) {
         showAuthMessage(error.message, true);
       }
@@ -430,6 +499,7 @@
     login,
     logout,
     isLoggedIn,
+    isAdmin,
     getCurrentUser,
     updateHeader,
   };

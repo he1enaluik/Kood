@@ -10,6 +10,16 @@
   </script>
   <meta name="description" content="Vaata Tarukoja mahemett, mesilasvaha küünlad, kinkekomplekte ja hooajatooteid. Tellimine ja kohaletoimetamine üle Eesti.">
   <title>Tooted | Tarukoda</title>
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffe6d0">
+  <link rel="canonical" href="https://tarukoda.surge.sh/tooted.html">
+  <meta property="og:title" content="Tooted | Tarukoda">
+  <meta property="og:description" content="Vaata Tarukoja mahemett, mesilasvaha küünlad, kinkekomplekte ja hooajatooteid. Tellimine ja kohaletoimetamine üle Eesti.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tarukoda.surge.sh/tooted.html">
+  <meta property="og:locale" content="et_EE">
+  <meta property="og:image" content="https://tarukoda.surge.sh/pildid/hero-taust1.webp">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@600;800&family=Inter:wght@300;400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -17,9 +27,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Liigu põhisisu juurde</a>
+
   <header class="header">
     <div class="header__inner container">
-      <a href="index.html" class="header__logo" aria-label="Tarukoda avaleht">
+      <a href="index.html" class="header__logo" aria-label="Avaleht">
         <span class="header__logo-icon" aria-hidden="true"></span>
         <span class="header__logo-text">TARUKODA</span>
       </a>
@@ -65,12 +77,9 @@
                 id="header-search"
                 placeholder="Otsi tooteid..."
                 autocomplete="off"
-                aria-controls="header-search-results"
-                aria-expanded="false"
-                aria-autocomplete="list"
               >
             </div>
-            <div class="header__search-dropdown" id="header-search-results" role="listbox" hidden></div>
+            <div class="header__search-dropdown" id="header-search-results" role="region" aria-label="Otsingu tulemused" hidden></div>
           </div>
           <a href="tellimus.html" class="header__cart-wrap" aria-label="Ostukorv">
             <span class="header__icon header__icon--cart"></span>
@@ -93,7 +102,7 @@
       <nav class="header__mobile-nav" aria-label="Mobiilimenüü">
         <ul class="header__mobile-menu">
           <li><a href="index.html">Avaleht</a></li>
-          <li><a href="tooted.html">Tooted</a></li>
+          <li><a href="tooted.html" aria-current="page">Tooted</a></li>
           <li><a href="kontakt.html">Kontakt</a></li>
           <li><a href="index.html#our-mission">Meist</a></li>
         </ul>
@@ -102,20 +111,20 @@
   </header>
 
   <main class="products-page" aria-labelledby="products-page-title">
-    <img
+    <picture><source srcset="Designi%20elemendid/Mesilask%C3%A4rg1.webp" type="image/webp"><img
       class="products-page__decor products-page__decor--left"
       src="Designi%20elemendid/Mesilask%C3%A4rg1.png"
       alt=""
       width="200"
       aria-hidden="true"
-    >
-    <img
+    ></picture>
+    <picture><source srcset="Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.webp" type="image/webp"><img
       class="products-page__decor products-page__decor--right"
       src="Designi%20elemendid/Mesilask%C3%A4rg1_SUUR.png"
       alt=""
       width="130"
       aria-hidden="true"
-    >
+    ></picture>
 
     <div class="container">
       <div class="products-page__box">
@@ -152,14 +161,14 @@
         <div class="products-page__grid" id="products-grid">
           <article class="product-card" data-category="mesi" data-origin="poltsamaa" data-price="8.90">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_06_26%20PM.png"
                 alt="Niidumesi"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
               <span class="product-card__badge">UUS</span>
             </div>
             <div class="product-card__top">
@@ -172,14 +181,14 @@
 
           <article class="product-card" data-category="mesi" data-origin="jogevamaa" data-price="8.90">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_50_10%20PM.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_50_10%20PM.png"
                 alt="Metsamesi"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
               <span class="product-card__badge">UUS</span>
             </div>
             <div class="product-card__top">
@@ -192,14 +201,14 @@
 
           <article class="product-card" data-category="mesi" data-origin="laane" data-price="8.90">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_55_14%20PM.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2004_55_14%20PM.png"
                 alt="Pärnamesi"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
               <span class="product-card__badge">UUS</span>
             </div>
             <div class="product-card__top">
@@ -212,14 +221,14 @@
 
           <article class="product-card" data-category="kinke" data-origin="poltsamaa" data-price="25.70">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2005_04_47%20PM.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/ChatGPT%20Image%20Jun%203%2C%202026%2C%2005_04_47%20PM.png"
                 alt="Kinkekarp"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
               <span class="product-card__badge">UUS</span>
             </div>
             <div class="product-card__top">
@@ -231,7 +240,16 @@
           </article>
 
           <article class="product-card" data-category="hooaeg" data-origin="poltsamaa" data-price="8.90">
-            <div class="product-card__media product-card__media--no-image" aria-hidden="true"></div>
+            <div class="product-card__media">
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%209%2C%202026%2C%2012_33_59%20AM.webp" type="image/webp"><img
+                class="product-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%209%2C%202026%2C%2012_33_59%20AM.png"
+                alt="Kevademesi"
+                width="295"
+                height="359"
+                loading="lazy"
+              ></picture>
+            </div>
             <div class="product-card__top">
               <h2 class="product-card__name">Kevademesi</h2>
               <span class="product-card__price">8,90 €</span>
@@ -241,7 +259,16 @@
           </article>
 
           <article class="product-card" data-category="hooaeg" data-origin="poltsamaa" data-price="8.90">
-            <div class="product-card__media product-card__media--no-image" aria-hidden="true"></div>
+            <div class="product-card__media">
+              <picture><source srcset="pildid/Suvemesi.webp" type="image/webp"><img
+                class="product-card__image"
+                src="pildid/Suvemesi.png"
+                alt="Suvemesi"
+                width="295"
+                height="359"
+                loading="lazy"
+              ></picture>
+            </div>
             <div class="product-card__top">
               <h2 class="product-card__name">Suvemesi</h2>
               <span class="product-card__price">8,90 €</span>
@@ -251,7 +278,16 @@
           </article>
 
           <article class="product-card" data-category="hooaeg" data-origin="jogevamaa" data-price="8.90">
-            <div class="product-card__media product-card__media--no-image" aria-hidden="true"></div>
+            <div class="product-card__media">
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%209%2C%202026%2C%2012_34_05%20AM.webp" type="image/webp"><img
+                class="product-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%209%2C%202026%2C%2012_34_05%20AM.png"
+                alt="Sügisemesi"
+                width="295"
+                height="359"
+                loading="lazy"
+              ></picture>
+            </div>
             <div class="product-card__top">
               <h2 class="product-card__name">Sügisemesi</h2>
               <span class="product-card__price">8,90 €</span>
@@ -261,7 +297,16 @@
           </article>
 
           <article class="product-card" data-category="hooaeg" data-origin="poltsamaa" data-price="8.90">
-            <div class="product-card__media product-card__media--no-image" aria-hidden="true"></div>
+            <div class="product-card__media">
+              <picture><source srcset="pildid/ChatGPT%20Image%20Jun%209%2C%202026%2C%2012_33_54%20AM.webp" type="image/webp"><img
+                class="product-card__image"
+                src="pildid/ChatGPT%20Image%20Jun%209%2C%202026%2C%2012_33_54%20AM.png"
+                alt="Talvemesi"
+                width="295"
+                height="359"
+                loading="lazy"
+              ></picture>
+            </div>
             <div class="product-card__top">
               <h2 class="product-card__name">Talvemesi</h2>
               <span class="product-card__price">8,90 €</span>
@@ -272,14 +317,14 @@
 
           <article class="product-card" data-category="kunlad" data-origin="poltsamaa" data-price="12.50">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/tarukujulinek%C3%BC%C3%BCnal.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/tarukujulinek%C3%BC%C3%BCnal.JPG"
                 alt="Tarukujuline küünal"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
             </div>
             <div class="product-card__top">
               <h2 class="product-card__name">Tarukujuline küünal</h2>
@@ -291,14 +336,14 @@
 
           <article class="product-card" data-category="kunlad" data-origin="poltsamaa" data-price="12.50">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/ribik%C3%BC%C3%BCnal.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/ribik%C3%BC%C3%BCnal.png"
                 alt="Ribiküünal"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
             </div>
             <div class="product-card__top">
               <h2 class="product-card__name">Ribiküünal</h2>
@@ -310,14 +355,14 @@
 
           <article class="product-card" data-category="kunlad" data-origin="poltsamaa" data-price="12.50">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/mesilastaruk%C3%BC%C3%BCnal.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/mesilastaruk%C3%BC%C3%BCnal.JPG"
                 alt="Mesilastaruküünal"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
             </div>
             <div class="product-card__top">
               <h2 class="product-card__name">Mesilastaruküünal</h2>
@@ -329,14 +374,14 @@
 
           <article class="product-card" data-category="kunlad" data-origin="poltsamaa" data-price="12.50">
             <div class="product-card__media">
-              <img
+              <picture><source srcset="pildid/lilleest.webp" type="image/webp"><img
                 class="product-card__image"
                 src="pildid/lilleest.png"
                 alt="Lillküünal"
                 width="295"
                 height="359"
                 loading="lazy"
-              >
+              ></picture>
             </div>
             <div class="product-card__top">
               <h2 class="product-card__name">Lillküünal</h2>
@@ -356,19 +401,19 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a href="index.html" class="footer__logo" aria-label="Tarukoda avaleht">
+          <a href="index.html" class="footer__logo" aria-label="Avaleht">
             <span class="footer__logo-icon" aria-hidden="true"></span>
             <span class="footer__logo-text">TARUKODA</span>
           </a>
           <p class="footer__desc">Pakume ehtsat mahemett Eesti puhtast loodusest, järgides jätkusuutliku mesinduse põhimõtteid ja hoolitsedes oma mesilasperede heaolu eest.</p>
           <div class="footer__social">
-            <a href="#" class="footer__social-link" aria-label="Facebook">
+            <a href="https://www.facebook.com/" class="footer__social-link" aria-label="Facebook" rel="noopener noreferrer" target="_blank">
               <img src="Ikoonid/facebook.svg" alt="" width="32" height="32">
             </a>
-            <a href="#" class="footer__social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/" class="footer__social-link" aria-label="Instagram" rel="noopener noreferrer" target="_blank">
               <img src="Ikoonid/instagram.svg" alt="" width="32" height="32">
             </a>
-            <a href="#" class="footer__social-link" aria-label="TikTok">
+            <a href="https://www.tiktok.com/" class="footer__social-link" aria-label="TikTok" rel="noopener noreferrer" target="_blank">
               <img src="Ikoonid/tiktok.svg" alt="" width="32" height="32">
             </a>
           </div>
@@ -379,7 +424,7 @@
           <h3 class="footer__heading">Lehed</h3>
           <ul class="footer__links">
             <li><a href="index.html">Avaleht</a></li>
-            <li><a href="tooted.html">Tooted</a></li>
+            <li><a href="tooted.html" aria-current="page">Tooted</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
             <li><a href="index.html#our-mission">Meist</a></li>
           </ul>

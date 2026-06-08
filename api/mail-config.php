@@ -1,8 +1,9 @@
 <?php
 
 /**
- * Muuda see sinu e-posti aadressiks, kuhu kõik sõnumid ja tellimused saadetakse.
+ * Legacy PHP API mail recipient — loaded from environment variables.
+ * Copy api/mail-config.example.php locally if needed.
  */
 return [
-    'to' => 'mardomais7@gmail.com',
+    'to' => getenv('MAIL_TO') ?: 'info@tarukoda.ee',
 ];

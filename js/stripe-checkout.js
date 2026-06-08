@@ -27,13 +27,24 @@
     return data.message || "Makse alustamine ebaõnnestus.";
   }
 
+  function getCsrfToken() {
+    return document.querySelector('meta[name="csrf-token"]')?.getAttribute("content") || "";
+  }
+
   async function startCheckout(payload) {
+    const headers = {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    };
+    const csrf = getCsrfToken();
+    if (csrf) {
+      headers["X-CSRF-TOKEN"] = csrf;
+    }
+
     const response = await fetch(getEndpoint(), {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+      headers,
+      credentials: "same-origin",
       body: JSON.stringify(payload),
     });
 

@@ -21,6 +21,7 @@ yarn-error.log
 /.phpunit.cache
 
 api/stripe-config.php
+api/mail-config.php
 public/api/stripe-config.php
 api/inbox/order-pending/*.json
 composer.phar

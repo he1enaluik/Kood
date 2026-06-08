@@ -1,4 +1,4 @@
-@extends('layouts.app')
+﻿@extends('layouts.app')
 
 @section('title', 'Tarukoda')
 @section('description', 'Tarukoda pakub ehtsat mahemett Eesti puhtast loodusest. Vaata mesi, mesilasvaha küünlad ja kinkekomplekte.')
@@ -19,30 +19,17 @@
         fetchpriority="high"
         decoding="async"
       >
-      <img
-        class="hero__swirl"
-        src="{{ asset('Designi%20elemendid/Swirlywirly.png') }}"
-        alt=""
-        width="1920"
-        height="163"
-        loading="lazy"
-      >
-      <img
-        class="hero__honeycomb hero__honeycomb--left"
-        src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg4.png') }}"
-        alt=""
-        width="250"
-        height="169"
-        loading="lazy"
-      >
-      <img
-        class="hero__honeycomb hero__honeycomb--right"
-        src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg4.png') }}"
-        alt=""
-        width="269.07"
-        height="187.55"
-        loading="lazy"
-      >
+      <picture>
+        <source srcset="{{ asset('Designi%20elemendid/Swirlywirly.webp') }}" type="image/webp">
+        <img
+          class="hero__swirl"
+          src="{{ asset('Designi%20elemendid/Swirlywirly.png') }}"
+          alt=""
+          width="1920"
+          height="163"
+          loading="lazy"
+        >
+      </picture>
     </div>
     <div class="hero__inner">
       <div class="container">
@@ -56,18 +43,31 @@
         </div>
       </div>
     </div>
+    <picture>
+      <source srcset="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg4.webp') }}" type="image/webp">
+      <img
+        class="hero__honeycomb hero__honeycomb--left"
+        src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg4.png') }}"
+        alt=""
+        width="250"
+        height="169"
+        loading="lazy"
+      >
+    </picture>
+    <picture>
+      <source srcset="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg4.webp') }}" type="image/webp">
+      <img
+        class="hero__honeycomb hero__honeycomb--right"
+        src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg4.png') }}"
+        alt=""
+        width="269"
+        height="188"
+        loading="lazy"
+      >
+    </picture>
   </section>
 
   <section class="new-products" aria-labelledby="new-products-title">
-    <img
-      class="new-products__decor new-products__decor--honeycomb-right"
-      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.png') }}"
-      alt=""
-      width="380"
-      height="479"
-      aria-hidden="true"
-      loading="lazy"
-    >
     <div class="container">
       <div class="new-products__box">
         <header class="new-products__header">
@@ -171,6 +171,15 @@
         <a href="{{ route('products') }}" class="new-products__link">Vaata kõiki</a>
       </div>
     </div>
+    <img
+      class="new-products__decor new-products__decor--honeycomb-right"
+      src="{{ asset('Designi%20elemendid/Mesilask%C3%A4rg3_SUUR.png') }}"
+      alt=""
+      width="380"
+      height="479"
+      aria-hidden="true"
+      loading="lazy"
+    >
   </section>
 
   <section class="our-mission" id="our-mission" aria-labelledby="our-mission-title">
@@ -215,30 +224,30 @@
     </div>
   </section>
 
-  <section class="best-offers" aria-labelledby="best-offers-title">
+  <section class="clients-favourites" aria-labelledby="clients-favourites-title">
     <div class="container">
-      <header class="best-offers__header">
-        <h2 id="best-offers-title" class="new-products__title">Parimad pakkumised</h2>
-        <div class="best-offers__divider">
-          <span class="best-offers__divider-line" aria-hidden="true"></span>
+      <header class="clients-favourites__header">
+        <h2 id="clients-favourites-title" class="new-products__title">Meie klientide lemmikud</h2>
+        <div class="section-divider">
+          <span class="section-divider__line" aria-hidden="true"></span>
           <img
-            class="best-offers__bee"
+            class="section-divider__bee"
             src="{{ asset('Designi%20elemendid/Mesilane_V%C3%A4ike.png') }}"
             alt=""
             width="32"
             height="32"
             loading="lazy"
           >
-          <span class="best-offers__divider-line" aria-hidden="true"></span>
+          <span class="section-divider__line" aria-hidden="true"></span>
         </div>
       </header>
 
-      <div class="best-offers__slider">
-        <button class="best-offers__arrow best-offers__arrow--prev" type="button" aria-label="Eelmine toode">
+      <div class="clients-favourites__slider">
+        <button class="clients-favourites__arrow clients-favourites__arrow--prev" type="button" aria-label="Eelmine toode">
           <img src="{{ asset('Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg') }}" alt="" width="24" height="24">
         </button>
 
-        <div class="best-offers__track">
+        <div class="clients-favourites__track">
           <article class="product-card">
             <div class="product-card__media">
               <img
@@ -316,12 +325,12 @@
           </article>
         </div>
 
-        <button class="best-offers__arrow best-offers__arrow--next" type="button" aria-label="Järgmine toode">
+        <button class="clients-favourites__arrow clients-favourites__arrow--next" type="button" aria-label="Järgmine toode">
           <img src="{{ asset('Ikoonid/arrow_back_ios_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg') }}" alt="" width="24" height="24">
         </button>
       </div>
 
-      <a href="{{ route('products') }}" class="best-offers__link">Vaata kõiki</a>
+      <a href="{{ route('products') }}" class="clients-favourites__link">Vaata kõiki</a>
     </div>
   </section>
 
@@ -344,17 +353,17 @@
     <div class="container">
       <header class="events__header">
         <h2 id="events-title" class="new-products__title">Toimuvad sündmused</h2>
-        <div class="best-offers__divider">
-          <span class="best-offers__divider-line" aria-hidden="true"></span>
+        <div class="section-divider">
+          <span class="section-divider__line" aria-hidden="true"></span>
           <img
-            class="best-offers__bee"
+            class="section-divider__bee"
             src="{{ asset('Designi%20elemendid/Mesilane_V%C3%A4ike.png') }}"
             alt=""
             width="32"
             height="32"
             loading="lazy"
           >
-          <span class="best-offers__divider-line" aria-hidden="true"></span>
+          <span class="section-divider__line" aria-hidden="true"></span>
         </div>
         <p class="events__intro our-mission__text">Hoia end kursis Tarukoja tegemiste, laatade, degusteerimiste ja hooajaliste sündmustega.</p>
       </header>
@@ -515,7 +524,7 @@
       updateButtons();
     }
 
-    initCarousel(".best-offers__track", ".best-offers__arrow--prev", ".best-offers__arrow--next", ".product-card");
+    initCarousel(".clients-favourites__track", ".clients-favourites__arrow--prev", ".clients-favourites__arrow--next", ".product-card");
 
     function initEventsCarousel() {
       const track = document.querySelector(".events__track");

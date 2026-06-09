@@ -27,7 +27,7 @@ Tarukoja mesindustalu veebileht — toodete tutvustus, tellimine, kontaktivorm j
 
 ```bash
 git clone <repo-url>
-cd Kood
+cd MM23Eksam
 ```
 
 ### 2. PHP sõltuvused (Laravel back-end)
@@ -116,9 +116,9 @@ Ava brauseris:
 
 Stripe võtmed on failides `api/stripe-config.php` ja `js/site-config.local.js` (mõlemad gitignore'is).
 
-Kontakti e-kirjad saadetakse **Web3Forms** kaudu otse postkasti **mardomais7@gmail.com**.
+Kontakti e-kirjad saadetakse **Web3Forms** kaudu otse postkasti **helena.luik2007@gmail.com**.
 
-1. Mine [web3forms.com](https://web3forms.com) → sisesta `mardomais7@gmail.com` → kopeeri **Access Key**
+1. Mine [web3forms.com](https://web3forms.com) → sisesta `helena.luik2007@gmail.com` → kopeeri **Access Key**
 2. Kleebi võti faili `js/site-config.local.js` → `web3formsKey`
 3. Värskenda leht (**Ctrl+F5**) ja testi uuesti
 

@@ -17,6 +17,8 @@ function seoBlock(page) {
   const url = `${BASE}${page.path}`;
   return `<meta name="robots" content="index, follow">
   <meta name="theme-color" content="#ffe6d0">
+  <link rel="icon" href="Logod/TarukodaLogo02_v1.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="Logod/Logo_v1.png">
   <link rel="canonical" href="${url}">
   <meta property="og:title" content="${page.title}">
   <meta property="og:description" content="${page.description}">

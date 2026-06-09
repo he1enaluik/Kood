@@ -219,7 +219,7 @@
     }
 
     throw new Error(
-      "E-posti saatmine pole seadistatud. Lisa Web3Forms võti faili js/site-config.local.js (loo võti aadressil mardomais7@gmail.com → web3forms.com)."
+      "E-posti saatmine pole seadistatud. Lisa Web3Forms võti faili js/site-config.local.js (loo võti aadressil helena.luik2007@gmail.com → web3forms.com)."
     );
   }
 

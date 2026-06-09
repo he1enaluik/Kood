@@ -1,4 +1,11 @@
 (function () {
+  const MOBILE_PRODUCTS_QUERY = "(max-width: 480px)";
+  const MOBILE_PRODUCTS_PAGE_SIZE = 4;
+
+  function isMobileProductsView() {
+    return window.matchMedia(MOBILE_PRODUCTS_QUERY).matches;
+  }
+
   function initProductsFilter() {
     const grid = document.getElementById("products-grid");
     if (!grid) return;
@@ -10,6 +17,8 @@
     const sortSelect = document.getElementById("filter-sort");
     const countEl = document.getElementById("products-count");
     const emptyEl = document.getElementById("products-empty");
+    const loadMoreBtn = document.getElementById("products-load-more");
+    let mobileVisibleCount = MOBILE_PRODUCTS_PAGE_SIZE;
 
     if (!categoryInput || !originInput || !sortSelect || !cards.length) return;
 
@@ -54,10 +63,35 @@
       return matchCategory && matchOrigin;
     }
 
-    function applyFilters() {
+    function applyMobilePagination(visible) {
+      if (!isMobileProductsView()) {
+        visible.forEach((card) => {
+          card.classList.remove("product-card--page-hidden");
+          card.style.display = "";
+        });
+        if (loadMoreBtn) loadMoreBtn.hidden = true;
+        return;
+      }
+
+      visible.forEach((card, index) => {
+        const showOnPage = index < mobileVisibleCount;
+        card.classList.toggle("product-card--page-hidden", !showOnPage);
+        card.style.display = showOnPage ? "" : "none";
+      });
+
+      if (loadMoreBtn) {
+        loadMoreBtn.hidden = visible.length <= mobileVisibleCount;
+      }
+    }
+
+    function applyFilters(resetMobilePage) {
       const category = categoryInput.value;
       const origin = originInput.value;
       const sort = sortSelect.value;
+
+      if (resetMobilePage) {
+        mobileVisibleCount = MOBILE_PRODUCTS_PAGE_SIZE;
+      }
 
       let visible = cards.filter((card) => cardMatches(card, category, origin));
 
@@ -70,10 +104,14 @@
       cards.forEach((card) => {
         const show = visible.includes(card);
         card.classList.toggle("product-card--hidden", !show);
-        card.style.display = show ? "" : "none";
+        if (!show) {
+          card.classList.remove("product-card--page-hidden");
+          card.style.display = "none";
+        }
       });
 
       visible.forEach((card) => grid.appendChild(card));
+      applyMobilePagination(visible);
 
       const count = visible.length;
 
@@ -88,13 +126,22 @@
     categoryButtons.forEach((btn) => {
       btn.addEventListener("click", () => {
         setCategory(btn.dataset.filterCategory);
-        applyFilters();
+        applyFilters(true);
       });
     });
 
-    sortSelect.addEventListener("change", applyFilters);
+    sortSelect.addEventListener("change", () => applyFilters(true));
 
-    applyFilters();
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener("click", () => {
+        mobileVisibleCount += MOBILE_PRODUCTS_PAGE_SIZE;
+        applyFilters(false);
+      });
+    }
+
+    window.addEventListener("resize", () => applyFilters(false));
+
+    applyFilters(true);
   }
 
   window.TarukodaProductsFilter = {

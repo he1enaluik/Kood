@@ -4,9 +4,9 @@
  */
 (function () {
   Object.assign(window.TARUKODA_MAIL || (window.TARUKODA_MAIL = {}), {
-    // Tasuta võti: https://web3forms.com → mardomais7@gmail.com → Access Key
+    // Tasuta võti: https://web3forms.com → helena.luik2007@gmail.com → Access Key
     web3formsKey: "PASTE_YOUR_WEB3FORMS_KEY_HERE",
-    toEmail: "mardomais7@gmail.com",
+    toEmail: "helena.luik2007@gmail.com",
   });
 
   Object.assign(window.TARUKODA_STRIPE || (window.TARUKODA_STRIPE = {}), {

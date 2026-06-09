@@ -50,6 +50,6 @@ if ($mailSent) {
 
 api_json(
     false,
-    'E-posti server pole seadistatud. Kontrolli, et js/site-config.local.js sisaldab Web3Forms võtit (loo see aadressil mardomais7@gmail.com).',
+    'E-posti server pole seadistatud. Kontrolli, et js/site-config.local.js sisaldab Web3Forms võtit (loo see aadressil helena.luik2007@gmail.com).',
     502
 );

@@ -1,0 +1,18 @@
+/**
+ * Kopeeri see fail nimega: site-config.local.js
+ * (sama kaustas — js/site-config.local.js)
+ */
+(function () {
+  Object.assign(window.TARUKODA_MAIL || (window.TARUKODA_MAIL = {}), {
+    // Tasuta võti: https://web3forms.com → mardomais7@gmail.com → Access Key
+    web3formsKey: "PASTE_YOUR_WEB3FORMS_KEY_HERE",
+    toEmail: "mardomais7@gmail.com",
+  });
+
+  Object.assign(window.TARUKODA_STRIPE || (window.TARUKODA_STRIPE = {}), {
+    // Stripe Dashboard → Developers → API keys (test mode)
+    publishableKey: "pk_test_PASTE_YOUR_KEY_HERE",
+    // Valikuline: kui PHP API jookseb mujal (nt kohalik server Surge'i jaoks)
+    // checkoutEndpoint: "http://127.0.0.1:8080/api/stripe-checkout.php",
+  });
+})();

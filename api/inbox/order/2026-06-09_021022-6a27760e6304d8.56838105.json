@@ -1,0 +1,21 @@
+{
+    "firstname": "Test",
+    "lastname": "Kasutaja",
+    "email": "test@example.com",
+    "phone": "5551234",
+    "address": "Test 1",
+    "city": "Tallinn",
+    "postcode": "10111",
+    "notes": "",
+    "cart": [
+        {
+            "name": "Niidumesi",
+            "quantity": 1,
+            "lineTotal": 8.9
+        }
+    ],
+    "subtotal": 8.9,
+    "shipping": 4.9,
+    "total": 13.8,
+    "sent_at": "2026-06-09T02:10:22+00:00"
+}

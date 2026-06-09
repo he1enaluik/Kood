@@ -1,0 +1,7 @@
+{
+    "firstname": "Test",
+    "lastname": "Kasutaja",
+    "email": "test@example.com",
+    "message": "Kohalik test",
+    "sent_at": "2026-06-09T02:10:20+00:00"
+}

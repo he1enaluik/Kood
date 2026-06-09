@@ -86,6 +86,10 @@ $lines[] = 'Saadetud: ' . date('d.m.Y H:i');
 $subject = 'Tarukoda tellimus: ' . $firstname . ' ' . $lastname;
 $body = implode("\n", $lines);
 
-api_send_mail(api_mail_to(), $subject, $body, $email);
+$mailSent = api_send_mail(api_mail_to(), $subject, $body, $email);
 
-api_json(true, 'Tellimus esitatud! Võtame sinuga peagi ühendust.');
+$message = $mailSent
+    ? 'Tellimus esitatud! Võtame sinuga peagi ühendust.'
+    : 'Tellimus salvestatud! (E-posti server pole kohalikult seadistatud — tellimus on failis api/inbox/order/)';
+
+api_json(true, $message);

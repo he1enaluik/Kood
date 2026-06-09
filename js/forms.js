@@ -7,12 +7,26 @@
     return window.TARUKODA_MAIL || {};
   }
 
+  function isStaticHost() {
+    const port = window.location.port;
+    return (
+      window.location.hostname.endsWith(".surge.sh") ||
+      port === "5500" ||
+      port === "5501"
+    );
+  }
+
   function getEndpoints() {
     const body = document.body;
+    const stripeConfig = window.TARUKODA_STRIPE || {};
+    const apiBase =
+      stripeConfig.usesLiveServer && stripeConfig.checkoutEndpoint
+        ? stripeConfig.checkoutEndpoint.replace(/\/api\/stripe-checkout\.php$/, "")
+        : "";
 
     return {
-      contact: body.dataset.contactEndpoint || "api/contact.php",
-      order: body.dataset.orderEndpoint || "api/order.php",
+      contact: body.dataset.contactEndpoint || (apiBase ? `${apiBase}/api/contact.php` : "api/contact.php"),
+      order: body.dataset.orderEndpoint || (apiBase ? `${apiBase}/api/order.php` : "api/order.php"),
     };
   }
 
@@ -54,6 +68,28 @@
     localStorage.setItem(key, JSON.stringify(inbox));
   }
 
+  function isLocalPhp() {
+    return Boolean(window.TARUKODA_STRIPE?.isLocalPhp);
+  }
+
+  async function parseJsonResponse(response) {
+    const text = await response.text();
+
+    try {
+      return JSON.parse(text);
+    } catch {
+      const match = text.match(/\{[\s\S]*\}/);
+      if (match) {
+        try {
+          return JSON.parse(match[0]);
+        } catch {
+          return {};
+        }
+      }
+      return {};
+    }
+  }
+
   async function postJson(url, payload) {
     const headers = {
       "Content-Type": "application/json",
@@ -71,7 +107,7 @@
       body: JSON.stringify(payload),
     });
 
-    const data = await response.json().catch(() => ({}));
+    const data = await parseJsonResponse(response);
 
     if (!response.ok || !data.success) {
       const error = new Error(data.message || "Sõnumi saatmine ebaõnnestus.");
@@ -164,13 +200,39 @@
     };
   }
 
+  async function submitContact(formPayload, endpoint) {
+    const web3Payload = buildContactWeb3Payload(formPayload);
+    const web3Key = getMailConfig().web3formsKey?.trim();
+
+    if (web3Key) {
+      const result = await sendViaWeb3Forms(web3Payload);
+
+      if (isLocalPhp()) {
+        postJson(endpoint, formPayload).catch(() => {});
+      }
+
+      return result;
+    }
+
+    if (isLocalPhp()) {
+      return await postJson(endpoint, formPayload);
+    }
+
+    throw new Error(
+      "E-posti saatmine pole seadistatud. Lisa Web3Forms võti faili js/site-config.local.js (loo võti aadressil mardomais7@gmail.com → web3forms.com)."
+    );
+  }
+
   async function submitMessage(type, formPayload, endpoint) {
     const web3Payload =
       type === "contact"
         ? buildContactWeb3Payload(formPayload)
         : buildOrderWeb3Payload(formPayload);
 
-    const useWeb3Forms = getMailConfig().web3formsKey?.trim() && !getCsrfToken();
+    const useWeb3Forms =
+      !isLocalPhp() &&
+      getMailConfig().web3formsKey?.trim() &&
+      (!getCsrfToken() || isStaticHost());
 
     if (useWeb3Forms) {
       const web3Result = await sendViaWeb3Forms(web3Payload);
@@ -182,11 +244,17 @@
     try {
       return await postJson(endpoint, formPayload);
     } catch (error) {
+      if (getMailConfig().web3formsKey?.trim() && isStaticHost()) {
+        return await sendViaWeb3Forms(web3Payload);
+      }
+
       if (error.status === 405 || error.status === 404) {
         saveLocalMessage(type, formPayload);
 
         throw new Error(
-          "Live Server ei saa PHP faile käivitada. Lisa tasuta Web3Forms võti faili js/site-config.js (web3forms.com) või käivita: php -S 127.0.0.1:8080"
+          isStaticHost()
+            ? "Lisa Web3Forms võti faili js/site-config.local.js (vt site-config.local.js.example) või käivita: php -S 127.0.0.1:8080"
+            : "PHP server ei tööta. Käivita: php -S 127.0.0.1:8080"
         );
       }
 
@@ -215,7 +283,7 @@
 
       try {
         setSubmitting(form, true);
-        const result = await submitMessage("contact", payload, getEndpoints().contact);
+        const result = await submitContact(payload, getEndpoints().contact);
         showFormMessage(form, result.message, false);
         form.reset();
       } catch (error) {

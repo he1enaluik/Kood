@@ -17,11 +17,15 @@
 
   function buildCheckoutError(response, data) {
     if (response.status === 405 && getConfig().usesLiveServer) {
-      return "Live Server ei käita PHP-d. Käivita teises terminalis: npm run stripe:server";
+      return "Live Server ei käita PHP-d. Käivita teises terminalis: php -S 127.0.0.1:8080";
+    }
+
+    if (response.status === 503) {
+      return data.message || "Loo api/stripe-config.php (vaata api/stripe-config.example.php).";
     }
 
     if (response.status === 0 || response.type === "opaque") {
-      return "Stripe server ei vasta. Käivita: npm run stripe:server";
+      return "Stripe server ei vasta. Käivita: php -S 127.0.0.1:8080";
     }
 
     return data.message || "Makse alustamine ebaõnnestus.";

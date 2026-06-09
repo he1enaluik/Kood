@@ -42,6 +42,14 @@ $body = "Uus kontaktivormi sõnum - Tarukoda\n\n"
     . '---' . "\n"
     . 'Saadetud: ' . date('d.m.Y H:i');
 
-api_send_mail(api_mail_to(), $subject, $body, $email);
+$mailSent = api_send_mail(api_mail_to(), $subject, $body, $email);
 
-api_json(true, 'Sõnum saadetud! Vastame esimesel võimalusel.');
+if ($mailSent) {
+    api_json(true, 'Sõnum saadetud! Vastame esimesel võimalusel.');
+}
+
+api_json(
+    false,
+    'E-posti server pole seadistatud. Kontrolli, et js/site-config.local.js sisaldab Web3Forms võtit (loo see aadressil mardomais7@gmail.com).',
+    502
+);

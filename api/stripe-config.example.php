@@ -9,6 +9,6 @@
  */
 return [
     'secret_key' => 'sk_test_your_secret_key_here',
-    'success_url' => 'http://127.0.0.1:5500/tellimus-onnestus.html',
-    'cancel_url' => 'http://127.0.0.1:5500/tellimus.html',
+    'success_url' => 'http://127.0.0.1:8080/tellimus-onnestus.html',
+    'cancel_url' => 'http://127.0.0.1:8080/tellimus.html',
 ];

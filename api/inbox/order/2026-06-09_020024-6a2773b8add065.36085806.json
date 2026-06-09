@@ -1,0 +1,21 @@
+{
+    "firstname": "dasd",
+    "lastname": "asd",
+    "email": "mardomais7@gmail.com",
+    "phone": "5234533552",
+    "address": "41",
+    "city": "dasds",
+    "postcode": "dasd",
+    "notes": "asd",
+    "cart": [
+        {
+            "name": "Metsamesi",
+            "quantity": 1,
+            "lineTotal": 8.9
+        }
+    ],
+    "subtotal": 8.9,
+    "shipping": 3.5,
+    "total": 12.4,
+    "sent_at": "2026-06-09T02:00:24+00:00"
+}

@@ -1,0 +1,21 @@
+{
+    "firstname": "asd",
+    "lastname": "asd",
+    "email": "mardomais7@gmail.com",
+    "phone": "5234533552",
+    "address": "sad",
+    "city": "sad",
+    "postcode": "asd",
+    "notes": "asd",
+    "cart": [
+        {
+            "name": "Niidumesi",
+            "quantity": 1,
+            "lineTotal": 8.9
+        }
+    ],
+    "subtotal": 8.9,
+    "shipping": 3.5,
+    "total": 12.4,
+    "sent_at": "2026-06-09T02:08:41+00:00"
+}

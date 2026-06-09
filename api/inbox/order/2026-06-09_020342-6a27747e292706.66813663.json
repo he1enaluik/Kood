@@ -1,0 +1,21 @@
+{
+    "firstname": "wer",
+    "lastname": "wad",
+    "email": "test@test.ee",
+    "phone": "5234533552",
+    "address": "234",
+    "city": "4234",
+    "postcode": "423",
+    "notes": "234",
+    "cart": [
+        {
+            "name": "Niidumesi",
+            "quantity": 1,
+            "lineTotal": 8.9
+        }
+    ],
+    "subtotal": 8.9,
+    "shipping": 3.5,
+    "total": 12.4,
+    "sent_at": "2026-06-09T02:03:42+00:00"
+}

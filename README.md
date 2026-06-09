@@ -80,7 +80,7 @@ Kasutatakse piltide WebP konverteerimiseks, SEO injectimiseks ja Surge deploy'ks
 **Lihtne arendus (statiline leht + legacy API):**
 
 ```bash
-php -S localhost:8080
+php -S 127.0.0.1:8080
 ```
 
 Ava brauseris `http://localhost:8080/`.
@@ -102,7 +102,41 @@ docker compose up --build
 - Veeb: `http://localhost:8080`
 - Mailpit (e-kirjad): `http://localhost:8025`
 
-### Surge deploy (avalik statiline leht)
+### Kontaktivorm ja Stripe (kohalikult)
+
+Topeltklõps **`serve.bat`** või terminalis:
+
+```bash
+php -S 127.0.0.1:8080
+```
+
+Ava brauseris:
+- Kontakt: `http://127.0.0.1:8080/kontakt.html`
+- Tellimus + Stripe: `http://127.0.0.1:8080/tellimus.html`
+
+Stripe võtmed on failides `api/stripe-config.php` ja `js/site-config.local.js` (mõlemad gitignore'is).
+
+Kontakti e-kirjad saadetakse **Web3Forms** kaudu otse postkasti **mardomais7@gmail.com**.
+
+1. Mine [web3forms.com](https://web3forms.com) → sisesta `mardomais7@gmail.com` → kopeeri **Access Key**
+2. Kleebi võti faili `js/site-config.local.js` → `web3formsKey`
+3. Värskenda leht (**Ctrl+F5**) ja testi uuesti
+
+> Web3Forms ei luba tasuta paketis serveripoolset PHP päringut — e-kiri saadetakse brauserist.
+
+Kohalikult salvestatakse sõnumid kausta `api/inbox/` isegi kui e-post ei lähe välja.
+
+**Surge / Live Server** — vt allpool (vajab Web3Forms võtit).
+```bash
+copy js\site-config.local.js.example js\site-config.local.js
+```
+1. Registreeru [web3forms.com](https://web3forms.com) → kopeeri **Access Key** → `web3formsKey`
+2. Stripe Dashboard → **publishable key** (`pk_test_...`) → `publishableKey`
+3. Stripe **secret key** → `api/stripe-config.php` (kohalik PHP server maksete jaoks)
+
+Live Server (port 5500) puhul käivita lisaks: `php -S 127.0.0.1:8080` (Stripe API jaoks).
+
+---
 
 ```bash
 npm install
@@ -118,7 +152,7 @@ Eel-deploy käivitab SEO injectimise ja WebP piltide kontrolli. Back-end (Larave
 ## Käivitamine (lühidalt)
 
 ```bash
-php -S localhost:8080
+php -S 127.0.0.1:8080
 ```
 
 Ava brauseris `http://localhost:8080/`.

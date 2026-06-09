@@ -1786,6 +1786,7 @@ picture {
 }
 
 .form-message {
+  margin: 0 0 16px;
   padding: 12px 16px;
   border-radius: 12px;
   font-family: "Inter", sans-serif;
